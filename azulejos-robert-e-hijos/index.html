@@ -1,0 +1,394 @@
+<?php /* Template Name: Landing Agencia */ ?>
+
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azulejos Robert e Hijos | Mayoristas en Chinchón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#7c3aed',
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+        [x-cloak] { display: none !important; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black transition-colors duration-300">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 top-0 px-4 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center shadow-xl">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">ROBERT E HIJOS</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <button @click="darkMode = !darkMode" class="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 transition-all">
+                    <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+                </button>
+                <a href="#contacto" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105 active:scale-95">
+                    Solicitar Presupuesto
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/4249687/pexels-photo-4249687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                 alt="Azulejos Premium" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/40"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-400 uppercase bg-blue-400/10 border border-blue-400/30 rounded-full">
+                Especialistas en Azulejos al por Mayor
+            </span>
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Viste tus Proyectos con la <span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">Excelencia de Chinchón</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Más de 30 años suministrando materiales cerámicos de alta gama. Stock real, precios directos de fábrica y asesoramiento profesional.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#servicios" class="w-full sm:w-auto px-10 py-4 bg-white text-gray-900 font-bold rounded-2xl hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-2xl">
+                    Ver Catálogo
+                </a>
+                <a href="#contacto" class="w-full sm:w-auto px-10 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all transform hover:-translate-y-1 shadow-2xl">
+                    Hablar con un Experto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION (PAS) -->
+    <section class="relative z-20 -mt-24 max-w-7xl mx-auto px-4 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 transition-all hover:-translate-y-2">
+                <div class="w-14 h-14 bg-red-100 dark:bg-red-900/30 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fa-solid fa-triangle-exclamation text-red-600 dark:text-red-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">¿Harto de Retrasos?</h3>
+                <p class="text-gray-600 dark:text-gray-300">En el sector mayorista, el tiempo es dinero. No dejes que la falta de stock paralice tu obra.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 transition-all hover:-translate-y-2">
+                <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fa-solid fa-money-bill-trend-up text-orange-600 dark:text-orange-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Precios Hinchados</h3>
+                <p class="text-gray-600 dark:text-gray-300">Los intermediarios encarecen el producto final. Nosotros vendemos directo de almacén en Chinchón.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-800 transition-all hover:-translate-y-2">
+                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center rounded-2xl mb-6">
+                    <i class="fa-solid fa-layer-group text-blue-600 dark:text-blue-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Mala Calidad</h3>
+                <p class="text-gray-600 dark:text-gray-300">Muchos azulejos baratos terminan agrietándose. Nuestra cerámica garantiza durabilidad de por vida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (BENTO GRID) -->
+    <section id="servicios" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent mb-4">
+                Soluciones Cerámicas Integrales
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Todo lo que necesitas para tu reforma o promoción inmobiliaria en un solo lugar.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            <!-- Service 1: Large Box -->
+            <div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-3xl shadow-xl transition-all hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/6312105/pexels-photo-6312105.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Venta Mayorista">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <h3 class="text-2xl font-bold text-white mb-2">Venta al por Mayor</h3>
+                    <p class="text-gray-300 max-w-md">Suministramos grandes volúmenes para constructoras y reformas integrales con tarifas exclusivas.</p>
+                </div>
+            </div>
+
+            <!-- Service 2: Small Box Top -->
+            <div class="group relative overflow-hidden rounded-3xl shadow-xl transition-all hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/4977410/pexels-photo-4977410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Diseño">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Corte a Medida</h3>
+                    <p class="text-gray-300 text-sm">Maquinaria de precisión para acabados perfectos en rodapiés y peldaños.</p>
+                </div>
+            </div>
+
+            <!-- Service 3: Small Box Bottom -->
+            <div class="group relative overflow-hidden rounded-3xl shadow-xl transition-all hover:-translate-y-2">
+                <img src="https://images.pexels.com/photos/10486087/pexels-photo-10486087.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Asesoramiento">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Asesoría Técnica</h3>
+                    <p class="text-gray-300 text-sm">Nuestro equipo te ayuda a elegir el material óptimo para cada estancia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCAL BENEFITS SECTION -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mb-8 leading-tight">
+                    Por qué elegirnos en <span class="text-blue-600">Chinchón</span> y alrededores
+                </h2>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-truck-fast text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold dark:text-white">Logística Regional Inmediata</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Entrega rápida en toda la zona de Chinchón y la Comunidad de Madrid con flota propia.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-certificate text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold dark:text-white">Garantía de Origen</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Trabajamos exclusivamente con las mejores marcas españolas de Castellón.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-users text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold dark:text-white">Atención Familiar</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Trato humano y cercano. Somos Azulejos Robert e Hijos, tu confianza es nuestra prioridad.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <div class="h-48 bg-blue-600 rounded-3xl p-6 flex flex-col justify-end">
+                        <span class="text-4xl font-bold text-white mb-2">+30</span>
+                        <p class="text-blue-100 font-medium">Años de Experiencia</p>
+                    </div>
+                    <div class="h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl">
+                         <img src="https://images.pexels.com/photos/4977410/pexels-photo-4977410.jpeg?auto=compress&cs=tinysrgb&h=400" class="w-full h-full object-cover" alt="Detalle azulejo">
+                    </div>
+                </div>
+                <div class="space-y-4 pt-8">
+                    <div class="h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://images.pexels.com/photos/6312105/pexels-photo-6312105.jpeg?auto=compress&cs=tinysrgb&h=400" class="w-full h-full object-cover" alt="Almacén">
+                    </div>
+                    <div class="h-48 bg-indigo-600 rounded-3xl p-6 flex flex-col justify-end">
+                        <span class="text-4xl font-bold text-white mb-2">100%</span>
+                        <p class="text-indigo-100 font-medium">Stock Local</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION (REVIEWS & MARQUEE) -->
+    <section class="py-20 overflow-hidden bg-white dark:bg-gray-950 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Empresas que confían en nosotros</h2>
+        </div>
+        
+        <!-- INFINITE MARQUEE -->
+        <div class="relative flex overflow-x-hidden border-y border-gray-100 dark:border-gray-800 py-10 bg-gray-50/50 dark:bg-gray-900/30 group">
+            <div class="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused]">
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">CONSTRUCTA</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">REFORMAS MADRID</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">CERÁMICAS LUX</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">ARQUITECTURA 24</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">URBAN PROJECT</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">DECO HOME</span>
+                </div>
+            </div>
+            <div class="flex absolute top-10 animate-marquee whitespace-nowrap left-full group-hover:[animation-play-state:paused]">
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">CONSTRUCTA</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">REFORMAS MADRID</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">CERÁMICAS LUX</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">ARQUITECTURA 24</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">URBAN PROJECT</span>
+                    <span class="text-3xl font-black text-gray-400 dark:text-gray-600 opacity-50 grayscale hover:grayscale-0 transition cursor-default">DECO HOME</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"El stock en Chinchón es impresionante. Necesitaba 200m2 para una obra urgente y lo tenían listo en el mismo día. Excelentes precios."</p>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3">JC</div>
+                    <div>
+                        <h5 class="font-bold dark:text-white">Juan Carlos Ortega</h5>
+                        <p class="text-sm text-gray-500">Arquitecto</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Muy profesionales. Me ayudaron a elegir el pavimento para mi nueva casa y el resultado es espectacular. Relación calidad-precio inbatible."</p>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3">MA</div>
+                    <div>
+                        <h5 class="font-bold dark:text-white">María Alarcón</h5>
+                        <p class="text-sm text-gray-500">Particular</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800">
+                <div class="flex text-yellow-500 mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Como reformista, valoro la honestidad. Robert e Hijos te dicen lo que hay, sin sorpresas en el precio ni en los plazos. Son mis proveedores de confianza."</p>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">RG</div>
+                    <div>
+                        <h5 class="font-bold dark:text-white">Ricardo Gómez</h5>
+                        <p class="text-sm text-gray-500">Reformas Integrales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contacto" class="py-24 px-4">
+        <div class="max-w-7xl mx-auto bg-gray-900 dark:bg-black rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+            <div class="lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
+                <h2 class="text-4xl md:text-6xl font-black mb-8">¿Listo para <span class="text-blue-500">empezar?</span></h2>
+                <p class="text-xl text-gray-400 mb-12">Déjanos tus datos y un especialista técnico te llamará en menos de 24h para darte el mejor presupuesto de Chinchón.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-location-dot text-blue-500 text-2xl mr-6"></i>
+                        <div>
+                            <p class="font-bold">Dirección Central</p>
+                            <p class="text-gray-400">Calle Real 14, Chinchón, Madrid</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-phone text-blue-500 text-2xl mr-6"></i>
+                        <div>
+                            <p class="font-bold">Llámanos</p>
+                            <p class="text-gray-400">+34 912 345 678</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 p-8 lg:p-20 bg-white dark:bg-gray-900">
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Nombre Completo</label>
+                        <input type="text" name="nombre" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border-2 border-transparent focus:border-blue-500 outline-none transition-all dark:text-white" placeholder="Ej. Roberto García">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Correo Electrónico</label>
+                        <input type="email" name="email" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border-2 border-transparent focus:border-blue-500 outline-none transition-all dark:text-white" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mensaje o Presupuesto</label>
+                        <textarea name="mensaje" rows="4" class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border-2 border-transparent focus:border-blue-500 outline-none transition-all dark:text-white" placeholder="¿Qué necesitas para tu obra?"></textarea>
+                    </div>
+                    
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-blue-500/20 active:scale-95 disabled:opacity-50">
+                        <span x-show="status === 'idle'">SOLICITAR INFORMACIÓN</span>
+                        <span x-show="status === 'loading'" class="flex items-center justify-center">
+                            <i class="fa-solid fa-circle-notch animate-spin mr-3"></i> ENVIANDO...
+                        </span>
+                    </button>
+                    
+                    <div x-show="status === 'success'" x-cloak class="p-6 bg-green-100 text-green-700 rounded-2xl font-bold text-center border-2 border-green-200">
+                        <i class="fa-solid fa-circle-check text-2xl mb-2 block"></i>
+                        ¡Mensaje enviado! En breve nos pondremos en contacto.
+                    </div>
+                    <div x-show="status === 'error'" x-cloak class="p-4 bg-red-100 text-red-700 rounded-xl text-center">
+                        Error al enviar. Inténtalo de nuevo o llámanos.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-4 border-t border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-xl font-black text-gray-900 dark:text-white">AZULEJOS ROBERT E HIJOS</span>
+                <p class="text-gray-500 text-sm mt-1">© 2024 - Todos los derechos reservados. Chinchón, Madrid.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors text-xl"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors text-xl"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all transform hover:scale-110 active:scale-90">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773920826966;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
