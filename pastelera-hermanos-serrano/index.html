@@ -1,0 +1,325 @@
+<?php /* Template Name: Landing Agencia */ ?>
+
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelería Hermanos Serrano | Tradición y Calidad en Aranjuez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d97706',
+                        secondary: '#78350f',
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+        .animate-marquee { animation: marquee 20s linear infinite; }
+        [x-cloak] { display: none !important; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .dark .glass { background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(55, 65, 81, 0.5); }
+    </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-full px-8 py-3 shadow-xl">
+            <div class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
+                HERMANOS SERRANO
+            </div>
+            <div class="flex items-center gap-6">
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i x-show="!darkMode" class="fa-solid fa-moon text-gray-700"></i>
+                    <i x-show="darkMode" class="fa-solid fa-sun text-yellow-400"></i>
+                </button>
+                <a href="#contacto" class="hidden md:block bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105">
+                    Hacer Pedido
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center text-center px-4 overflow-hidden">
+        <img src="https://images.pexels.com/photos/32459865/pexels-photo-32459865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover" alt="Pastelería Artesanal">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/40"></div>
+        
+        <div class="relative z-10 max-w-4xl">
+            <span class="inline-block px-4 py-1 rounded-full bg-amber-600/20 border border-amber-500/30 text-amber-400 text-sm font-bold mb-6 tracking-widest uppercase">Tradición en Aranjuez desde hace décadas</span>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">El Secreto del <span class="bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent">Bizcocho Perfecto</span></h1>
+            <p class="text-xl text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Repostería artesanal horneada a diario. Sabor auténtico para tu hogar o suministro al por mayor para tu negocio.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contacto" class="bg-amber-600 hover:bg-amber-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-2xl shadow-amber-600/30 transition-all transform hover:-translate-y-1">
+                    Pedir Ahora
+                </a>
+                <a href="#servicios" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full text-lg font-bold transition-all">
+                    Nuestros Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAS Section -->
+    <section class="relative z-20 max-w-7xl mx-auto px-4 mt-8 md:-mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl transform transition-all hover:-translate-y-2 group">
+                <div class="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-cookie-bite text-red-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 dark:text-white">¿Harto de lo industrial?</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">La mayoría de los bizcochos hoy son pura química. Recupera el sabor real de los ingredientes naturales.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl transform transition-all hover:-translate-y-2 group">
+                <div class="w-14 h-14 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-truck-ramp-box text-amber-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 dark:text-white">Problemas de stock</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">¿Tu cafetería se queda sin producto fresco? Nosotros garantizamos suministro puntual en Aranjuez.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl transform transition-all hover:-translate-y-2 group">
+                <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-face-frown text-orange-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 dark:text-white">Eventos mediocres</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">No arruines una celebración especial con repostería de supermercado. Marca la diferencia con calidad artesana.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Nuestra Especialidad</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Desde el pequeño capricho matutino hasta el suministro a gran escala para hostelería.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+            <div class="md:col-span-2 group relative overflow-hidden rounded-4xl shadow-xl transition-all hover:shadow-amber-500/10">
+                <img src="https://images.pexels.com/photos/3218467/pexels-photo-3218467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Venta al por mayor">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <h3 class="text-3xl font-bold text-white mb-2">Suministro Hostelería</h3>
+                    <p class="text-gray-200 mb-4 max-w-md">Bizcochos y repostería al por mayor para cafeterías, hoteles y restaurantes que no negocian la calidad.</p>
+                    <span class="inline-flex items-center text-amber-400 font-bold group-hover:translate-x-2 transition-transform">Más información <i class="fa-solid fa-arrow-right ml-2"></i></span>
+                </div>
+            </div>
+            
+            <div class="group relative overflow-hidden rounded-4xl shadow-xl transition-all hover:shadow-amber-500/10">
+                <img src="https://images.pexels.com/photos/1359319/pexels-photo-1359319.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Tienda Local">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <h3 class="text-2xl font-bold text-white mb-2">Venta al Público</h3>
+                    <p class="text-gray-200 text-sm mb-4">Visita nuestra tienda en Aranjuez y llévate el pan y los dulces recién hechos.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-4xl shadow-xl transition-all hover:shadow-amber-500/10">
+                <img src="https://images.pexels.com/photos/16488533/pexels-photo-16488533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Eventos">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <h3 class="text-2xl font-bold text-white mb-2">Encargos Especiales</h3>
+                    <p class="text-gray-200 text-sm mb-4">Tartas y mesas dulces personalizadas para comuniones, bodas y cumpleaños.</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-amber-600 dark:bg-amber-700 rounded-4xl p-10 flex flex-col justify-center text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-black mb-4">¿Necesitas un pedido urgente?</h3>
+                    <p class="text-amber-100 text-lg mb-8 max-w-xl">Llámanos ahora y coordinamos la entrega en menos de 24 horas dentro de la zona de Aranjuez y alrededores.</p>
+                    <a href="tel:000000000" class="bg-white text-amber-600 px-8 py-4 rounded-full font-black text-xl hover:bg-orange-50 transition-colors inline-block">
+                        Llamar: 91 000 00 00
+                    </a>
+                </div>
+                <i class="fa-solid fa-bread-slice absolute right-[-20px] bottom-[-20px] text-[200px] text-white/10 rotate-12"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Benefits -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-8 dark:text-white leading-tight">Por qué Aranjuez elige a <span class="text-amber-600">Hermanos Serrano</span></h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl dark:text-white">Ingredientes Locales</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Usamos huevos de granja y harinas seleccionadas de proveedores cercanos.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl dark:text-white">Recetas Centenarias</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Sin conservantes ni colorantes. El sabor que recuerdas de tu infancia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-green-500/10 rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl dark:text-white">Entrega en Aranjuez</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Reparto propio diario. Recibe tu pedido de bizcochos tierno y esponjoso.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <img src="https://images.pexels.com/photos/1359319/pexels-photo-1359319.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-4xl shadow-2xl relative z-10" alt="Bakery">
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-amber-500 rounded-full flex items-center justify-center text-white font-black text-center text-sm p-4 z-20 shadow-xl rotate-12">
+                        100% ARTESANO
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Reviews -->
+    <section class="py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-16">
+            <h2 class="text-4xl font-black text-center dark:text-white">Lo que dicen en el barrio</h2>
+        </div>
+        
+        <!-- Marquee -->
+        <div class="relative flex overflow-x-hidden group">
+            <div class="py-12 animate-marquee whitespace-nowrap flex group-hover:[animation-play-state:paused]">
+                <div class="mx-4 flex gap-8">
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Los mejores bizcochos de Aranjuez. Los compro para mi cafetería y mis clientes están encantados. Calidad insuperable."</p>
+                        <span class="font-bold dark:text-white">— Juan R., Hostelería</span>
+                    </div>
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Encargué la tarta para el cumple de mi hija y fue un éxito total. Sabor casero de verdad, nada que ver con lo industrial."</p>
+                        <span class="font-bold dark:text-white">— Elena M., Vecina de Aranjuez</span>
+                    </div>
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Llevo comprando aquí toda la vida. Los hermanos Serrano mantienen la esencia de la pastelería de siempre."</p>
+                        <span class="font-bold dark:text-white">— Pedro G., Cliente fiel</span>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-0 py-12 animate-marquee whitespace-nowrap flex ml-[100%] group-hover:[animation-play-state:paused]">
+                <div class="mx-4 flex gap-8">
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Los mejores bizcochos de Aranjuez. Los compro para mi cafetería y mis clientes están encantados."</p>
+                        <span class="font-bold dark:text-white">— Juan R., Hostelería</span>
+                    </div>
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Encargué la tarta para el cumple de mi hija y fue un éxito total. Sabor casero de verdad."</p>
+                        <span class="font-bold dark:text-white">— Elena M., Vecina de Aranjuez</span>
+                    </div>
+                    <div class="w-[350px] glass p-8 rounded-3xl">
+                        <div class="flex text-amber-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="italic text-gray-700 dark:text-gray-300 mb-6 whitespace-normal">"Llevo comprando aquí toda la vida. Los hermanos Serrano mantienen la esencia de siempre."</p>
+                        <span class="font-bold dark:text-white">— Pedro G., Cliente fiel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacto" class="py-24 px-4 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="glass p-8 md:p-16 rounded-[3rem] shadow-2xl grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-black mb-6 dark:text-white leading-tight">¿Tienes un negocio o un evento especial?</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">Cuéntanos qué necesitas y te daremos presupuesto sin compromiso. Atendemos pedidos a domicilio en Aranjuez.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center text-amber-600">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <p class="font-bold dark:text-gray-200 text-lg">Aranjuez, Madrid</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center text-amber-600">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <p class="font-bold dark:text-gray-200 text-lg">91 000 00 00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Nombre</label>
+                        <input type="text" name="nombre" required class="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border-none focus:ring-2 focus:ring-amber-500 dark:text-white outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Email o WhatsApp</label>
+                        <input type="text" name="contacto" required class="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border-none focus:ring-2 focus:ring-amber-500 dark:text-white outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">¿Cómo podemos ayudarte?</label>
+                        <textarea name="mensaje" rows="4" required class="w-full px-6 py-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border-none focus:ring-2 focus:ring-amber-500 dark:text-white outline-none"></textarea>
+                    </div>
+                    
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-black py-5 rounded-2xl text-xl transition-all shadow-lg shadow-amber-600/20 active:scale-95">
+                        <span x-show="status === 'idle'">Enviar Consulta</span>
+                        <span x-show="status === 'loading'" class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...
+                        </span>
+                    </button>
+                    
+                    <div x-show="status === 'success'" x-cloak class="p-6 bg-green-500 text-white rounded-2xl font-bold text-center shadow-xl flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-circle-check text-2xl"></i> ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+        <p class="font-bold text-amber-600 mb-2">PASTELERÍA HERMANOS SERRANO</p>
+        <p>© 2024 Aranjuez, Madrid. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773930563218;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
