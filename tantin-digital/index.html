@@ -1,0 +1,418 @@
+<?php /* Template Name: Landing Agencia */ ?>
+
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tantin Digital | Marketing y SEO en Aranjuez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 25s linear infinite;
+        }
+        [x-cloak] { display: none !important; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen text-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto glass-effect rounded-2xl px-6 py-3 flex justify-between items-center shadow-xl">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-tighter">
+                    TANTIN DIGITAL
+                </span>
+            </div>
+            <div class="flex items-center gap-6">
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i x-show="!darkMode" class="fa-solid fa-moon text-gray-600"></i>
+                    <i x-show="darkMode" x-cloak class="fa-solid fa-sun text-yellow-400"></i>
+                </button>
+                <a href="#contacto" class="hidden md:block bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all transform hover:scale-105">
+                    Empezar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.pexels.com/photos/35606507/pexels-photo-35606507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-full object-cover" alt="Tantin Digital Aranjuez">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <span class="inline-block py-1 px-4 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-medium mb-6 backdrop-blur-md">
+                Agencia de Marketing Digital en Aranjuez
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
+                No queremos que solo <span class="text-blue-400">estés</span> en internet. Queremos que <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent italic">vendas</span>.
+            </h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Transformamos negocios locales de Aranjuez en referentes digitales con estrategias de SEO, maquetación web de alto impacto y campañas que sí retornan.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contacto" class="bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold px-10 py-4 rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1">
+                    Impulsa mi negocio
+                </a>
+                <a href="#servicios" class="bg-white/10 hover:bg-white/20 text-white text-lg font-bold px-10 py-4 rounded-2xl backdrop-blur-md border border-white/20 transition-all">
+                    Ver qué hacemos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section (Overlap) -->
+    <section class="relative z-20 max-w-6xl mx-auto px-6 mt-8 md:-mt-24">
+        <div class="bg-white dark:bg-gray-900 rounded-4xl shadow-2xl border border-gray-100 dark:border-gray-800 p-8 md:p-12">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="flex flex-col gap-4">
+                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600">
+                        <i class="fa-solid fa-eye-slash text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">¿Eres invisible?</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Si tu negocio no aparece en los primeros resultados de Google en Aranjuez, literalmente no existes para tus clientes.</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600">
+                        <i class="fa-solid fa-money-bill-trend-up text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Inversión sin Retorno</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Muchas agencias prometen "likes" y "visitas", pero nosotros nos centramos en lo único que importa: tu facturación.</p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Webs Obsoletas</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Una web lenta o que no funciona en móviles está expulsando a tus clientes potenciales hacia la competencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Servicios para <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">dominar el mercado</span></h2>
+            <p class="text-gray-600 dark:text-gray-400 text-lg">Especialistas en resultados tangibles.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Service 1: Large -->
+            <div class="md:col-span-2 group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10">
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-magnifying-glass-chart text-blue-600 text-2xl"></i>
+                        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Visibilidad Total</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">SEO Local & Estratégico</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        No solo posicionamos palabras clave. Posicionamos tu marca en Aranjuez frente a los usuarios que ya están buscando lo que tú ofreces. Optimizamos cada rincón de tu presencia digital para que Google te ame.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span class="text-gray-700 dark:text-gray-200">Auditoría profunda de competencia.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i> <span class="text-gray-700 dark:text-gray-200">Optimización de Google Business Profile.</span></li>
+                    </ul>
+                </div>
+                <img src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-64 object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="SEO Aranjuez">
+            </div>
+
+            <!-- Service 2 -->
+            <div class="md:col-span-1 group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10">
+                <div class="p-8">
+                    <i class="fa-solid fa-wand-magic-sparkles text-purple-600 text-3xl mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Diseño Web UX</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Maquetaciones modernas que cargan en menos de 2 segundos. Diseñadas para guiar al usuario hacia el botón de "Comprar" o "Contactar".
+                    </p>
+                </div>
+                <img src="https://images.pexels.com/photos/5561919/pexels-photo-5561919.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-64 object-cover" alt="Maquetación Web">
+            </div>
+
+            <!-- Service 3: Offset -->
+            <div class="md:col-span-3 lg:col-span-2 lg:col-start-2 group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 h-full flex flex-col md:flex-row transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10">
+                <div class="p-8 md:w-1/2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-bullseye text-red-500 text-2xl"></i>
+                        <span class="text-xs font-bold tracking-widest text-red-500 uppercase">Tráfico Inmediato</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Ads & Conversión</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        Creamos campañas publicitarias en Meta y Google que detienen el scroll. Maximizamos tu presupuesto eliminando los anuncios que no funcionan y escalando los ganadores.
+                    </p>
+                    <a href="#contacto" class="inline-flex items-center text-blue-600 font-bold hover:gap-3 transition-all">
+                        Solicitar auditoría gratuita <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.pexels.com/photos/7661185/pexels-photo-7661185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-full object-cover" alt="Marketing Digital">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Benefits -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-8 leading-tight">¿Por qué confiar tu negocio de <span class="text-blue-600">Aranjuez</span> a Tantin Digital?</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-map-location-dot text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Cercanía Real</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Estamos en Aranjuez. Nos podemos tomar un café y hablar de tu negocio cara a cara. Sin tickets de soporte infinitos.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-chart-line text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Enfoque en ROI</h4>
+                                <p class="text-gray-600 dark:text-gray-400">No nos interesan las métricas de vanidad. Si nuestra estrategia no aumenta tus ingresos, no estamos cumpliendo.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-shield-halved text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Soporte y Transparencia</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Sabrás en todo momento qué estamos haciendo y por qué. Reportes claros, sin tecnicismos innecesarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-4xl blur-2xl opacity-20"></div>
+                    <div class="relative bg-white dark:bg-gray-800 p-10 rounded-4xl shadow-2xl border border-gray-100 dark:border-gray-700">
+                        <h3 class="text-2xl font-black mb-6">Resultados de clientes locales</h3>
+                        <div class="space-y-6">
+                            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-700/50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">Clínica Dental Aranjuez</span>
+                                    <span class="text-green-500 font-bold">+140% Leads</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-600 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-blue-600 h-full w-[85%]"></div>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-700/50">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="font-bold">E-commerce Local</span>
+                                    <span class="text-green-500 font-bold">+200% Ventas</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-600 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-purple-600 h-full w-[95%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Marquee -->
+    <section class="py-12 bg-white dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800 overflow-hidden">
+        <div class="flex whitespace-nowrap overflow-hidden group">
+            <div class="flex items-center space-x-12 animate-marquee group-hover:[animation-play-state:paused]">
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">ESTRATEGIA</span>
+                <span class="text-2xl font-black text-blue-500/50 uppercase tracking-widest">CREATIVIDAD</span>
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">SEO LOCAL</span>
+                <span class="text-2xl font-black text-purple-500/50 uppercase tracking-widest">RESULTADOS</span>
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">MAQUETACIÓN</span>
+                <span class="text-2xl font-black text-blue-500/50 uppercase tracking-widest">ARANJUEZ</span>
+            </div>
+            <!-- Duplicate for loop -->
+            <div class="flex items-center space-x-12 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">ESTRATEGIA</span>
+                <span class="text-2xl font-black text-blue-500/50 uppercase tracking-widest">CREATIVIDAD</span>
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">SEO LOCAL</span>
+                <span class="text-2xl font-black text-purple-500/50 uppercase tracking-widest">RESULTADOS</span>
+                <span class="text-2xl font-black text-gray-300 dark:text-gray-700 uppercase tracking-widest">MAQUETACIÓN</span>
+                <span class="text-2xl font-black text-blue-500/50 uppercase tracking-widest">ARANJUEZ</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-black text-center mb-16 italic">Lo que dicen en el barrio</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Tantin Digital cambió por completo nuestra visibilidad. Ahora nos llaman clientes de todo Aranjuez y alrededores."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">JP</div>
+                    <div>
+                        <p class="font-bold text-sm">Juan Pedro M.</p>
+                        <p class="text-xs text-gray-500">Comercio Local</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"La web es increíblemente rápida y por fin salimos los primeros cuando buscan nuestros servicios en Google."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">SM</div>
+                    <div>
+                        <p class="font-bold text-sm">Sonia Martín</p>
+                        <p class="text-xs text-gray-500">Clínica Estética</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700">
+                <div class="flex text-yellow-400 mb-4 text-sm">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 italic mb-6">"Profesionales, directos y muy eficaces. No te venden humo, te venden resultados reales."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-600">RG</div>
+                    <div>
+                        <p class="font-bold text-sm">Ricardo G.</p>
+                        <p class="text-xs text-gray-500">Restauración</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacto" class="py-24 px-6 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">¿Hablamos de tu <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">próximo nivel</span>?</h2>
+                <p class="text-gray-600 dark:text-gray-400">Cuéntanos qué necesitas y te daremos una hoja de ruta sin compromiso.</p>
+            </div>
+
+            <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-6 bg-gray-50 dark:bg-gray-800 p-8 md:p-12 rounded-4xl border border-gray-100 dark:border-gray-700 shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700 dark:text-gray-300">Nombre</label>
+                        <input type="text" name="nombre" required class="w-full bg-white dark:bg-gray-900 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white" placeholder="Ej: Mario Rossi">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700 dark:text-gray-300">Email</label>
+                        <input type="email" name="email" required class="w-full bg-white dark:bg-gray-900 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white" placeholder="mario@empresa.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700 dark:text-gray-300">Servicio de interés</label>
+                    <select name="servicio" class="w-full bg-white dark:bg-gray-900 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white">
+                        <option>Marketing Digital / SEO</option>
+                        <option>Maquetación Web</option>
+                        <option>Publicidad (Ads)</option>
+                        <option>Estrategia Completa</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 uppercase tracking-wide text-gray-700 dark:text-gray-300">Mensaje</label>
+                    <textarea name="mensaje" rows="4" class="w-full bg-white dark:bg-gray-900 border-none rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white" placeholder="Cuéntanos un poco sobre tu proyecto..."></textarea>
+                </div>
+                
+                <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 flex justify-center items-center gap-3 text-lg">
+                    <span x-show="status === 'idle'">Enviar Consulta</span>
+                    <span x-show="status === 'loading'" class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...
+                    </span>
+                </button>
+
+                <div x-show="status === 'success'" x-cloak class="p-6 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-2xl font-bold text-center border border-green-200 dark:border-green-800">
+                    <i class="fa-solid fa-circle-check text-2xl mb-2 block"></i>
+                    ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto para hablar de tu proyecto.
+                </div>
+                <div x-show="status === 'error'" x-cloak class="p-4 bg-red-100 text-red-700 rounded-lg text-center">
+                    Hubo un error. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-50 dark:bg-black px-6 border-t border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
+                <span class="text-2xl font-black text-blue-600">Tantin Digital</span>
+                <p class="text-gray-500 mt-2">Marketing & Desarrollo en Aranjuez.</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-600 dark:text-gray-400">© 2024 Tantin Digital. Todos los derechos reservados.</p>
+                <div class="flex justify-center md:justify-end gap-6 mt-4 text-gray-400">
+                    <a href="#" class="hover:text-blue-600 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-600 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-600 transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 active:scale-95 group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="absolute right-full mr-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            ¡Hablamos por WhatsApp!
+        </span>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773931706015;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
