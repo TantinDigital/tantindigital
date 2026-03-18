@@ -1,0 +1,415 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceitunas Jaén | Venta al por mayor de Aceitunas Premium</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f2f9f1',
+                            100: '#e1f1de',
+                            500: '#4a7c44',
+                            600: '#3d6638',
+                            700: '#32522e',
+                            900: '#1a2b18',
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+        .animate-marquee { animation: marquee 20s linear infinite; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg border-b border-white/40 dark:border-gray-700/50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-leaf text-white text-xl"></i>
+                </div>
+                <span class="text-xl font-extrabold bg-gradient-to-r from-brand-700 to-green-500 bg-clip-text text-transparent">ACEITUNAS JAÉN</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#servicios" class="text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Servicios</a>
+                <a href="#beneficios" class="text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Por qué Jaén</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+                    <i x-show="!darkMode" class="fa-solid fa-moon"></i>
+                    <i x-show="darkMode" class="fa-solid fa-sun"></i>
+                </button>
+                <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-brand-600/20">Contactar Ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[80vh] flex items-center pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.pexels.com/photos/11086294/pexels-photo-11086294.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Aceitunas de Jaén" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 text-center md:text-left">
+            <div class="inline-flex items-center space-x-2 bg-brand-600/20 backdrop-blur-md border border-brand-500/30 px-4 py-2 rounded-full mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                <span class="text-brand-100 text-xs font-bold uppercase tracking-widest">Proveedores Directos desde Jaén</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                El Oro Verde de <br>
+                <span class="bg-gradient-to-r from-brand-400 to-green-300 bg-clip-text text-transparent italic">Jaén para su Negocio.</span>
+            </h1>
+            <p class="max-w-xl text-lg md:text-xl text-gray-200 leading-relaxed mb-10">
+                Llevamos la tradición y el sabor auténtico de la capital mundial del aceite directamente a su almacén. Calidad premium sin intermediarios.
+            </p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all shadow-2xl shadow-brand-600/40 text-center">Solicitar Catálogo Mayorista</a>
+                <a href="#servicios" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-white/20 transition-all text-center">Ver Variedades</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAS Section (Problem Overlap) -->
+    <section class="mt-8 md:-mt-24 relative z-20 max-w-7xl mx-auto px-6">
+        <div class="bg-white dark:bg-gray-900 rounded-4xl shadow-2xl p-8 md:p-12 border border-white/40 dark:border-gray-800">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center text-red-600">
+                        <i class="fa-solid fa-circle-xmark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Intermediarios Caros</h3>
+                    <p class="leading-relaxed text-gray-600 dark:text-gray-300">Deje de pagar comisiones que inflan el precio final de su producto sin añadir valor real.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center text-orange-600">
+                        <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Calidad Irregular</h3>
+                    <p class="leading-relaxed text-gray-600 dark:text-gray-300">No arriesgue su reputación con aceitunas de procedencia dudosa o mal conservadas.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600">
+                        <i class="fa-solid fa-truck-fast text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold dark:text-white">Roturas de Stock</h3>
+                    <p class="leading-relaxed text-gray-600 dark:text-gray-300">Garantizamos suministro constante durante todo el año gracias a nuestra infraestructura propia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-brand-700 to-green-600 bg-clip-text text-transparent">Nuestros Servicios Mayoristas</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Soluciones personalizadas para alimentación, hostelería y distribución internacional.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="group md:col-span-2 relative h-[450px] overflow-hidden rounded-3xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/20">
+                <img src="https://images.pexels.com/photos/17003635/pexels-photo-17003635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+                    <h3 class="text-3xl font-bold text-white mb-3">Venta en Gran Formato</h3>
+                    <p class="text-gray-200 mb-6 max-w-md">Bidones y garrafas industriales para grandes distribuidores y cadenas de alimentación.</p>
+                    <div class="flex items-center text-brand-400 font-bold">
+                        <span>Saber más</span>
+                        <i class="fa-solid fa-arrow-right ml-2 group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group relative h-[450px] overflow-hidden rounded-3xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/20">
+                <img src="https://images.pexels.com/photos/29878980/pexels-photo-29878980.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+                    <h3 class="text-2xl font-bold text-white mb-3">Selección Gourmet</h3>
+                    <p class="text-gray-200 mb-6">Variedades exclusivas aliñadas con recetas tradicionales jiennenses para hostelería selecta.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group md:col-span-1 relative h-[450px] overflow-hidden rounded-3xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-500/20">
+                <img src="https://images.pexels.com/photos/34556542/pexels-photo-34556542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
+                    <h3 class="text-2xl font-bold text-white mb-3">Logística Exprés</h3>
+                    <p class="text-gray-200 mb-6">Servicio de entrega rápida garantizado para mantener la frescura del producto intacta.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 (Extra space in bento) -->
+            <div class="md:col-span-2 bg-brand-900 rounded-3xl p-10 flex flex-col justify-between border border-brand-800">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Exportación Global</h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">Exportamos la esencia de Jaén a cualquier parte del mundo, cumpliendo con todas las normativas internacionales de seguridad alimentaria y calidad.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-white/5 rounded-2xl">
+                        <div class="text-2xl font-bold text-brand-400">100%</div>
+                        <div class="text-xs text-gray-500 uppercase font-bold">Natural</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/5 rounded-2xl">
+                        <div class="text-2xl font-bold text-brand-400">IFS/BRC</div>
+                        <div class="text-xs text-gray-500 uppercase font-bold">Calidad</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/5 rounded-2xl">
+                        <div class="text-2xl font-bold text-brand-400">48h</div>
+                        <div class="text-xs text-gray-500 uppercase font-bold">Entrega</div>
+                    </div>
+                    <div class="text-center p-4 bg-white/5 rounded-2xl">
+                        <div class="text-2xl font-bold text-brand-400">+20</div>
+                        <div class="text-xs text-gray-500 uppercase font-bold">Variedades</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <section class="py-12 bg-white/50 dark:bg-black/20 border-y border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div class="flex overflow-hidden group hover:[animation-play-state:paused]">
+            <div class="flex animate-marquee whitespace-nowrap">
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Aceitunas de Jaén</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Calidad Certificada</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Origen España</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Maestros Olivareros</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Stock Permanente</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Envío Global</span>
+            </div>
+            <div class="flex animate-marquee whitespace-nowrap">
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Aceitunas de Jaén</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Calidad Certificada</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Origen España</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Maestros Olivareros</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Stock Permanente</span>
+                <span class="text-3xl font-bold text-gray-300 dark:text-gray-700 mx-12 uppercase tracking-tighter">Envío Global</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="beneficios" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-extrabold mb-8 dark:text-white leading-tight">¿Por qué confiar en <span class="text-brand-600">Aceitunas Jaén</span>?</h2>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-check text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl dark:text-white mb-1">Localización Estratégica en Jaén</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Estamos en el corazón de la producción, lo que nos permite seleccionar el mejor fruto antes que nadie.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-check text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl dark:text-white mb-1">Precios Directos de Almazara</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Eliminamos las capas de costes innecesarias para ofrecerle el margen más competitivo del mercado.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <i class="fa-solid fa-check text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl dark:text-white mb-1">Tradición Generacional</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Más de 40 años perfeccionando el arte de la salmuera y el aliño tradicional jiennense.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-brand-600/20 blur-3xl rounded-full"></div>
+                <img src="https://images.pexels.com/photos/11086294/pexels-photo-11086294.jpeg?auto=compress&cs=tinysrgb&dpr=2" class="relative rounded-4xl shadow-2xl border border-white/20">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-3xl font-bold mb-16 dark:text-white">Lo que dicen nuestros distribuidores</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-6">"El servicio es impecable. Llevamos 5 años trabajando con ellos para nuestra red de supermercados y la calidad es siempre excepcional."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center font-bold text-brand-700">MR</div>
+                        <div class="ml-3">
+                            <div class="font-bold dark:text-white text-sm">Miguel Rodríguez</div>
+                            <div class="text-xs text-gray-500 uppercase">Distribución Alimentaria S.A.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-6">"La aceituna aliñada de Jaén es nuestro producto estrella. Los clientes del restaurante notan la diferencia del producto auténtico."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center font-bold text-brand-700">LG</div>
+                        <div class="ml-3">
+                            <div class="font-bold dark:text-white text-sm">Lucía García</div>
+                            <div class="text-xs text-gray-500 uppercase">Chef Ejecutiva - Grupo Gastro</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-6">"Su capacidad logística para exportar a Alemania ha sido clave para nuestra expansión. Seriedad y cumplimiento total."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center font-bold text-brand-700">HK</div>
+                        <div class="ml-3">
+                            <div class="font-bold dark:text-white text-sm">Hans Kraus</div>
+                            <div class="text-xs text-gray-500 uppercase">Importadora Eurofood</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacto" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="bg-white/70 dark:bg-gray-900/80 backdrop-blur-xl border border-white/40 dark:border-gray-700/50 rounded-4xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+            <div class="p-12 bg-brand-900 text-white flex flex-col justify-between">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-6">Impulse su negocio hoy mismo.</h2>
+                    <p class="text-brand-200 mb-8">Déjenos sus datos y uno de nuestros asesores comerciales le contactará con una propuesta personalizada y tarifas de mayorista.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span>Polígono Industrial Los Olivares, Jaén, España</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span>+34 953 00 00 00</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span>ventas@aceitunasjaen.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <div class="text-sm opacity-60">Horario Comercial:</div>
+                    <div class="font-bold">Lunes a Viernes: 08:00 - 18:00</div>
+                </div>
+            </div>
+
+            <div class="p-12">
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 1500);" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Nombre Completo</label>
+                            <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Empresa</label>
+                            <input type="text" name="empresa" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Correo Electrónico</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mensaje / Necesidades</label>
+                        <textarea name="mensaje" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition-all"></textarea>
+                    </div>
+                    
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" 
+                        class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-xl shadow-brand-600/30">
+                        <span x-show="status === 'idle'">Enviar Solicitud de Información</span>
+                        <span x-show="status === 'loading'" class="flex items-center">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Enviando consulta...
+                        </span>
+                    </button>
+
+                    <div x-show="status === 'success'" x-cloak class="p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-xl font-bold text-center border border-green-200 dark:border-green-800">
+                        <i class="fa-solid fa-circle-check mr-2"></i> ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-leaf text-white text-sm"></i>
+                </div>
+                <span class="text-lg font-extrabold dark:text-white">ACEITUNAS JAÉN</span>
+            </div>
+            <div class="text-gray-500 text-sm">
+                &copy; <?php echo date('Y'); ?> Aceitunas Jaén - Todos los derechos reservados.
+            </div>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-gray-400 hover:text-brand-600 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-600 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-brand-600 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 active:scale-95">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773917997110;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
