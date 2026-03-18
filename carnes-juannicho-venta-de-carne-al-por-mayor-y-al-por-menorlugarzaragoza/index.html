@@ -1,0 +1,366 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnes Juan - Carnicería Premium en Zaragoza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+        
+        [x-cloak] { display: none !important; }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white dark:bg-gray-900 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg border-b border-white/40 dark:border-gray-700/50 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-drumstick-bite text-red-600 text-2xl mr-3"></i>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">Carnes Juan</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#contacto" class="hidden sm:inline-block px-6 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-full hover:shadow-lg transform transition-all duration-300 hover:scale-105">
+                        Contactar
+                    </a>
+                    <button @click="darkMode = !darkMode" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-all duration-300">
+                        <i class="fa-solid fa-moon" x-show="!darkMode"></i>
+                        <i class="fa-solid fa-sun" x-show="darkMode" x-cloak></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <img src="https://images.pexels.com/photos/18882520/pexels-photo-18882520.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Carnes Juan Hero" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-white leading-tight">
+                La Mejor Carne de Zaragoza
+            </h1>
+            <p class="text-xl sm:text-2xl mb-8 text-gray-100 leading-relaxed max-w-2xl mx-auto">
+                Calidad premium, cortes selectos y tradición familiar. Tu carnicería de confianza desde hace generaciones.
+            </p>
+            <a href="#contacto" class="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-red-500/50 transform transition-all duration-300 hover:scale-105">
+                Pide tu Pedido Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section (Overlap) -->
+    <section class="mt-8 md:-mt-24 relative z-20 max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 sm:p-12 border border-gray-200 dark:border-gray-700">
+            <h2 class="text-4xl sm:text-5xl font-black mb-8 text-center">
+                <span class="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">¿Cansado de Carne Sin Calidad?</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="text-center p-6 rounded-2xl bg-gray-50 dark:bg-gray-700/50 transform transition-all duration-300 hover:-translate-y-2">
+                    <i class="fa-solid fa-circle-xmark text-red-500 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Carne de Mala Calidad</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">¿Compras carne que pierde sabor al cocinarla? Nosotros garantizamos cortes frescos y sabrosos todos los días.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gray-50 dark:bg-gray-700/50 transform transition-all duration-300 hover:-translate-y-2">
+                    <i class="fa-solid fa-clock text-orange-500 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Largas Esperas</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">¿Pierdes tiempo en largas colas? Ofrecemos servicio rápido y pedidos personalizados para llevarte tu carne sin demoras.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gray-50 dark:bg-gray-700/50 transform transition-all duration-300 hover:-translate-y-2">
+                    <i class="fa-solid fa-hand-holding-dollar text-yellow-500 text-5xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Precios Inflados</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">¿Pagas de más por cortes estándar? Trabajamos directo con ganaderos para ofrecerte el mejor precio sin intermediarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section class="py-16 px-4 sm:px-6 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 text-center text-gray-900 dark:text-white">
+                Nuestros Servicios
+            </h2>
+            <p class="text-center text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Todo lo que necesitas en carne de primera. Desde cortes tradicionales hasta elaborados artesanales.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                <div class="md:col-span-2 bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col justify-between">
+                    <img src="https://images.pexels.com/photos/11898916/pexels-photo-11898916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Venta al por Mayor" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <i class="fa-solid fa-warehouse text-red-600 text-4xl mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Venta al Por Mayor</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            Suministramos restaurantes, hoteles y negocios de hostelería. Volúmenes garantizados, entregas puntuales y precios competitivos para hacer crecer tu negocio.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-200">Entregas diarias en Zaragoza y alrededores</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-200">Descuentos por volumen para profesionales</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-200">Facturación y pago flexible</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 h-full flex flex-col justify-between">
+                    <img src="https://images.pexels.com/photos/31647676/pexels-photo-31647676.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Venta al por Menor" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <i class="fa-solid fa-shopping-basket text-red-600 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Venta al Por Menor</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            Carne fresca para tu hogar. Cortes perfectos, asesoramiento personalizado y la mejor calidad para tu mesa familiar.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-200">Cortes a medida según tus necesidades</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-200">Atención al cliente experta</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-3 lg:col-span-2 lg:col-start-2 bg-gradient-to-br from-red-600 to-red-800 rounded-3xl shadow-xl overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/30 h-full flex flex-col justify-between">
+                    <img src="https://images.pexels.com/photos/947174/pexels-photo-947174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Elaborados Artesanales" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <i class="fa-solid fa-cheese text-white text-4xl mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-4 text-white">Elaborados Artesanales</h3>
+                        <p class="text-gray-100 leading-relaxed mb-6">
+                            Chorizos, morcillas, hamburguesas caseras y embutidos tradicionales. Recetas de siempre, sabor auténtico y sin conservantes artificiales.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-300 mt-1 mr-3"></i>
+                                <span class="text-white">Elaboración propia con ingredientes seleccionados</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-300 mt-1 mr-3"></i>
+                                <span class="text-white">Recetas tradicionales aragonesas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-green-300 mt-1 mr-3"></i>
+                                <span class="text-white">Perfectos para barbacoas y reuniones familiares</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Benefits -->
+    <section class="py-16 px-4 sm:px-6 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 text-center">
+                <span class="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">¿Por Qué Elegir Carnes Juan en Zaragoza?</span>
+            </h2>
+            <p class="text-center text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Somos tu carnicería de confianza en el corazón de Zaragoza.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fa-solid fa-map-marker-alt text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Ubicación Céntrica en Zaragoza</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Estamos en el corazón de Zaragoza, cerca de ti. Fácil acceso, parking disponible y servicio rápido para que lleves tu carne fresca a casa sin complicaciones.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fa-solid fa-handshake text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Tradición Familiar</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Más de 30 años sirviendo a las familias zaragozanas. Conocemos cada corte, cada cliente y cada secreto para ofrecerte el mejor producto y servicio personalizado.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <i class="fa-solid fa-award text-red-600 text-5xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Calidad Certificada</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Trabajamos con ganaderos locales de Aragón. Trazabilidad completa, controles sanitarios rigurosos y garantía de frescura en cada producto que sale de nuestra tienda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Reviews -->
+    <section class="py-16 px-4 sm:px-6 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-50 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 text-center text-gray-900 dark:text-white">
+                Lo Que Dicen Nuestros Clientes
+            </h2>
+            <p class="text-center text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Miles de familias y negocios confían en nosotros cada día.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">María González</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                        "La mejor carne de Zaragoza sin duda. Compro aquí desde hace años y nunca me han fallado. El trato es excelente y los cortes siempre perfectos."
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            J
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Javier Martínez</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                        "Tengo un restaurante y ellos son mi proveedor desde el primer día. Entregas puntuales, calidad constante y precios justos. 100% recomendable."
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            L
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Laura Pérez</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed italic">
+                        "Sus elaborados artesanales son espectaculares. Las hamburguesas caseras son el éxito de nuestras barbacoas familiares. ¡Gracias por la calidad!"
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Marquee -->
+            <div class="overflow-hidden bg-white dark:bg-gray-800 rounded-2xl shadow-lg py-8">
+                <div class="flex hover:[animation-play-state:paused]">
+                    <div class="flex animate-marquee whitespace-nowrap">
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">⭐ Calidad Premium</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🥩 Cortes Selectos</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🏆 Tradición Familiar</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🚚 Entrega Rápida</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">✅ Producto Local</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">💯 Clientes Satisfechos</div>
+                    </div>
+                    <div class="flex animate-marquee whitespace-nowrap" aria-hidden="true">
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">⭐ Calidad Premium</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🥩 Cortes Selectos</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🏆 Tradición Familiar</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">🚚 Entrega Rápida</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">✅ Producto Local</div>
+                        <div class="mx-8 text-2xl font-bold text-gray-400 dark:text-gray-500">💯 Clientes Satisfechos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 px-4 sm:px-6 bg-white dark:bg-gray-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 text-center">
+                <span class="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">Haz Tu Pedido Ahora</span>
+            </h2>
+            <p class="text-center text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Contáctanos y te atenderemos de inmediato. Estamos en Zaragoza, listos para servirte.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Nombre Completo</label>
+                            <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 focus:outline-none transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Teléfono</label>
+                            <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 focus:outline-none transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 focus:outline-none transition-all">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Mensaje / Pedido</label>
+                            <textarea name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500 focus:outline-none transition-all"></textarea>
+                        </div>
+                        
+                        <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span x-show="status === 'idle'">Enviar Consulta</span>
+                            <span x-show="status === 'loading'" x-cloak>Enviando...</span>
