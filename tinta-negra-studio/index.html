@@ -1,0 +1,588 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tinta Negra Studio | Tatuajes Custom, Realismo y Fine Line · Aranjuez Centro Histórico</title>
+  <meta name="description" content="Tinta Negra Studio: el estudio de tatuaje custom, realismo y fine line en el Centro Histórico de Aranjuez. Diseños únicos, artistas especializados y agenda limitada. Reserva tu consulta hoy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Playfair Display"', 'serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"DM Mono"', 'monospace'],
+          },
+          colors: {
+            ink: {
+              50: '#f5f0eb',
+              100: '#e8ddd3',
+              200: '#c9b49e',
+              300: '#a98b6a',
+              400: '#8a6840',
+              500: '#6b4f2e',
+              600: '#503a1f',
+              700: '#362614',
+              800: '#1e150b',
+              900: '#0e0905',
+            },
+            ash: {
+              50: '#f7f7f7',
+              100: '#e8e8e8',
+              200: '#c9c9c9',
+              300: '#a3a3a3',
+              400: '#737373',
+              500: '#525252',
+              600: '#3d3d3d',
+              700: '#2a2a2a',
+              800: '#181818',
+              900: '#0d0d0d',
+            },
+            gold: {
+              400: '#d4a853',
+              500: '#c49535',
+              600: '#a37a22',
+            }
+          },
+          animation: {
+            marquee: 'marquee 28s linear infinite',
+            'marquee-reverse': 'marqueeReverse 28s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            marqueeReverse: {
+              '0%': { transform: 'translateX(-50%)' },
+              '100%': { transform: 'translateX(0%)' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background-image: url('https://images.pexels.com/photos/6593432/pexels-photo-6593432.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+      background-position: center top;
+    }
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 28s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .accordion-body {
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    }
+    .grain-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-ash-50 dark:bg-ash-900 text-ash-800 dark:text-ash-100 font-body antialiased transition-colors duration-300">
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ash-900/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+      <a href="#" class="font-heading text-white text-xl tracking-wide flex items-center gap-2">
+        <i class="fa-solid fa-droplet text-gold-400 text-sm"></i>
+        Tinta Negra
+        <span class="text-gold-400">Studio</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ash-300">
+        <a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios</a>
+        <a href="#resenas" class="hover:text-gold-400 transition-colors">Reseñas</a>
+        <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+        <a href="#contacto" class="hover:text-gold-400 transition-colors">Contacto</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <button @click="darkMode = !darkMode" class="w-9 h-9 flex items-center justify-center rounded-full border border-white/10 text-ash-300 hover:text-gold-400 hover:border-gold-400 transition-all duration-200">
+          <i x-show="!darkMode" class="fa-solid fa-moon text-sm"></i>
+          <i x-show="darkMode" class="fa-solid fa-sun text-sm"></i>
+        </button>
+        <a href="#contacto" class="hidden md:inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-ash-900 font-semibold text-sm px-5 py-2 rounded-full transition-all duration-200 hover:scale-105">
+          Reservar Cita
+        </a>
+        <button @click="mobileMenu = !mobileMenu" class="md:hidden text-ash-300 hover:text-white transition-colors">
+          <i x-show="!mobileMenu" class="fa-solid fa-bars text-lg"></i>
+          <i x-show="mobileMenu" class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div x-show="mobileMenu" x-cloak @click.away="mobileMenu = false"
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 -translate-y-2"
+      x-transition:enter-end="opacity-100 translate-y-0"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100 translate-y-0"
+      x-transition:leave-end="opacity-0 -translate-y-2"
+      class="md:hidden bg-ash-900/95 backdrop-blur-lg border-t border-white/5 px-6 py-4 flex flex-col gap-4 text-ash-300 text-sm font-medium">
+      <a href="#servicios" @click="mobileMenu=false" class="hover:text-gold-400 transition-colors">Servicios</a>
+      <a href="#resenas" @click="mobileMenu=false" class="hover:text-gold-400 transition-colors">Reseñas</a>
+      <a href="#faq" @click="mobileMenu=false" class="hover:text-gold-400 transition-colors">FAQ</a>
+      <a href="#contacto" @click="mobileMenu=false" class="hover:text-gold-400 transition-colors">Contacto</a>
+      <a href="#contacto" @click="mobileMenu=false" class="inline-flex items-center justify-center gap-2 bg-gold-400 text-ash-900 font-semibold px-5 py-2.5 rounded-full">Reservar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="relative min-h-[90vh] hero-bg flex items-end overflow-hidden noise">
+    <div class="absolute inset-0 bg-gradient-to-t from-ash-900 via-ash-900/60 to-ash-900/20"></div>
+    <div class="grain-overlay"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-32 w-full">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 text-gold-400 font-mono text-xs tracking-[0.2em] uppercase mb-6 border border-gold-400/30 rounded-full px-4 py-1.5">
+          <i class="fa-solid fa-location-dot text-xs"></i>
+          Centro Histórico · Aranjuez
+        </span>
+        <h1 class="font-heading text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-6">
+          Tu Piel,<br/>
+          <span class="text-gold-400">Nuestra</span><br/>
+          Obra Maestra.
+        </h1>
+        <p class="text-ash-200 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+          Tatuajes custom, realismo fotográfico y fine line de precisión. Cada pieza es única, cada trazo es permanente. Diseñamos contigo desde cero.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contacto" class="group inline-flex items-center gap-3 bg-gold-400 hover:bg-gold-500 text-ash-900 font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-gold-400/30">
+            Reserva tu Consulta Gratis
+            <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+          <a href="#servicios" class="inline-flex items-center gap-3 border border-white/20 hover:border-gold-400/60 text-white px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/5">
+            Ver Trabajos
+          </a>
+        </div>
+        <div class="flex items-center gap-6 mt-12 pt-10 border-t border-white/10">
+          <div class="text-center">
+            <p class="font-heading text-white text-3xl">+800</p>
+            <p class="text-ash-400 text-xs mt-1 uppercase tracking-wider">Piezas Realizadas</p>
+          </div>
+          <div class="w-px h-10 bg-white/10"></div>
+          <div class="text-center">
+            <p class="font-heading text-white text-3xl">9 Años</p>
+            <p class="text-ash-400 text-xs mt-1 uppercase tracking-wider">De Experiencia</p>
+          </div>
+          <div class="w-px h-10 bg-white/10"></div>
+          <div class="text-center">
+            <p class="font-heading text-white text-3xl">100%</p>
+            <p class="text-ash-400 text-xs mt-1 uppercase tracking-wider">Diseño Propio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-8 right-10 hidden lg:flex flex-col items-center gap-2 text-ash-500">
+      <span class="text-xs font-mono tracking-widest rotate-90 origin-center">SCROLL</span>
+      <div class="w-px h-12 bg-gradient-to-b from-ash-500 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PAIN POINTS (PAS) — EXACTLY 3
+  ══════════════════════════════════════ -->
+  <section class="bg-ash-800 dark:bg-ash-900 py-24 px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-mono text-gold-400 text-xs tracking-[0.2em] uppercase">¿Te suena esto?</span>
+        <h2 class="font-heading text-white text-4xl md:text-5xl mt-3">El Problema que Nadie<br/>te Quiere Contar</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="group relative bg-ash-700/50 dark:bg-ash-800/60 border border-white/5 hover:border-gold-400/30 rounded-2xl p-8 transition-all duration-400 hover:-translate-y-1 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-gold-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-red-500/10 border border-red-500/20 mb-6 group-hover:bg-gold-400/10 group-hover:border-gold-400/30 transition-all duration-300">
+              <i class="fa-solid fa-clone text-red-400 group-hover:text-gold-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-heading text-white text-2xl mb-3">Diseños Genéricos y Copiados</h3>
+            <p class="text-ash-300 leading-relaxed">Buscas algo tuyo y te ofrecen flashs de catálogo que ya lleva tatuado medio barrio. Tu historia merece un diseño que nadie más tendrá.</p>
+          </div>
+        </div>
+        <div class="group relative bg-ash-700/50 dark:bg-ash-800/60 border border-white/5 hover:border-gold-400/30 rounded-2xl p-8 transition-all duration-400 hover:-translate-y-1 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-gold-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-red-500/10 border border-red-500/20 mb-6 group-hover:bg-gold-400/10 group-hover:border-gold-400/30 transition-all duration-300">
+              <i class="fa-solid fa-triangle-exclamation text-red-400 group-hover:text-gold-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-heading text-white text-2xl mb-3">Mala Técnica que Envejece Mal</h3>
+            <p class="text-ash-300 leading-relaxed">Un tatuaje mal ejecutado se expande, se borra o pierde definición en meses. Es para siempre, no puede ser un experimento mal pagado.</p>
+          </div>
+        </div>
+        <div class="group relative bg-ash-700/50 dark:bg-ash-800/60 border border-white/5 hover:border-gold-400/30 rounded-2xl p-8 transition-all duration-400 hover:-translate-y-1 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-gold-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-red-500/10 border border-red-500/20 mb-6 group-hover:bg-gold-400/10 group-hover:border-gold-400/30 transition-all duration-300">
+              <i class="fa-solid fa-user-slash text-red-400 group-hover:text-gold-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="font-heading text-white text-2xl mb-3">Sin Proceso, Sin Confianza</h3>
+            <p class="text-ash-300 leading-relaxed">Llegas a un estudio, te atiende alguien que no te escucha, te dan presupuesto en frío y te sientes un número. Eso aquí no existe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-ash-300 text-lg max-w-2xl mx-auto">En <span class="text-gold-400 font-semibold">Tinta Negra Studio</span> cada consulta parte de escucharte. Diseñamos juntos, explicamos cada paso y garantizamos resultados que duran décadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SERVICES BENTO — EXACTLY 3 CARDS
+  ══════════════════════════════════════ -->
+  <section id="servicios" class="bg-ash-50 dark:bg-ash-900 py-24 px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-4">
+        <div>
+          <span class="font-mono text-gold-500 text-xs tracking-[0.2em] uppercase">Lo que hacemos</span>
+          <h2 class="font-heading text-ash-900 dark:text-white text-4xl md:text-5xl mt-2">Nuestras<br/>Especialidades</h2>
+        </div>
+        <p class="text-ash-500 dark:text-ash-300 max-w-xs text-sm leading-relaxed">Tres disciplinas. Un solo estudio. Perfección en cada trazo sobre tu piel.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+
+        <!-- Card 1 — Large -->
+        <div class="group md:col-span-7 relative overflow-hidden rounded-3xl min-h-[480px] cursor-pointer">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+            style="background-image: url('https://images.pexels.com/photos/4123846/pexels-photo-4123846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'), url('https://placehold.co/800x600/1e150b/d4a853?text=Realismo');">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-ash-900 via-ash-900/40 to-transparent"></div>
+          <div class="relative z-10 h-full flex flex-col justify-end p-8">
+            <span class="inline-flex w-fit items-center gap-2 text-gold-400 font-mono text-xs tracking-[0.15em] uppercase border border-gold-400/30 rounded-full px-3 py-1 mb-4">
+              <i class="fa-solid fa-eye text-xs"></i> Especialidad #1
+            </span>
+            <h3 class="font-heading text-white text-4xl mb-3">Realismo Fotográfico</h3>
+            <p class="text-ash-200 text-sm leading-relaxed max-w-sm mb-5">Retratos, naturaleza, animales. Convertimos fotografías en piel con un nivel de detalle que desafía la realidad. Cada sesión, una obra.</p>
+            <a href="#contacto" class="inline-flex w-fit items-center gap-2 text-gold-400 font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+              Reservar sesión <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column right: 2 stacked cards -->
+        <div class="md:col-span-5 flex flex-col gap-5">
+
+          <!-- Card 2 -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[225px] cursor-pointer">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.pexels.com/photos/4125507/pexels-photo-4125507.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'), url('https://placehold.co/800x600/1e150b/d4a853?text=Fine+Line');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ash-900 via-ash-900/30 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-7">
+              <span class="inline-flex w-fit items-center gap-2 text-gold-400 font-mono text-xs tracking-[0.15em] uppercase border border-gold-400/30 rounded-full px-3 py-1 mb-3">
+                <i class="fa-solid fa-pen-nib text-xs"></i> Especialidad #2
+              </span>
+              <h3 class="font-heading text-white text-2xl mb-2">Fine Line</h3>
+              <p class="text-ash-300 text-sm leading-relaxed">Trazos milimétricos, elegancia pura. Minimalismo que impacta sin gritar.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="group relative overflow-hidden rounded-3xl min-h-[225px] cursor-pointer">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.pexels.com/photos/18168344/pexels-photo-18168344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'), url('https://placehold.co/800x600/1e150b/d4a853?text=Custom');">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ash-900 via-ash-900/30 to-transparent"></div>
+            <div class="relative z-10 h-full flex flex-col justify-end p-7">
+              <span class="inline-flex w-fit items-center gap-2 text-gold-400 font-mono text-xs tracking-[0.15em] uppercase border border-gold-400/30 rounded-full px-3 py-1 mb-3">
+                <i class="fa-solid fa-wand-magic-sparkles text-xs"></i> Especialidad #3
+              </span>
+              <h3 class="font-heading text-white text-2xl mb-2">Custom Design</h3>
+              <p class="text-ash-300 text-sm leading-relaxed">Partimos de tu idea, tu historia. El resultado: una pieza que existe solo en tu piel.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SOCIAL PROOF — INFINITE MARQUEE
+  ══════════════════════════════════════ -->
+  <section id="resenas" class="bg-ash-800 dark:bg-ash-950 py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-14 text-center">
+      <span class="font-mono text-gold-400 text-xs tracking-[0.2em] uppercase">Lo que dicen</span>
+      <h2 class="font-heading text-white text-4xl md:text-5xl mt-2">Clientes que Ya<br/>Llevan Nuestra Tinta</h2>
+      <div class="flex items-center justify-center gap-1 mt-4">
+        <i class="fa-solid fa-star text-gold-400 text-sm"></i>
+        <i class="fa-solid fa-star text-gold-400 text-sm"></i>
+        <i class="fa-solid fa-star text-gold-400 text-sm"></i>
+        <i class="fa-solid fa-star text-gold-400 text-sm"></i>
+        <i class="fa-solid fa-star text-gold-400 text-sm"></i>
+        <span class="text-ash-300 text-sm ml-2 font-mono">5.0 · +120 reseñas</span>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="flex overflow-hidden select-none" style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
+        <div class="marquee-track flex gap-5 whitespace-nowrap" style="animation: marquee 32s linear infinite;">
+          <!-- Set 1 -->
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"El retrato de mi abuela quedó increíble. Lloramos todos cuando lo vimos. Nivel de detalle brutal, no me lo creía."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">LM</div>
+              <div><p class="text-white text-xs font-semibold">Laura M.</p><p class="text-ash-400 text-xs">Tatuaje Realismo · Aranjuez</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Fine line en el antebrazo. Cinco años después sigue perfecto, no se ha expandido ni un milímetro. Eso lo dice todo."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">CR</div>
+              <div><p class="text-white text-xs font-semibold">Carlos R.</p><p class="text-ash-400 text-xs">Fine Line · Madrid</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Vine sin idea clara y salí con el diseño de mi vida. El proceso de consulta fue lo más honesto que he vivido en un estudio."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">SV</div>
+              <div><p class="text-white text-xs font-semibold">Sofía V.</p><p class="text-ash-400 text-xs">Custom · Toledo</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Limpieza y profesionalidad al máximo. El estudio transmite seriedad desde que entras. No cambiaré de sitio nunca."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">JP</div>
+              <div><p class="text-white text-xs font-semibold">Javier P.</p><p class="text-ash-400 text-xs">Realismo · Getafe</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Mi primer tatuaje y acerté. Me explicaron todo: cuidados, proceso, tiempo. Me fui con una pieza que supera mis expectativas."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">AM</div>
+              <div><p class="text-white text-xs font-semibold">Ana M.</p><p class="text-ash-400 text-xs">Fine Line · Aranjuez</p></div>
+            </div>
+          </div>
+          <!-- Set 2 (duplicate for seamless loop) -->
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"El retrato de mi abuela quedó increíble. Lloramos todos cuando lo vimos. Nivel de detalle brutal, no me lo creía."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">LM</div>
+              <div><p class="text-white text-xs font-semibold">Laura M.</p><p class="text-ash-400 text-xs">Tatuaje Realismo · Aranjuez</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Fine line en el antebrazo. Cinco años después sigue perfecto, no se ha expandido ni un milímetro. Eso lo dice todo."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">CR</div>
+              <div><p class="text-white text-xs font-semibold">Carlos R.</p><p class="text-ash-400 text-xs">Fine Line · Madrid</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Vine sin idea clara y salí con el diseño de mi vida. El proceso de consulta fue lo más honesto que he vivido en un estudio."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">SV</div>
+              <div><p class="text-white text-xs font-semibold">Sofía V.</p><p class="text-ash-400 text-xs">Custom · Toledo</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Limpieza y profesionalidad al máximo. El estudio transmite seriedad desde que entras. No cambiaré de sitio nunca."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">JP</div>
+              <div><p class="text-white text-xs font-semibold">Javier P.</p><p class="text-ash-400 text-xs">Realismo · Getafe</p></div>
+            </div>
+          </div>
+          <div class="inline-flex flex-col bg-ash-700/60 border border-white/5 rounded-2xl p-6 min-w-[300px] max-w-[300px] whitespace-normal align-top">
+            <div class="flex gap-1 mb-3">
+              <i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i>
+            </div>
+            <p class="text-ash-200 text-sm leading-relaxed mb-4">"Mi primer tatuaje y acerté. Me explicaron todo: cuidados, proceso, tiempo. Me fui con una pieza que supera mis expectativas."</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-8 h-8 rounded-full bg-gold-400/20 flex items-center justify-center text-gold-400 text-xs font-bold">AM</div>
+              <div><p class="text-white text-xs font-semibold">Ana M.</p><p class="text-ash-400 text-xs">Fine Line · Aranjuez</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FAQ — ALPINE ACCORDION (3–4 items)
+  ══════════════════════════════════════ -->
+  <section id="faq" class="bg-ash-50 dark:bg-ash-900 py-24 px-6 lg:px-10">
+    <div class="max-w-3xl mx-auto" x-data="{ active: null }">
+      <div class="text-center mb-14">
+        <span class="font-mono text-gold-500 text-xs tracking-[0.2em] uppercase">Preguntas Frecuentes</span>
+        <h2 class="font-heading text-ash-900 dark:text-white text-4xl md:text-5xl mt-2">Lo que Nos Preguntan<br/>Antes de Reservar</h2>
+      </div>
+      <div class="flex flex-col gap-3">
+
+        <div class="border border-ash-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-ash-800/50">
+          <button @click="active === 1 ? active = null : active = 1" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+            <span class="font-heading text-ash-800 dark:text-white text-lg group-hover:text-gold-500 transition-colors">¿Cómo es el proceso para conseguir mi tatuaje custom?</span>
+            <i :class="active === 1 ? 'fa-minus text-gold-400 rotate-0' : 'fa-plus text-ash-400'" class="fa-solid transition-all duration-300 text-sm flex-shrink-0 ml-4"></i>
+          </button>
+          <div class="accordion-body" :style="active === 1 ? 'max-height:400px; opacity:1;' : 'max-height:0; opacity:0;'">
+            <div class="px-7 pb-6 text-ash-500 dark:text-ash-300 text-sm leading-relaxed border-t border-ash-100 dark:border-white/5 pt-4">
+              Empezamos con una consulta gratuita (presencial o por WhatsApp) donde nos cuentas tu idea, zona del cuerpo y referencias. Nuestro artista prepara un boceto exclusivo para ti. Una vez aprobado, reservamos tu sesión con una señal. Sin boceto aprobado, no empezamos. Así garantizamos que el resultado te encante.
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-ash-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-ash-800/50">
+          <button @click="active === 2 ? active = null : active = 2" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+            <span class="font-heading text-ash-800 dark:text-white text-lg group-hover:text-gold-500 transition-colors">¿Cuánto cuesta un tatuaje de realismo o fine line?</span>
+            <i :class="active === 2 ? 'fa-minus text-gold-400' : 'fa-plus text-ash-400'" class="fa-solid transition-all duration-300 text-sm flex-shrink-0 ml-4"></i>
+          </button>
+          <div class="accordion-body" :style="active === 2 ? 'max-height:400px; opacity:1;' : 'max-height:0; opacity:0;'">
+            <div class="px-7 pb-6 text-ash-500 dark:text-ash-300 text-sm leading-relaxed border-t border-ash-100 dark:border-white/5 pt-4">
+              El precio depende del tamaño, detalle y tiempo estimado de sesión. Trabajamos por sesión (tarifa/hora) o precio cerrado para piezas definidas. Un fine line pequeño puede partir de 80€; un realismo de cuerpo completo requiere varias sesiones. En la consulta gratuita te damos presupuesto sin compromiso.
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-ash-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-ash-800/50">
+          <button @click="active === 3 ? active = null : active = 3" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+            <span class="font-heading text-ash-800 dark:text-white text-lg group-hover:text-gold-500 transition-colors">¿Cuánto tiempo tarda en cicatrizar y qué cuidados necesito?</span>
+            <i :class="active === 3 ? 'fa-minus text-gold-400' : 'fa-plus text-ash-400'" class="fa-solid transition-all duration-300 text-sm flex-shrink-0 ml-4"></i>
+          </button>
+          <div class="accordion-body" :style="active === 3 ? 'max-height:400px; opacity:1;' : 'max-height:0; opacity:0;'">
+            <div class="px-7 pb-6 text-ash-500 dark:text-ash-300 text-sm leading-relaxed border-t border-ash-100 dark:border-white/5 pt-4">
+              La cicatrización superficial toma entre 2 y 3 semanas. La piel profunda tarda hasta 3 meses. Te entregamos una guía de cuidados personalizada y hacemos seguimiento por WhatsApp. Usamos pigmentos de alta calidad y películas de curación de segunda piel para facilitar el proceso y proteger el resultado.
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-ash-200 dark:border-white/10 rounded-2xl overflow-hidden bg-white dark:bg-ash-800/50">
+          <button @click="active === 4 ? active = null : active = 4" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+            <span class="font-heading text-ash-800 dark:text-white text-lg group-hover:text-gold-500 transition-colors">¿Hacéis retoques y cubrís tatuajes antiguos?</span>
+            <i :class="active === 4 ? 'fa-minus text-gold-400' : 'fa-plus text-ash-400'" class="fa-solid transition-all duration-300 text-sm flex-shrink-0 ml-4"></i>
+          </button>
+          <div class="accordion-body" :style="active === 4 ? 'max-height:400px; opacity:1;' : 'max-height:0; opacity:0;'">
+            <div class="px-7 pb-6 text-ash-500 dark:text-ash-300 text-sm leading-relaxed border-t border-ash-100 dark:border-white/5 pt-4">
+              Sí. El retoque del tatuaje realizado en nuestro estudio es gratuito dentro del primer año. Para cover-ups (cubrir tatuajes existentes) hacemos un análisis previo en consulta para ver las posibilidades reales. Somos honestos: si no podemos garantizar el resultado, te lo decimos.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT / LEAD GEN FORM
+  ══════════════════════════════════════ -->
+  <section id="contacto" class="relative bg-ash-900 py-24 px-6 lg:px-10 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-gold-400/5 via-transparent to-transparent pointer-events-none"></div>
+    <div class="grain-overlay"></div>
+    <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 font-mono text-xs tracking-widest uppercase rounded-full px-4 py-1.5 mb-6">
+          <i class="fa-solid fa-fire-flame-curved animate-pulse"></i>
+          Agenda casi completa — Julio 2025
+        </span>
+        <h2 class="font-heading text-white text-4xl md:text-5xl mb-5">Solo Quedan<br/><span class="text-gold-400">3 Huecos</span><br/>Este Mes.</h2>
+        <p class="text-ash-300 text-base leading-relaxed mb-8 max-w-md">No es marketing. Trabajamos con agenda cerrada para garantizar dedicación total a cada pieza. Si quieres entrar en julio, escríbenos ahora. En agosto los precios suben un 15%.</p>
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-gold-400/10 border border-gold-400/20">
+              <i class="fa-solid fa-location-dot text-gold-400 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-white text-sm font-semibold">Dónde estamos</p>
+              <p class="text-ash-400 text-xs">C/ Real, 12 · Centro Histórico, Aranjuez · Madrid</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-gold-400/10 border border-gold-400/20">
+              <i class="fa-brands fa-instagram text-gold-400 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-white text-sm font-semibold">Instagram</p>
+              <p class="text-ash-400 text-xs">@tintanegrastudio · Portafolio actualizado semanalmente</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl bg-gold-400/10 border border-gold-400/20">
+              <i class="fa-solid fa-clock text-gold-400 text-sm"></i>
+            </div>
+            <div>
+              <p class="text-white text-sm font-semibold">Horario</p>
+              <p class="text-ash-400 text-xs">Lun–Sáb · 11:00 a 20:00 · Solo con cita previa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="bg-ash-800/60 backdrop-blur-sm border border-white/8 rounded-3xl p-8">
+          <h3 class="font-heading text-white text-2xl mb-1">Solicita tu Consulta Gratuita</h3>
+          <p class="text-ash-400 text-sm mb-7">Sin compromiso. Te respondemos en menos de 24h.</p>
+          <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 1500);" class="flex flex-col gap-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-ash-400 text-xs font-mono uppercase tracking-wider mb-1.5 block">Nombre</label>
+                <input type="text" placeholder="Tu nombre" required class="w-full bg-ash-700/50 border border-white/10 focus:border-gold-400/60 rounded-xl px-4 py-3 text-white text-sm placeholder-ash-500 outline-none transition-colors duration-200 focus:bg-ash-700/80" />
+              </div>
+              <div>
+                <label class="text-ash-400 text-xs font-mono uppercase tracking-wider mb-1.5 block">Teléfono / WhatsApp</label>
+                <input type="tel" placeholder="+34 600 000 000" required class="w-full bg-ash-700/50 border border-white/10 focus:border-gold-400/60 rounded-xl px-4 py-3 text-white text-sm placeholder-ash-500 outline-none transition-colors duration-200 focus:bg-ash-700/80" />
+              </div>
+            </div>
+            <div>
+              <label class="text-ash-400 text-xs font-mono uppercase tracking-wider mb-1.5 block">Estilo de Tatuaje</label>
+              <select required class="w-full bg-ash-700/50 border border-white/10 focus:border-gold-400/60 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors duration-200 focus:bg-ash-700/80 appearance-none">
+                <option value="" disabled selected class="text-ash-500">Selecciona un estilo</option>
+                <option class="bg-ash-800">Realismo Fotográfico</option>
+                <option class="bg-ash-800">Fine Line</option>
+                <option class="bg-ash-800">Custom / Diseño Propio</option>
+                <option class="bg-ash-800">No lo tengo claro aún</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-ash-400 text-xs font-mono uppercase tracking-wider mb-1.5 block">Cuéntanos tu idea</label>
+              <textarea rows="3" placeholder="Zona del cuerpo, tamaño aproximado, descripción de la idea o referencias..." required class="w-full bg-ash-700/50 border border-white/10 focus:border
