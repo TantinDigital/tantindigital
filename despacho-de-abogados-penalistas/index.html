@@ -1,0 +1,306 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Despacho Penal Valencia | Abogados Penalistas de Élite</title>
+<meta name="description" content="Despacho de abogados penalistas en Valencia. Defensa penal experta, discreta y efectiva. Consulta urgente disponible.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        gold: {
+          300: '#f0c96b',
+          400: '#e8b84b',
+          500: '#d4a017',
+          600: '#b8860b',
+          700: '#9a7209',
+        },
+        ink: {
+          900: '#0a0a0f',
+          800: '#111118',
+          700: '#1a1a24',
+          600: '#252533',
+        }
+      },
+      keyframes: {
+        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+        fadeInUp: 'fadeInUp 0.8s ease forwards',
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { font-family: 'Inter', sans-serif; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+  @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+  .animate-marquee { animation: marquee 30s linear infinite; }
+  .glass { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .text-gradient { background: linear-gradient(135deg, #d4a017 0%, #f0c96b 50%, #d4a017 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gold-border { border-image: linear-gradient(135deg, #d4a017, #f0c96b) 1; }
+  .hero-overlay { background: linear-gradient(135deg, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.75) 50%, rgba(10,10,15,0.88) 100%); }
+  .card-img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+  .group:hover .card-img { transform: scale(1.08); }
+  .scarcity-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .dark .dark-glass { background: rgba(17,17,24,0.85); }
+  .light-glass { background: rgba(255,255,255,0.88); }
+  input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 2px #d4a017; }
+</style>
+</head>
+<body class="bg-white dark:bg-ink-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/34600000000" target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-400 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/40">
+  <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+</a>
+
+<!-- NAVBAR -->
+<nav x-data="{ scrolled: false }" @scroll.window="scrolled = window.scrollY > 40" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500" :class="scrolled ? 'glass bg-ink-900/90 dark:bg-ink-900/95 shadow-2xl shadow-black/30 py-3' : 'bg-transparent py-5'">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-gold-500 to-gold-300 flex items-center justify-center">
+        <i class="fa-solid fa-scale-balanced text-ink-900 text-sm"></i>
+      </div>
+      <div>
+        <span class="font-serif font-bold text-white text-lg tracking-tight leading-none block">Lex Valencia</span>
+        <span class="text-gold-400 text-xs tracking-widest uppercase font-medium">Derecho Penal</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#servicios" class="text-gray-300 hover:text-gold-400 transition-colors duration-200 text-sm font-medium tracking-wide">Servicios</a>
+      <a href="#nosotros" class="text-gray-300 hover:text-gold-400 transition-colors duration-200 text-sm font-medium tracking-wide">El Despacho</a>
+      <a href="#faq" class="text-gray-300 hover:text-gold-400 transition-colors duration-200 text-sm font-medium tracking-wide">FAQ</a>
+      <a href="#contacto" class="text-gray-300 hover:text-gold-400 transition-colors duration-200 text-sm font-medium tracking-wide">Contacto</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button @click="darkMode = !darkMode" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-200">
+        <i x-show="!darkMode" class="fa-solid fa-moon text-gold-300 text-sm"></i>
+        <i x-show="darkMode" class="fa-solid fa-sun text-yellow-400 text-sm"></i>
+      </button>
+      <a href="#contacto" class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-gold-600 to-gold-400 text-ink-900 font-semibold text-sm px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:scale-105">
+        <i class="fa-solid fa-phone text-xs"></i> Consulta Urgente
+      </a>
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+        <i class="fa-solid fa-bars text-white text-sm"></i>
+      </button>
+    </div>
+  </div>
+  <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="md:hidden glass bg-ink-900/98 border-t border-gold-600/20 px-6 py-5 space-y-4">
+    <a href="#servicios" @click="mobileMenu=false" class="block text-gray-300 hover:text-gold-400 transition-colors py-1.5 text-sm font-medium">Servicios</a>
+    <a href="#nosotros" @click="mobileMenu=false" class="block text-gray-300 hover:text-gold-400 transition-colors py-1.5 text-sm font-medium">El Despacho</a>
+    <a href="#faq" @click="mobileMenu=false" class="block text-gray-300 hover:text-gold-400 transition-colors py-1.5 text-sm font-medium">FAQ</a>
+    <a href="#contacto" @click="mobileMenu=false" class="block w-full text-center bg-gradient-to-r from-gold-600 to-gold-400 text-ink-900 font-semibold text-sm px-5 py-3 rounded-full">Consulta Urgente</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.pexels.com/photos/5673483/pexels-photo-5673483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Despacho de Abogados Penalistas Valencia" class="w-full h-full object-cover object-center">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink-900/60 via-transparent to-ink-900/80"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-32">
+    <div class="inline-flex items-center gap-2 bg-gold-500/15 border border-gold-500/30 rounded-full px-5 py-2 mb-8">
+      <span class="w-2 h-2 rounded-full bg-gold-400 scarcity-pulse"></span>
+      <span class="text-gold-300 text-xs font-semibold tracking-widest uppercase">Despacho Penal · Valencia</span>
+    </div>
+    <h1 class="font-serif text-5xl md:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tight">
+      Tu libertad merece<br><span class="text-gradient">la mejor defensa.</span>
+    </h1>
+    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+      Cuando todo está en juego, necesitas abogados penalistas con décadas de experiencia real en los tribunales de Valencia. Resultados. No promesas.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#contacto" class="group inline-flex items-center gap-3 bg-gradient-to-r from-gold-600 to-gold-400 text-ink-900 font-bold px-8 py-4 rounded-full text-base hover:shadow-2xl hover:shadow-gold-500/40 transition-all duration-300 hover:scale-105">
+        <i class="fa-solid fa-shield-halved"></i>
+        Solicitar Defensa Urgente
+        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
+      </a>
+      <a href="tel:+34600000000" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 backdrop-blur-sm">
+        <i class="fa-solid fa-phone text-gold-400"></i>
+        +34 600 000 000
+      </a>
+    </div>
+    <div class="mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+      <div class="text-center">
+        <div class="font-serif text-3xl font-black text-gold-400">+20</div>
+        <div class="text-gray-400 text-xs mt-1 tracking-wide">Años de experiencia</div>
+      </div>
+      <div class="text-center border-x border-white/10">
+        <div class="font-serif text-3xl font-black text-gold-400">98%</div>
+        <div class="text-gray-400 text-xs mt-1 tracking-wide">Casos favorables</div>
+      </div>
+      <div class="text-center">
+        <div class="font-serif text-3xl font-black text-gold-400">+500</div>
+        <div class="text-gray-400 text-xs mt-1 tracking-wide">Clientes defendidos</div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <i class="fa-solid fa-chevron-down text-gold-400 text-lg"></i>
+  </div>
+</section>
+
+<!-- PAS: EL PROBLEMA -->
+<section id="nosotros" class="py-24 bg-ink-800 dark:bg-ink-900 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(212,160,23,0.07)_0%,_transparent_60%)]"></div>
+  <div class="max-w-6xl mx-auto px-6 relative">
+    <div class="text-center mb-16">
+      <span class="text-gold-400 text-xs font-semibold tracking-widest uppercase mb-4 block">El Problema</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
+        Cada hora sin un abogado experto<br><span class="text-gradient">es una hora que te cuesta cara.</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Estos son los errores fatales que destruyen casos penales antes de llegar a juicio.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="group relative bg-ink-700/50 dark:bg-ink-800/80 border border-red-900/30 hover:border-gold-500/40 rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-gold-500/10 group-hover:border-gold-500/30 transition-all duration-300">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 group-hover:text-gold-400 text-xl transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">Declaras sin asesoramiento</h3>
+        <p class="text-gray-400 leading-relaxed text-sm">Cada palabra que dices ante la policía o el juez sin un abogado presente puede ser utilizada en tu contra. Lo que parece inocente, en manos de la acusación, se convierte en evidencia.</p>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <span class="text-gold-400 text-xs font-semibold flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-red-400"></i> Error crítico más frecuente</span>
+        </div>
+      </div>
+      <div class="group relative bg-ink-700/50 dark:bg-ink-800/80 border border-red-900/30 hover:border-gold-500/40 rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-gold-500/10 group-hover:border-gold-500/30 transition-all duration-300">
+          <i class="fa-solid fa-user-slash text-red-400 group-hover:text-gold-400 text-xl transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">Confías en un abogado generalista</h3>
+        <p class="text-gray-400 leading-relaxed text-sm">El derecho penal es una especialidad de alta precisión. Un abogado sin experiencia penal específica no conoce los plazos, los recursos ni las estrategias que marcan la diferencia entre condena y absolución.</p>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <span class="text-gold-400 text-xs font-semibold flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-red-400"></i> Consecuencias irreversibles</span>
+        </div>
+      </div>
+      <div class="group relative bg-ink-700/50 dark:bg-ink-800/80 border border-red-900/30 hover:border-gold-500/40 rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="w-14 h-14 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-gold-500/10 group-hover:border-gold-500/30 transition-all duration-300">
+          <i class="fa-solid fa-clock text-red-400 group-hover:text-gold-400 text-xl transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-white mb-3">Actúas tarde, cuando ya es difícil revertir</h3>
+        <p class="text-gray-400 leading-relaxed text-sm">En el proceso penal, los primeros 72 horas son decisivas. Esperar "a ver cómo va" sin intervención letrada especializada permite que la acusación construya un relato que luego es casi imposible desmontar.</p>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <span class="text-gold-400 text-xs font-semibold flex items-center gap-2"><i class="fa-solid fa-circle-xmark text-red-400"></i> El tiempo juega en tu contra</span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 text-center">
+      <div class="inline-flex items-center gap-4 bg-gold-500/10 border border-gold-500/25 rounded-2xl px-8 py-5">
+        <i class="fa-solid fa-shield-halved text-gold-400 text-2xl"></i>
+        <p class="text-gray-300 text-sm font-medium">En <span class="text-gold-400 font-bold">Lex Valencia</span> intervenimos desde el primer minuto para proteger tus derechos y construir tu defensa con tiempo suficiente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS - BENTO GRID -->
+<section id="servicios" class="py-24 bg-gray-50 dark:bg-ink-800 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(212,160,23,0.05)_0%,_transparent_60%)]"></div>
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="text-center mb-16">
+      <span class="text-gold-500 text-xs font-semibold tracking-widest uppercase mb-4 block">Nuestras Especialidades</span>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+        Defensa penal de <span class="text-gradient">máximo nivel.</span>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto mt-4">Cada caso es único. Cada estrategia, diseñada a medida.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5 auto-rows-[300px]">
+      <!-- Card 1 - Large -->
+      <div class="group md:col-span-2 relative rounded-2xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="card-img absolute inset-0">
+          <img src="https://images.pexels.com/photos/48148/document-agreement-documents-sign-48148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Defensa en Instrucción" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8 z-10">
+          <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-3 py-1 mb-4">
+            <i class="fa-solid fa-gavel text-gold-400 text-xs"></i>
+            <span class="text-gold-300 text-xs font-semibold tracking-wider uppercase">Área Principal</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-2">Defensa en Instrucción y Juicio Oral</h3>
+          <p class="text-gray-300 text-sm leading-relaxed max-w-md">Representación completa desde la detención hasta la sentencia. Analizamos pruebas, interrogamos testigos y construimos una estrategia ganadora para la vista oral.</p>
+          <div class="mt-4 flex items-center gap-2 text-gold-400 text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+            <span>Más información</span><i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 - Small -->
+      <div class="group relative rounded-2xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="card-img absolute inset-0">
+          <img src="https://images.pexels.com/photos/8112112/pexels-photo-8112112.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Delitos Económicos" class="w-full h-full object-cover object-center">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6 z-10">
+          <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-3 py-1 mb-3">
+            <i class="fa-solid fa-briefcase text-gold-400 text-xs"></i>
+            <span class="text-gold-300 text-xs font-semibold tracking-wider uppercase">Especialidad</span>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white mb-2">Delitos Económicos y Fraude</h3>
+          <p class="text-gray-300 text-xs leading-relaxed">Estafas, blanqueo de capitales, delitos fiscales y societarios. Expertos en procedimientos complejos.</p>
+        </div>
+      </div>
+      <!-- Card 3 - Full Width -->
+      <div class="group md:col-span-3 relative rounded-2xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/40">
+        <div class="card-img absolute inset-0">
+          <img src="https://images.pexels.com/photos/159720/justice-law-case-hearing-159720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Recursos y Apelaciones" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8 z-10 flex flex-col md:flex-row md:items-end md:justify-between w-full gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-400/30 rounded-full px-3 py-1 mb-4">
+              <i class="fa-solid fa-file-contract text-gold-400 text-xs"></i>
+              <span class="text-gold-300 text-xs font-semibold tracking-wider uppercase">Alta complejidad</span>
+            </div>
+            <h3 class="font-serif text-2xl md:text-3xl font-bold text-white mb-2">Recursos, Apelaciones y Segunda Instancia</h3>
+            <p class="text-gray-300 text-sm leading-relaxed max-w-xl">Una sentencia condenatoria no es el final. Somos especialistas en impugnar resoluciones judiciales y conseguir revisiones que cambian el resultado. Tribunal Superior, Audiencia Provincial y Tribunal Supremo.</p>
+          </div>
+          <a href="#contacto" class="shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-gold-600 to-gold-400 text-ink-900 font-bold px-6 py-3 rounded-full text-sm hover:shadow-lg hover:shadow-gold-500/30 transition-all duration-300 hover:scale-105">
+            <i class="fa-solid fa-scale-balanced"></i> Analizar mi caso
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF: MARQUEE -->
+<section class="py-16 bg-ink-900 border-y border-gold-600/15 overflow-hidden">
+  <div class="text-center mb-10">
+    <span class="text-gold-400 text-xs font-semibold tracking-widest uppercase">Lo que dicen nuestros clientes</span>
+  </div>
+  <div class="flex overflow-hidden">
+    <div class="flex animate-marquee whitespace-nowrap gap-6 shrink-0">
+      <div class="inline-flex items-start gap-4 bg-ink-700/60 border border-gold-500/15 rounded-2xl px-7 py-5 min-w-[340px]">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-gold-500 to-gold-300 flex items-center justify-center font-serif font-bold text-ink-900 text-sm">M</div>
+        <div>
+          <div class="flex gap-0.5 mb-1"><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i><i class="fa-solid fa-star text-gold-400 text-xs"></i></div>
+          <p class="text-gray-300 text-sm leading-snug">"Gracias a su defensa, el juicio acabó en absolución. Profesionalidad y dedicación absolutas."</p>
+          <span class="text-gold-500 text-xs mt-1 block font-semibold">— Miguel A., Valencia</span>
+        </div>
+      </div>
+      <div class="inline-flex items-start gap-4 bg-ink-700/60 border border-gold-500/15 rounded-2xl px-7 py-5 min-w-[340px]">
+        <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-gold-500 to-gold-300 flex items-center justify-center font-serif font-bold text-ink-900 text-sm">C</div>
+        <div>
+          <div class="flex gap-0.
