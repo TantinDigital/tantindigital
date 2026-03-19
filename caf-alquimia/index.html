@@ -1,0 +1,257 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, menuOpen: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Alquimia — Especialidad & Tostado Artesanal | Aranjuez</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: { DEFAULT: '#3B1F0A', light: '#5C3317', dark: '#1E0D03' },
+        secondary: { DEFAULT: '#C47A2B', light: '#D9943F', dark: '#A85F1A' },
+        accent: { DEFAULT: '#E8C98A', light: '#F2DFB0', dark: '#C9A45A' },
+        cream: { DEFAULT: '#FAF3E0', dark: '#1A0F06' },
+        roast: { DEFAULT: '#6B3A2A', light: '#8B4E38' }
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        body: ['Lato', 'sans-serif']
+      },
+      keyframes: {
+        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+        shimmer: { '0%': { backgroundPosition: '-200% center' }, '100%': { backgroundPosition: '200% center' } }
+      },
+      animation: {
+        marquee: 'marquee 28s linear infinite',
+        fadeUp: 'fadeUp 0.8s ease forwards',
+        shimmer: 'shimmer 3s linear infinite'
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<style>
+  [x-cloak]{display:none!important}
+  body{font-family:'Lato',sans-serif}
+  .font-display{font-family:'Playfair Display',serif}
+  .hero-overlay{background:linear-gradient(135deg,rgba(30,13,3,0.82) 0%,rgba(59,31,10,0.55) 60%,rgba(196,122,43,0.18) 100%)}
+  .shimmer-text{background:linear-gradient(90deg,#C47A2B,#E8C98A,#C47A2B,#E8C98A);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+  .card-hover img{transition:transform .5s ease}
+  .card-hover:hover img{transform:scale(1.08)}
+  .marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+  .dark .bg-cream{background-color:#1A0F06}
+  .section-divider{width:60px;height:3px;background:linear-gradient(90deg,#C47A2B,#E8C98A);border-radius:2px}
+</style>
+</head>
+<body class="bg-cream dark:bg-primary-dark text-primary dark:text-accent-light transition-colors duration-300">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 bg-cream/90 dark:bg-primary/95 backdrop-blur-md border-b border-accent/20 dark:border-secondary/20">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#" class="font-display text-2xl font-black text-primary dark:text-accent shimmer-text tracking-wide">Café Alquimia</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#servicios" class="text-sm font-body text-roast dark:text-accent/80 hover:text-secondary dark:hover:text-accent transition-colors">Carta</a>
+      <a href="#nosotros" class="text-sm font-body text-roast dark:text-accent/80 hover:text-secondary dark:hover:text-accent transition-colors">Tostadería</a>
+      <a href="#testimonios" class="text-sm font-body text-roast dark:text-accent/80 hover:text-secondary dark:hover:text-accent transition-colors">Reseñas</a>
+      <a href="#contacto" class="bg-secondary text-cream text-sm font-bold px-5 py-2 rounded-full hover:bg-secondary-light transition-colors shadow-md">Visítanos</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button @click="darkMode = !darkMode" class="w-9 h-9 flex items-center justify-center rounded-full bg-accent/30 dark:bg-roast/40 text-primary dark:text-accent hover:bg-secondary/30 transition-colors">
+        <i x-show="!darkMode" class="fa-solid fa-moon text-sm"></i>
+        <i x-show="darkMode" class="fa-solid fa-sun text-sm"></i>
+      </button>
+      <button @click="menuOpen = !menuOpen" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-accent/30 dark:bg-roast/40 text-primary dark:text-accent">
+        <i class="fa-solid fa-bars text-sm"></i>
+      </button>
+    </div>
+  </div>
+  <div x-show="menuOpen" x-cloak @click.away="menuOpen=false" class="md:hidden bg-cream dark:bg-primary border-t border-accent/20 px-4 py-4 flex flex-col gap-3">
+    <a href="#servicios" @click="menuOpen=false" class="text-roast dark:text-accent/80 font-body text-sm py-1">Carta</a>
+    <a href="#nosotros" @click="menuOpen=false" class="text-roast dark:text-accent/80 font-body text-sm py-1">Tostadería</a>
+    <a href="#testimonios" @click="menuOpen=false" class="text-roast dark:text-accent/80 font-body text-sm py-1">Reseñas</a>
+    <a href="#contacto" @click="menuOpen=false" class="bg-secondary text-cream text-sm font-bold px-5 py-2 rounded-full text-center">Visítanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <img src="https://images.pexels.com/photos/28793165/pexels-photo-28793165.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café Alquimia Hero" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/3B1F0A/E8C98A?text=FOTO'">
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="relative z-10 text-center px-4 max-w-3xl mx-auto animate-fadeUp">
+    <span class="inline-block text-accent text-xs font-bold tracking-[0.3em] uppercase mb-4 border border-accent/40 px-4 py-1 rounded-full"><i class="fa-solid fa-fire-flame-curved mr-2"></i>Tostado Artesanal · Aranjuez</span>
+    <h1 class="font-display text-5xl md:text-7xl font-black text-white leading-tight mb-6">Donde el café<br><em class="shimmer-text not-italic">se transforma</em><br>en experiencia</h1>
+    <p class="text-cream/85 text-lg md:text-xl font-light mb-10 max-w-xl mx-auto">Granos de origen único, tostados con maestría en el corazón del Barrio Histórico de Aranjuez. Cada taza cuenta una historia.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#servicios" class="bg-secondary hover:bg-secondary-light text-white font-bold px-8 py-4 rounded-full text-sm tracking-wide transition-all shadow-2xl hover:shadow-secondary/40 hover:-translate-y-1 duration-300">Descubrir la Carta</a>
+      <a href="#contacto" class="border border-accent/60 text-accent hover:bg-accent/10 font-bold px-8 py-4 rounded-full text-sm tracking-wide transition-all duration-300">Reservar Mesa</a>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-accent/60 animate-bounce">
+    <i class="fa-solid fa-chevron-down text-xl"></i>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="bg-primary dark:bg-primary-dark border-y border-secondary/30 py-8">
+  <div class="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div><p class="font-display text-3xl font-black text-secondary">12+</p><p class="text-accent/70 text-xs tracking-widest uppercase mt-1">Orígenes de Café</p></div>
+    <div><p class="font-display text-3xl font-black text-secondary">5★</p><p class="text-accent/70 text-xs tracking-widest uppercase mt-1">Valoración Media</p></div>
+    <div><p class="font-display text-3xl font-black text-secondary">8</p><p class="text-accent/70 text-xs tracking-widest uppercase mt-1">Años Tostando</p></div>
+    <div><p class="font-display text-3xl font-black text-secondary">2k+</p><p class="text-accent/70 text-xs tracking-widest uppercase mt-1">Clientes Fieles</p></div>
+  </div>
+</section>
+
+<!-- PAS SECTION -->
+<section class="py-20 px-4 bg-cream dark:bg-primary-dark">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-secondary text-xs tracking-[0.3em] uppercase font-bold mb-3">¿Te suena familiar?</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-primary dark:text-accent">El café que tomas<br>merece más</h2>
+      <div class="section-divider mx-auto mt-5"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-roast/20 rounded-2xl p-7 border border-accent/20 dark:border-roast/30">
+        <div class="w-12 h-12 bg-secondary/15 rounded-xl flex items-center justify-center mb-5"><i class="fa-solid fa-mug-hot text-secondary text-xl"></i></div>
+        <h3 class="font-display font-bold text-lg text-primary dark:text-accent mb-2">Café Industrial, Sabor Plano</h3>
+        <p class="text-roast dark:text-accent/60 text-sm leading-relaxed">Capsulás genéricas, mezclas sin historia. Sabes que puede ser mucho mejor, pero no sabes dónde encontrarlo.</p>
+      </div>
+      <div class="bg-white dark:bg-roast/20 rounded-2xl p-7 border border-accent/20 dark:border-roast/30">
+        <div class="w-12 h-12 bg-secondary/15 rounded-xl flex items-center justify-center mb-5"><i class="fa-solid fa-magnifying-glass text-secondary text-xl"></i></div>
+        <h3 class="font-display font-bold text-lg text-primary dark:text-accent mb-2">Sin Guía en el Mundo Specialty</h3>
+        <p class="text-roast dark:text-accent/60 text-sm leading-relaxed">Demasiados términos, demasiadas opciones. Quieres explorar el café de especialidad pero no sabes por dónde empezar.</p>
+      </div>
+      <div class="bg-secondary/10 dark:bg-secondary/20 rounded-2xl p-7 border border-secondary/30 relative overflow-hidden">
+        <div class="absolute -top-3 -right-3 w-20 h-20 bg-secondary/20 rounded-full"></div>
+        <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mb-5"><i class="fa-solid fa-wand-magic-sparkles text-white text-xl"></i></div>
+        <h3 class="font-display font-bold text-lg text-primary dark:text-accent mb-2">Aquí está la solución</h3>
+        <p class="text-roast dark:text-accent/70 text-sm leading-relaxed">En Café Alquimia tostamos, explicamos y servimos. Un ritual completo desde la finca hasta tu taza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios" class="py-20 px-4 bg-primary/5 dark:bg-primary">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-secondary text-xs tracking-[0.3em] uppercase font-bold mb-3">Nuestra Carta</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-primary dark:text-accent">La Experiencia Alquimia</h2>
+      <div class="section-divider mx-auto mt-5"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="group card-hover bg-white dark:bg-roast/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-secondary/20 transition-all duration-500 hover:-translate-y-2 border border-accent/10">
+        <div class="h-56 overflow-hidden relative">
+          <img src="https://images.pexels.com/photos/4816435/pexels-photo-4816435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Espresso Bar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/3B1F0A/E8C98A?text=FOTO'">
+          <div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/5 transition-colors duration-500"></div>
+          <span class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">Más Popular</span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-cup-togo text-secondary group-hover:translate-x-1 transition-transform duration-300"></i><span class="text-xs text-roast dark:text-accent/60 tracking-widest uppercase">Espresso Bar</span></div>
+          <h3 class="font-display font-bold text-xl text-primary dark:text-accent mb-2">Cafés de Especialidad</h3>
+          <p class="text-roast dark:text-accent/60 text-sm leading-relaxed mb-5">Espresso, V60, AeroPress, Cold Brew. Cada método extrae lo mejor del grano. Elaborados por baristas certificados.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-display text-2xl font-black text-secondary">desde 2,80€</span>
+            <span class="text-secondary text-sm font-bold group-hover:translate-x-1 transition-transform duration-300">Ver todo <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="group card-hover bg-white dark:bg-roast/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-secondary/20 transition-all duration-500 hover:-translate-y-2 border border-accent/10 md:mt-8">
+        <div class="h-56 overflow-hidden relative">
+          <img src="https://images.pexels.com/photos/6661/coffee-drink-cafe-drinking-6661.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tostadería" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/3B1F0A/E8C98A?text=FOTO'">
+          <div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/5 transition-colors duration-500"></div>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-fire text-secondary group-hover:translate-x-1 transition-transform duration-300"></i><span class="text-xs text-roast dark:text-accent/60 tracking-widest uppercase">Tostadería</span></div>
+          <h3 class="font-display font-bold text-xl text-primary dark:text-accent mb-2">Café Tostado en Casa</h3>
+          <p class="text-roast dark:text-accent/60 text-sm leading-relaxed mb-5">Granos de origen único tostados semanalmente. Envío a domicilio o recogida en tienda. Siempre fresco, siempre único.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-display text-2xl font-black text-secondary">desde 14€ / 250g</span>
+            <span class="text-secondary text-sm font-bold group-hover:translate-x-1 transition-transform duration-300">Ver todo <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="group card-hover bg-white dark:bg-roast/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-secondary/20 transition-all duration-500 hover:-translate-y-2 border border-accent/10">
+        <div class="h-56 overflow-hidden relative">
+          <img src="https://images.pexels.com/photos/33417741/pexels-photo-33417741.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Catas y Talleres" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/3B1F0A/E8C98A?text=FOTO'">
+          <div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/5 transition-colors duration-500"></div>
+          <span class="absolute top-4 left-4 bg-primary text-accent text-xs font-bold px-3 py-1 rounded-full">Nuevo</span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-flask text-secondary group-hover:translate-x-1 transition-transform duration-300"></i><span class="text-xs text-roast dark:text-accent/60 tracking-widest uppercase">Catas & Talleres</span></div>
+          <h3 class="font-display font-bold text-xl text-primary dark:text-accent mb-2">La Alquimia del Café</h3>
+          <p class="text-roast dark:text-accent/60 text-sm leading-relaxed mb-5">Catas sensoriales, talleres de barismo y maridaje. Aprende a leer un café como un catador profesional.</p>
+          <div class="flex items-center justify-between">
+            <span class="font-display text-2xl font-black text-secondary">desde 25€ / pers.</span>
+            <span class="text-secondary text-sm font-bold group-hover:translate-x-1 transition-transform duration-300">Ver todo <i class="fa-solid fa-arrow-right ml-1"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="py-20 px-4 bg-primary dark:bg-primary-dark overflow-hidden">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div class="relative">
+      <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary/20 rounded-full blur-2xl"></div>
+      <div class="relative rounded-3xl overflow-hidden aspect-square max-w-md">
+        <img src="https://images.pexels.com/photos/4816435/pexels-photo-4816435.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tostadería Artesanal" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/3B1F0A/E8C98A?text=FOTO'">
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 bg-secondary/90 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-4">
+          <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-leaf text-secondary text-xl"></i></div>
+          <div><p class="text-white font-bold text-sm">100% Comercio Justo</p><p class="text-white/70 text-xs">Relación directa con productores</p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="text-secondary text-xs tracking-[0.3em] uppercase font-bold mb-4">Nuestra Historia</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-accent leading-tight mb-6">La magia está<br>en el origen</h2>
+      <div class="section-divider mb-8"></div>
+      <p class="text-accent/75 text-base leading-relaxed mb-6">Nacimos en 2016 con una obsesión: que el café dejara de ser un hábito y se convirtiera en un ritual. Viajamos, catamos y seleccionamos cada grano directamente con los productores.</p>
+      <p class="text-accent/75 text-base leading-relaxed mb-8">En nuestro tostador artesanal del Barrio Histórico de Aranjuez, transformamos granos verdes en experiencias únicas. Sin intermediarios, sin secretos, solo café honesto.</p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white/5 rounded-2xl p-5 border border-secondary/20"><i class="fa-solid fa-seedling text-secondary text-2xl mb-3"></i><p class="text-accent font-bold text-sm">Origen Trazable</p><p class="text-accent/50 text-xs mt-1">Sabemos exactamente de qué finca viene cada grano</p></div>
+        <div class="bg-white/5 rounded-2xl p-5 border border-secondary/20"><i class="fa-solid fa-award text-secondary text-2xl mb-3"></i><p class="text-accent font-bold text-sm">Certificados SCA</p><p class="text-accent/50 text-xs mt-1">Baristas y tostadores con formación internacional</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS MARQUEE -->
+<section id="testimonios" class="py-20 bg-cream dark:bg-primary-dark overflow-hidden">
+  <div class="text-center mb-12 px-4">
+    <p class="text-secondary text-xs tracking-[0.3em] uppercase font-bold mb-3">Lo que dicen</p>
+    <h2 class="font-display text-4xl md:text-5xl font-bold text-primary dark:text-accent">Reseñas Reales</h2>
+    <div class="section-divider mx-auto mt-5"></div>
+  </div>
+  <div class="relative overflow-hidden">
+    <div class="marquee-track gap-6 px-4">
+      <div class="flex-shrink-0 w-80 bg-white dark:bg-roast/20 rounded-2xl p-6 border border-accent/20 mx-3 shadow-md">
+        <div class="flex text-secondary gap-1 mb-3"><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i></div>
+        <p class="text-roast dark:text-accent/80 text-sm italic mb-4">"El mejor café que he tomado en años. El V60 de Etiopía es sublime. Y el ambiente del local, simplemente especial."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 bg-secondary/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-secondary text-sm"></i></div><div><p class="text-primary dark:text-accent font-bold text-sm">María G.</p><p class="text-roast/60 dark:text-accent/50 text-xs">Aranjuez</p></div></div>
+      </div>
+      <div class="flex-shrink-0 w-80 bg-secondary/10 dark:bg-secondary/20 rounded-2xl p-6 border border-secondary/30 mx-3 shadow-md">
+        <div class="flex text-secondary gap-1 mb-3"><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i></div>
+        <p class="text-roast dark:text-accent/80 text-sm italic mb-4">"Hice el taller de cata y fue una experiencia reveladora. Ahora nunca más podré volver al café de supermercado."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 bg-secondary/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-secondary text-sm"></i></div><div><p class="text-primary dark:text-accent font-bold text-sm">Carlos M.</p><p class="text-roast/60 dark:text-accent/50 text-xs">Madrid</p></div></div>
+      </div>
+      <div class="flex-shrink-0 w-80 bg-white dark:bg-roast/20 rounded-2xl p-6 border border-accent/20 mx-3 shadow-md">
+        <div class="flex text-secondary gap-1 mb-3"><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i></div>
+        <p class="text-roast dark:text-accent/80 text-sm italic mb-4">"Pido el café tostado mensualmente y me lo envían en 24h. Siempre fresco, siempre perfecto. Son unos maestros."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 bg-secondary/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-user text-secondary text-sm"></i></div><div><p class="text-primary dark:text-accent font-bold text-sm">Ana R.</p><p class="text-roast/60 dark:text-accent/50 text-xs">Toledo</p></div></div>
+      </div>
+      <div class="flex-shrink-0 w-80 bg-white dark:bg-roast/20 rounded-2xl p-6 border border-accent/20 mx-3 shadow-md">
+        <div class="flex text-secondary gap-1 mb-3"><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i></div>
+        <p class="text-roast dark:text-accent/80 text-sm italic mb-4">"Vine de viaje a Aranjuez y este lugar se convirtió en mi parada obligatoria cada mañana. El cortado de
