@@ -1,0 +1,310 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread Studio - Panadería Artesanal y Café Gourmet en Aranjuez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B6F47',
+                        secondary: '#D4A574',
+                        accent: '#2C1810',
+                        cream: '#F5F1E8',
+                        darkbg: '#0F0F0F'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Lora', 'serif']
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        }
+                    },
+                    animation: {
+                        marquee: 'marquee 30s linear infinite'
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
+    </style>
+</head>
+<body class="bg-cream dark:bg-darkbg text-accent dark:text-cream font-body transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white dark:bg-accent shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold font-display text-primary dark:text-secondary">
+                <i class="fas fa-bread-slice mr-2"></i>Bread Studio
+            </div>
+            <button @click="darkMode = !darkMode" class="p-2 rounded-lg bg-cream dark:bg-darkbg text-primary dark:text-secondary hover:bg-secondary dark:hover:bg-primary transition-colors duration-300">
+                <i x-show="!darkMode" class="fas fa-moon"></i>
+                <i x-show="darkMode" class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-primary via-secondary to-primary dark:from-accent dark:via-primary dark:to-accent relative overflow-hidden flex items-center">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-cream rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="fade-in-up">
+                <h1 class="text-5xl md:text-6xl font-display font-bold text-cream dark:text-cream mb-6 leading-tight">
+                    Panadería Artesanal en el Corazón de Aranjuez
+                </h1>
+                <p class="text-lg text-cream dark:text-cream/90 mb-8">
+                    Pan recién horneado cada mañana. Café gourmet a granel. Hecho con pasión, servido con calidez.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto" class="inline-block bg-cream dark:bg-cream text-primary font-semibold px-8 py-4 rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Reserva Hoy <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#servicios" class="inline-block border-2 border-cream text-cream font-semibold px-8 py-4 rounded-lg hover:bg-cream hover:text-primary transition-all duration-300">
+                        Conocer Más
+                    </a>
+                </div>
+            </div>
+            <div class="relative h-96 md:h-full rounded-2xl overflow-hidden shadow-2xl group">
+                <img src="https://images.pexels.com/photos/22863690/pexels-photo-22863690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Pan artesanal fresco" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-cream dark:bg-darkbg">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-5xl font-display font-bold text-center text-primary dark:text-secondary mb-16">
+                Nuestras Especialidades
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="group bg-white dark:bg-accent rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/30632198/pexels-photo-30632198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Pan Artesanal" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <i class="fas fa-wheat-awn text-secondary group-hover:text-primary transition-colors duration-300 text-3xl mb-3"></i>
+                        <h3 class="text-2xl font-display font-bold text-accent dark:text-cream mb-3">Pan Artesanal</h3>
+                        <p class="text-accent/70 dark:text-cream/70">
+                            Elaborado diariamente con ingredientes premium. Masa madre tradicional que dura generaciones.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group bg-white dark:bg-accent rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/3737655/pexels-photo-3737655.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café Gourmet" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <i class="fas fa-mug-hot text-secondary group-hover:text-primary transition-colors duration-300 text-3xl mb-3"></i>
+                        <h3 class="text-2xl font-display font-bold text-accent dark:text-cream mb-3">Café a Granel</h3>
+                        <p class="text-accent/70 dark:text-cream/70">
+                            Selección de cafés del mundo. Molido al momento o en grano. Sabor garantizado en cada taza.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group bg-white dark:bg-accent rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.pexels.com/photos/7658092/pexels-photo-7658092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Experiencia" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <i class="fas fa-handshake text-secondary group-hover:text-primary transition-colors duration-300 text-3xl mb-3"></i>
+                        <h3 class="text-2xl font-display font-bold text-accent dark:text-cream mb-3">Experiencia Local</h3>
+                        <p class="text-accent/70 dark:text-cream/70">
+                            Espacio acogedor en el corazón del Barrio Histórico. Perfecto para conexiones auténticas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Marquee -->
+    <section class="py-16 bg-gradient-to-r from-primary to-secondary dark:from-accent dark:to-primary overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 mb-8">
+            <h3 class="text-3xl font-display font-bold text-cream dark:text-cream text-center">
+                <i class="fas fa-star mr-2"></i>Amado por Nuestros Clientes
+            </h3>
+        </div>
+        <div class="relative flex overflow-hidden">
+            <div class="animate-marquee flex whitespace-nowrap gap-8">
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">María García</div>
+                    <p class="text-accent dark:text-cream text-sm">El mejor pan de Aranjuez. Recomendado 100%.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Juan López</div>
+                    <p class="text-accent dark:text-cream text-sm">El café aquí es extraordinario. Vuelvo cada día.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Isabel Martínez</div>
+                    <p class="text-accent dark:text-cream text-sm">Ambiente acogedor, productos frescos. Perfecto.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Carlos Díaz</div>
+                    <p class="text-accent dark:text-cream text-sm">Artesanía y pasión en cada producto.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+            <div class="animate-marquee flex whitespace-nowrap gap-8 absolute top-0 left-full">
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">María García</div>
+                    <p class="text-accent dark:text-cream text-sm">El mejor pan de Aranjuez. Recomendado 100%.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Juan López</div>
+                    <p class="text-accent dark:text-cream text-sm">El café aquí es extraordinario. Vuelvo cada día.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Isabel Martínez</div>
+                    <p class="text-accent dark:text-cream text-sm">Ambiente acogedor, productos frescos. Perfecto.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <div class="flex-shrink-0 bg-cream dark:bg-darkbg rounded-lg p-6 shadow-lg min-w-max">
+                    <div class="text-primary dark:text-secondary font-display font-bold mb-2">Carlos Díaz</div>
+                    <p class="text-accent dark:text-cream text-sm">Artesanía y pasión en cada producto.</p>
+                    <div class="text-secondary mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary dark:bg-accent relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%27 height=%2720%27 viewBox=%270 0 20 20%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27%23fff%27 fill-opacity=%270.1%27%3E%3Ccircle cx=%272%27 cy=%272%27 r=%271%27/%3E%3Ccircle cx=%2712%27 cy=%272%27 r=%271%27/%3E%3Ccircle cx=%272%27 cy=%2712%27 r=%271%27/%3E%3Ccircle cx=%2712%27 cy=%2712%27 r=%271%27/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-5xl font-display font-bold text-cream dark:text-cream mb-6">
+                ¿Listo para Probar la Diferencia?
+            </h2>
+            <p class="text-lg text-cream/90 dark:text-cream/80 mb-12">
+                Únete a cientos de clientes que han descubierto el auténtico sabor del pan artesanal y café premium en Aranjuez.
+            </p>
+            <a href="#contacto" class="inline-block bg-cream dark:bg-cream text-primary font-semibold px-10 py-5 rounded-lg text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                Contacta Hoy <i class="fas fa-phone ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-cream dark:bg-darkbg">
+        <div class="max-w-2xl mx-auto px-4">
+            <h2 class="text-4xl font-display font-bold text-center text-primary dark:text-secondary mb-12">
+                Ponte en Contacto
+            </h2>
+            <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => { status = 'success'; setTimeout(() => status = 'idle', 3000); }).catch(() => status = 'error');" class="bg-white dark:bg-accent rounded-2xl shadow-xl p-8 md:p-12 space-y-6">
+                
+                <div>
+                    <label class="block text-sm font-semibold text-primary dark:text-secondary mb-2">Nombre Completo</label>
+                    <input type="text" name="nombre" required class="w-full px-4 py-3 border-2 border-primary/20 dark:border-secondary/20 rounded-lg focus:outline-none focus:border-primary dark:focus:border-secondary transition-colors duration-300 bg-cream dark:bg-darkbg text-accent dark:text-cream" placeholder="Tu nombre">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-primary dark:text-secondary mb-2">Correo Electrónico</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 border-2 border-primary/20 dark:border-secondary/20 rounded-lg focus:outline-none focus:border-primary dark:focus:border-secondary transition-colors duration-300 bg-cream dark:bg-darkbg text-accent dark:text-cream" placeholder="tu@email.com">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-primary dark:text-secondary mb-2">Teléfono</label>
+                    <input type="tel" name="telefono" class="w-full px-4 py-3 border-2 border-primary/20 dark:border-secondary/20 rounded-lg focus:outline-none focus:border-primary dark:focus:border-secondary transition-colors duration-300 bg-cream dark:bg-darkbg text-accent dark:text-cream" placeholder="+34 XXX XXX XXX">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-primary dark:text-secondary mb-2">Mensaje</label>
+                    <textarea name="mensaje" rows="5" required class="w-full px-4 py-3 border-2 border-primary/20 dark:border-secondary/20 rounded-lg focus:outline-none focus:border-primary dark:focus:border-secondary transition-colors duration-300 bg-cream dark:bg-darkbg text-accent dark:text-cream" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                </div>
+
+                <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-xl disabled:opacity-50 text-cream font-bold py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                    <span x-show="status === 'idle'"><i class="fas fa-paper-plane mr-2"></i>Enviar Consulta</span>
+                    <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...</span>
+                </button>
+
+                <div x-show="status === 'success'" x-cloak class="bg-green-100 dark:bg-green-900/30 border-2 border-green-500 text-green-700 dark:text-green-300 p-4 rounded-lg text-center font-semibold">
+                    <i class="fas fa-check-circle mr-2"></i>¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+                </div>
+            </form>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-primary dark:text-secondary mb-4"></i>
+                    <h3 class="font-bold text-primary dark:text-secondary mb-2">Ubicación</h3>
+                    <p class="text-accent/70 dark:text-cream/70">Barrio Histórico, Aranjuez</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-phone text-3xl text-primary dark:text-secondary mb-4"></i>
+                    <h3 class="font-bold text-primary dark:text-secondary mb-2">Teléfono</h3>
+                    <p class="text-accent/70 dark:text-cream/70">+34 XXX XXX XXX</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-clock text-3xl text-primary dark:text-secondary mb-4"></i>
+                    <h3 class="font-bold text-primary dark:text-secondary mb-2">Horario</h3>
+                    <p class="text-accent/70 dark:text-cream/70">Lunes a Domingo 7:00 - 20:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-accent dark:bg-primary text-cream py-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-lg font-display font-bold">
+                <i class="fas fa-bread-slice mr-2"></i>Bread Studio © 2024
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-secondary transition-colors duration-300"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-secondary transition-colors duration-300"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="hover:text-secondary transition-colors duration-300"><i class="fab fa-twitter text-2xl"></i></a>
+            </div>
+            <p class="text-cream/70 dark:text-cream/60">Hecho con <i class="fas fa-heart text-secondary"></i> en Aranjuez</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 z-40">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773993873746;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
