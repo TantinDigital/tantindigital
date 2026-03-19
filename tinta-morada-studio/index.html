@@ -1,0 +1,255 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tinta Morada Studio | Tatuaje Custom, Realismo & Fine Line · Aranjuez</title>
+<meta name="description" content="Estudio de tatuaje custom en el Centro Histórico de Aranjuez. Especialistas en realismo, fine line y diseños únicos. Agenda tu consulta gratuita hoy."/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        ink: { 50:'#f5f3ff', 100:'#ede9fe', 200:'#ddd6fe', 300:'#c4b5fd', 400:'#a78bfa', 500:'#8b5cf6', 600:'#7c3aed', 700:'#6d28d9', 800:'#5b21b6', 900:'#4c1d95', 950:'#1e0a3c' },
+        obsidian: '#0d0d14',
+        cream: '#f8f5f0',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['"Inter"', 'sans-serif'],
+      },
+      keyframes: {
+        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+        fadeUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+      },
+      animation: {
+        marquee: 'marquee 28s linear infinite',
+        fadeUp: 'fadeUp 0.7s ease forwards',
+      },
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>[x-cloak]{display:none!important}</style>
+</head>
+<body class="font-body bg-cream text-obsidian dark:bg-obsidian dark:text-ink-100 transition-colors duration-500 overflow-x-hidden">
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-obsidian/80 border-b border-ink-100/30 dark:border-ink-800/40">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="font-display text-xl font-black tracking-tight text-ink-700 dark:text-ink-300">
+      <span class="text-ink-600">✦</span> Tinta Morada
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-obsidian/70 dark:text-ink-300">
+      <a href="#servicios" class="hover:text-ink-600 dark:hover:text-ink-400 transition-colors">Servicios</a>
+      <a href="#testimonios" class="hover:text-ink-600 dark:hover:text-ink-400 transition-colors">Clientes</a>
+      <a href="#faq" class="hover:text-ink-600 dark:hover:text-ink-400 transition-colors">FAQ</a>
+      <a href="#contacto" class="bg-ink-700 text-white px-5 py-2 rounded-full text-sm hover:bg-ink-600 transition-colors">Reservar cita</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button @click="darkMode = !darkMode" class="w-9 h-9 rounded-full flex items-center justify-center bg-ink-100 dark:bg-ink-800 text-ink-700 dark:text-ink-300 hover:bg-ink-200 dark:hover:bg-ink-700 transition-all">
+        <i x-show="!darkMode" class="fa-solid fa-moon text-sm"></i>
+        <i x-show="darkMode" class="fa-solid fa-sun text-sm"></i>
+      </button>
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden w-9 h-9 flex items-center justify-center text-obsidian dark:text-ink-300">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+  <div x-show="mobileMenu" x-cloak class="md:hidden px-6 pb-5 flex flex-col gap-4 text-sm font-medium bg-white/95 dark:bg-obsidian/95">
+    <a href="#servicios" @click="mobileMenu=false" class="py-2 border-b border-ink-100 dark:border-ink-800 text-obsidian/80 dark:text-ink-300">Servicios</a>
+    <a href="#testimonios" @click="mobileMenu=false" class="py-2 border-b border-ink-100 dark:border-ink-800 text-obsidian/80 dark:text-ink-300">Clientes</a>
+    <a href="#faq" @click="mobileMenu=false" class="py-2 border-b border-ink-100 dark:border-ink-800 text-obsidian/80 dark:text-ink-300">FAQ</a>
+    <a href="#contacto" @click="mobileMenu=false" class="bg-ink-700 text-white text-center py-3 rounded-full">Reservar cita</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.pexels.com/photos/6593369/pexels-photo-6593369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tatuaje realismo Aranjuez" class="w-full h-full object-cover object-center scale-105"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-obsidian/70 via-obsidian/50 to-obsidian/90"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-24 pb-16 text-center md:text-left">
+    <span class="inline-block mb-4 text-ink-400 text-xs font-semibold tracking-[0.25em] uppercase bg-ink-900/60 backdrop-blur-sm px-4 py-1.5 rounded-full border border-ink-700/50">
+      <i class="fa-solid fa-location-dot mr-1"></i> Centro Histórico · Aranjuez
+    </span>
+    <h1 class="font-display font-black text-white text-5xl md:text-7xl leading-[1.05] mb-6 animate-fadeUp">
+      Tu piel,<br/>
+      <em class="not-italic text-ink-400">obra única.</em>
+    </h1>
+    <p class="text-white/75 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-light">
+      Tatuajes custom, realismo fotográfico y fine line de autor. Cada diseño nace de tu historia, trazado con precisión milimétrica en el corazón de Aranjuez.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+      <a href="#contacto" class="group inline-flex items-center gap-2 bg-ink-600 hover:bg-ink-500 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-2xl shadow-ink-700/40 hover:shadow-ink-500/50 hover:-translate-y-0.5">
+        Reservar mi cita gratuita
+        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+      </a>
+      <a href="#servicios" class="inline-flex items-center gap-2 border border-white/30 backdrop-blur-sm text-white hover:bg-white/10 font-medium px-8 py-4 rounded-full transition-all duration-300">
+        Ver trabajos
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </div>
+    <div class="mt-14 flex items-center gap-6 justify-center md:justify-start">
+      <div class="flex -space-x-3">
+        <div class="w-10 h-10 rounded-full bg-ink-400 border-2 border-obsidian flex items-center justify-center text-white text-xs"><i class="fa-solid fa-user"></i></div>
+        <div class="w-10 h-10 rounded-full bg-ink-600 border-2 border-obsidian flex items-center justify-center text-white text-xs"><i class="fa-solid fa-user"></i></div>
+        <div class="w-10 h-10 rounded-full bg-ink-800 border-2 border-obsidian flex items-center justify-center text-white text-xs"><i class="fa-solid fa-user"></i></div>
+      </div>
+      <p class="text-white/70 text-sm">+340 tatuajes realizados · <span class="text-ink-400 font-semibold">4.9 <i class="fa-solid fa-star text-yellow-400 text-xs"></i></span> en Google</p>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/40 animate-bounce">
+    <i class="fa-solid fa-angles-down"></i>
+  </div>
+</section>
+
+<!-- ===================== PAIN POINTS (PAS) ===================== -->
+<section class="py-24 bg-cream dark:bg-obsidian">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-ink-600 dark:text-ink-400 text-xs font-semibold tracking-widest uppercase">El problema</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 text-obsidian dark:text-white leading-tight">
+        Mereces algo más<br/>que un tatuaje genérico.
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="group relative bg-white dark:bg-ink-950 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-ink-100/50 dark:border-ink-800/50 hover:-translate-y-2 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-ink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="w-12 h-12 rounded-2xl bg-ink-100 dark:bg-ink-900 flex items-center justify-center mb-5 group-hover:bg-ink-600 transition-colors duration-300">
+          <i class="fa-solid fa-clone text-ink-600 dark:text-ink-400 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3 text-obsidian dark:text-white">Diseños sin alma</h3>
+        <p class="text-obsidian/60 dark:text-ink-400 text-sm leading-relaxed">Catálogos copiados, flashs repetidos. Tu tatuaje debería ser tan único como tu historia personal, no el mismo que lleva otro.</p>
+      </div>
+      <div class="group relative bg-white dark:bg-ink-950 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-ink-100/50 dark:border-ink-800/50 hover:-translate-y-2 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-ink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="w-12 h-12 rounded-2xl bg-ink-100 dark:bg-ink-900 flex items-center justify-center mb-5 group-hover:bg-ink-600 transition-colors duration-300">
+          <i class="fa-solid fa-triangle-exclamation text-ink-600 dark:text-ink-400 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3 text-obsidian dark:text-white">Acabados que envejecen mal</h3>
+        <p class="text-obsidian/60 dark:text-ink-400 text-sm leading-relaxed">Líneas que se abren, sombras que se pierden al año. La técnica marca la diferencia entre arte duradero y un arrepentimiento.</p>
+      </div>
+      <div class="group relative bg-white dark:bg-ink-950 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-ink-100/50 dark:border-ink-800/50 hover:-translate-y-2 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-ink-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="w-12 h-12 rounded-2xl bg-ink-100 dark:bg-ink-900 flex items-center justify-center mb-5 group-hover:bg-ink-600 transition-colors duration-300">
+          <i class="fa-solid fa-shield-halved text-ink-600 dark:text-ink-400 group-hover:text-white transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-3 text-obsidian dark:text-white">Entornos sin garantías</h3>
+        <p class="text-obsidian/60 dark:text-ink-400 text-sm leading-relaxed">Estudios sin protocolos de higiene ni asesoramiento post-tatuaje. Tu seguridad y la calidad del resultado no son negociables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES BENTO ===================== -->
+<section id="servicios" class="py-24 bg-ink-950 dark:bg-black">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-ink-400 text-xs font-semibold tracking-widest uppercase">Especialidades</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-3 text-white leading-tight">
+        Arte en tres dimensiones
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+
+      <!-- Card 1 - Wide -->
+      <div class="group md:col-span-2 relative rounded-3xl overflow-hidden h-80 md:h-96 cursor-pointer">
+        <img src="https://images.pexels.com/photos/6593371/pexels-photo-6593371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tatuaje Custom Aranjuez" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/30 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-ink-950/50 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8">
+          <span class="text-ink-400 text-xs font-semibold tracking-widest uppercase">01</span>
+          <h3 class="font-display text-3xl font-bold text-white mt-1 mb-2">Tatuaje Custom</h3>
+          <p class="text-white/65 text-sm max-w-xs leading-relaxed">Diseñamos contigo, desde cero. Tu concepto se convierte en un arte exclusivo que nadie más llevará.</p>
+          <span class="inline-flex items-center gap-2 mt-4 text-ink-400 text-sm font-medium group-hover:text-ink-300 transition-colors">
+            Explorar <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 2 - Tall -->
+      <div class="group relative rounded-3xl overflow-hidden h-80 md:h-96 cursor-pointer">
+        <img src="https://images.pexels.com/photos/1050312/pexels-photo-1050312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tatuaje Realismo Aranjuez" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-7">
+          <span class="text-ink-400 text-xs font-semibold tracking-widest uppercase">02</span>
+          <h3 class="font-display text-2xl font-bold text-white mt-1 mb-2">Realismo</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Retratos, naturaleza, texturas. Fotografía permanente sobre tu piel.</p>
+          <span class="inline-flex items-center gap-2 mt-3 text-ink-400 text-sm font-medium">
+            Explorar <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 3 - Full Width -->
+      <div class="group md:col-span-3 relative rounded-3xl overflow-hidden h-72 cursor-pointer">
+        <img src="https://images.pexels.com/photos/6593422/pexels-photo-6593422.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fine Line Aranjuez" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/50 to-obsidian/20"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="p-10 max-w-lg">
+            <span class="text-ink-400 text-xs font-semibold tracking-widest uppercase">03</span>
+            <h3 class="font-display text-3xl md:text-4xl font-bold text-white mt-1 mb-3">Fine Line</h3>
+            <p class="text-white/65 text-sm md:text-base leading-relaxed">Elegancia en su forma más depurada. Líneas finas como hilos de seda que definen sin estridencias.</p>
+            <span class="inline-flex items-center gap-2 mt-5 text-ink-400 font-medium group-hover:text-ink-300 transition-colors">
+              Explorar <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOCIAL PROOF MARQUEE ===================== -->
+<section id="testimonios" class="py-20 bg-cream dark:bg-obsidian overflow-hidden">
+  <div class="max-w-5xl mx-auto px-6 mb-12 text-center">
+    <span class="text-ink-600 dark:text-ink-400 text-xs font-semibold tracking-widest uppercase">Testimonios</span>
+    <h2 class="font-display text-4xl font-bold mt-3 text-obsidian dark:text-white">Lo que dicen quienes nos eligieron</h2>
+  </div>
+  <div class="relative w-full overflow-hidden">
+    <div class="flex animate-marquee whitespace-nowrap gap-6 w-max">
+      <!-- 4 reviews duplicados para efecto infinito -->
+      <div class="inline-flex flex-col bg-white dark:bg-ink-950 rounded-2xl p-6 w-72 border border-ink-100/50 dark:border-ink-800/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-obsidian/80 dark:text-ink-300 text-sm leading-relaxed">"El detalle del realismo que me hicieron es increíble. Llevo el retrato de mi abuela y cada vez que lo veo me emociona. Profesionalidad total."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-200 dark:bg-ink-800 flex items-center justify-center"><i class="fa-solid fa-user text-ink-500 text-xs"></i></div><div><p class="text-sm font-semibold text-obsidian dark:text-white">Laura M.</p><p class="text-xs text-obsidian/50 dark:text-ink-500">Google ✓</p></div></div>
+      </div>
+      <div class="inline-flex flex-col bg-white dark:bg-ink-950 rounded-2xl p-6 w-72 border border-ink-100/50 dark:border-ink-800/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-obsidian/80 dark:text-ink-300 text-sm leading-relaxed">"Me asesoraron en el diseño custom desde el principio. El resultado superó todo lo que imaginé. El estudio es limpio, tranquilo y acogedor."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-200 dark:bg-ink-800 flex items-center justify-center"><i class="fa-solid fa-user text-ink-500 text-xs"></i></div><div><p class="text-sm font-semibold text-obsidian dark:text-white">Carlos R.</p><p class="text-xs text-obsidian/50 dark:text-ink-500">Google ✓</p></div></div>
+      </div>
+      <div class="inline-flex flex-col bg-ink-700 rounded-2xl p-6 w-72 border border-ink-600/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-white/90 text-sm leading-relaxed">"Fine line minimalista en la muñeca. Líneas perfectas, sin dolor excesivo y cicatrización ideal. Volvería sin dudarlo para el próximo."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-500 flex items-center justify-center"><i class="fa-solid fa-user text-white text-xs"></i></div><div><p class="text-sm font-semibold text-white">Sofía P.</p><p class="text-xs text-ink-300">Instagram ✓</p></div></div>
+      </div>
+      <div class="inline-flex flex-col bg-white dark:bg-ink-950 rounded-2xl p-6 w-72 border border-ink-100/50 dark:border-ink-800/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-obsidian/80 dark:text-ink-300 text-sm leading-relaxed">"Vine desde Madrid a tatuar aquí. Vale la pena el viaje. Artistas de otro nivel y un trato cercano que no encuentras en estudios grandes."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-200 dark:bg-ink-800 flex items-center justify-center"><i class="fa-solid fa-user text-ink-500 text-xs"></i></div><div><p class="text-sm font-semibold text-obsidian dark:text-white">Iván T.</p><p class="text-xs text-obsidian/50 dark:text-ink-500">Google ✓</p></div></div>
+      </div>
+      <!-- DUPLICADO -->
+      <div class="inline-flex flex-col bg-white dark:bg-ink-950 rounded-2xl p-6 w-72 border border-ink-100/50 dark:border-ink-800/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-obsidian/80 dark:text-ink-300 text-sm leading-relaxed">"El detalle del realismo que me hicieron es increíble. Llevo el retrato de mi abuela y cada vez que lo veo me emociona. Profesionalidad total."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-200 dark:bg-ink-800 flex items-center justify-center"><i class="fa-solid fa-user text-ink-500 text-xs"></i></div><div><p class="text-sm font-semibold text-obsidian dark:text-white">Laura M.</p><p class="text-xs text-obsidian/50 dark:text-ink-500">Google ✓</p></div></div>
+      </div>
+      <div class="inline-flex flex-col bg-white dark:bg-ink-950 rounded-2xl p-6 w-72 border border-ink-100/50 dark:border-ink-800/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-obsidian/80 dark:text-ink-300 text-sm leading-relaxed">"Me asesoraron en el diseño custom desde el principio. El resultado superó todo lo que imaginé. El estudio es limpio, tranquilo y acogedor."</p>
+        <div class="mt-4 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-ink-200 dark:bg-ink-800 flex items-center justify-center"><i class="fa-solid fa-user text-ink-500 text-xs"></i></div><div><p class="text-sm font-semibold text-obsidian dark:text-white">Carlos R.</p><p class="text-xs text-obsidian/50 dark:text-ink-500">Google ✓</p></div></div>
+      </div>
+      <div class="inline-flex flex-col bg-ink-700 rounded-2xl p-6 w-72 border border-ink-600/50 shadow-sm whitespace-normal flex-shrink-0">
+        <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class
