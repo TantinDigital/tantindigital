@@ -1,0 +1,382 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: true, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cielos Estrellados | Escapadas Rurales de Lujo en Talavera de la Reina</title>
+    <meta name="description" content="Reconecta con la naturaleza bajo el firmamento más puro de Talavera. Glamping exclusivo, astronomía y experiencias rurales inolvidables.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e', 950: '#082f49' },
+                        gold: '#D4AF37',
+                        night: '#050b18'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .dark .glass { background: rgba(0, 0, 0, 0.2); border-color: rgba(255, 255, 255, 0.05); }
+        .text-gradient { background: linear-gradient(to right, #D4AF37, #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-night text-slate-900 dark:text-slate-100 font-sans transition-colors duration-500">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 top-0 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-full px-8 py-3 shadow-2xl">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-moon text-gold text-2xl animate-pulse"></i>
+                <span class="font-serif font-bold text-xl tracking-tighter uppercase">Cielos <span class="text-gold">Estrellados</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm tracking-widest uppercase">
+                <a href="#experiencias" class="hover:text-gold transition-colors">Experiencias</a>
+                <a href="#ventajas" class="hover:text-gold transition-colors">Ventajas</a>
+                <a href="#faq" class="hover:text-gold transition-colors">FAQ</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                    <i x-show="!darkMode" class="fa-solid fa-moon"></i>
+                    <i x-show="darkMode" class="fa-solid fa-sun text-yellow-400"></i>
+                </button>
+                <a href="#contacto" class="bg-gold hover:bg-yellow-600 text-night px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95">
+                    RESERVAR AHORA
+                </a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden absolute top-20 left-6 right-6 glass rounded-2xl p-6 flex flex-col gap-4 text-center">
+            <a href="#experiencias" @click="mobileMenu = false">Experiencias</a>
+            <a href="#ventajas" @click="mobileMenu = false">Ventajas</a>
+            <a href="#contacto" @click="mobileMenu = false" class="text-gold">Reservar</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/36289316/pexels-photo-36289316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                 alt="Cielo estrellado Talavera" class="w-full h-full object-cover scale-110">
+            <div class="absolute inset-0 bg-gradient-to-b from-night/40 via-night/60 to-night"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-20">
+            <span class="inline-block py-1 px-4 rounded-full border border-gold/30 text-gold text-xs font-bold tracking-[0.3em] uppercase mb-6 bg-gold/10 backdrop-blur-md">
+                Talavera de la Reina
+            </span>
+            <h1 class="font-serif text-5xl md:text-8xl lg:text-9xl font-black mb-8 leading-none tracking-tighter text-white">
+                Duerme Bajo <br> <span class="text-gradient">El Universo</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                Escapa del ruido y reconecta con lo esencial. Una experiencia de lujo rústico diseñada para quienes buscan el silencio de las estrellas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#contacto" class="w-full sm:w-auto px-10 py-5 bg-white text-night font-black rounded-xl hover:bg-gold hover:text-night transition-all duration-300 shadow-[0_0_50px_rgba(255,255,255,0.2)]">
+                    EXPLORAR DESTINOS
+                </a>
+                <a href="#experiencias" class="w-full sm:w-auto px-10 py-5 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all">
+                    VER VIDEO <i class="fa-solid fa-play ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS (PAS) -->
+    <section id="ventajas" class="py-24 px-6 bg-slate-100 dark:bg-night relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+            <!-- Point 1 -->
+            <div class="group p-10 rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="w-16 h-16 bg-red-100 dark:bg-red-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-bolt-lightning text-red-600 dark:text-red-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-bold mb-4">Agotamiento Mental</h3>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    El ritmo frenético de la ciudad consume tu energía. Necesitas un respiro real donde el único reloj sea el movimiento de los astros.
+                </p>
+            </div>
+            <!-- Point 2 -->
+            <div class="group p-10 rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-500/20 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-city text-blue-600 dark:text-blue-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-bold mb-4">Contaminación Lumínica</h3>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    ¿Cuándo fue la última vez que viste la Vía Láctea? En Talavera, el cielo recupera su oscuridad más profunda y pura.
+                </p>
+            </div>
+            <!-- Point 3 -->
+            <div class="group p-10 rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:shadow-2xl transition-all duration-500 hover:-translate-y-4">
+                <div class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-heart-crack text-gold text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-bold mb-4">Falta de Conexión</h3>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Las pantallas nos alejan de quienes amamos. Recupera el tiempo de calidad en un entorno diseñado para la conversación y el asombro.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (BENTO GRID) -->
+    <section id="experiencias" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="max-w-2xl">
+                <h2 class="text-gold font-bold tracking-[.3em] uppercase text-sm mb-4">Nuestras Experiencias</h2>
+                <h3 class="text-4xl md:text-6xl font-serif font-black">Diseñadas para el <span class="italic font-light">Asombro</span></h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 max-w-sm">
+                Cada detalle ha sido cuidado para garantizar una inmersión total en la naturaleza sin renunciar al confort.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[700px]">
+            <!-- Service 1: Large Asymmetric Card -->
+            <div class="md:col-span-8 group relative overflow-hidden rounded-[2.5rem] bg-slate-800">
+                <img src="https://images.pexels.com/photos/4573089/pexels-photo-4573089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Glamping de Lujo">
+                <div class="absolute inset-0 bg-gradient-to-t from-night via-night/20 to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 p-10">
+                    <span class="text-gold font-bold uppercase text-xs tracking-widest mb-2 block">Premium Stay</span>
+                    <h4 class="text-4xl font-serif font-bold text-white mb-4">Glamping Estelar</h4>
+                    <p class="text-slate-200 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        Domos geodésicos con techo panorámico para dormir mirando las constelaciones con climatización total.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 2: Top Right -->
+            <div class="md:col-span-4 group relative overflow-hidden rounded-[2.5rem] bg-slate-800">
+                <img src="https://images.pexels.com/photos/6271472/pexels-photo-6271472.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Astronomía">
+                <div class="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 p-8">
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">Safari Nocturno</h4>
+                    <p class="text-slate-300 text-sm">Observación guiada con telescopios de alta gama.</p>
+                </div>
+            </div>
+
+            <!-- Service 3: Bottom Right (Nested feel) -->
+            <div class="md:col-span-4 group relative overflow-hidden rounded-[2.5rem] bg-slate-800">
+                <img src="https://images.pexels.com/photos/6269064/pexels-photo-6269064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Cenas románticas">
+                <div class="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 p-8">
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">Gastronomía KM.0</h4>
+                    <p class="text-slate-300 text-sm">Cenas privadas bajo las encinas con productos locales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF (INFINITE MARQUEE) -->
+    <section class="py-20 bg-slate-200 dark:bg-white/5 border-y border-slate-300 dark:border-white/10 overflow-hidden">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <!-- Items repeated for smooth loop -->
+            <div class="flex items-center gap-20 px-10">
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Mágico y sanador"</span>
+                    <span class="text-gold font-bold">— Elena G.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Las mejores estrellas de España"</span>
+                    <span class="text-gold font-bold">— Marcos R.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Desconexión absoluta"</span>
+                    <span class="text-gold font-bold">— Lucía M.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"El regalo perfecto"</span>
+                    <span class="text-gold font-bold">— David T.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Inolvidable experiencia"</span>
+                    <span class="text-gold font-bold">— Sara P.</span>
+                </div>
+            </div>
+            <!-- Duplicate for animation loop -->
+            <div class="flex items-center gap-20 px-10">
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Mágico y sanador"</span>
+                    <span class="text-gold font-bold">— Elena G.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Las mejores estrellas de España"</span>
+                    <span class="text-gold font-bold">— Marcos R.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Desconexión absoluta"</span>
+                    <span class="text-gold font-bold">— Lucía M.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"El regalo perfecto"</span>
+                    <span class="text-gold font-bold">— David T.</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-serif italic text-slate-400">"Inolvidable experiencia"</span>
+                    <span class="text-gold font-bold">— Sara P.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION (ALPINE JS) -->
+    <section id="faq" class="py-24 px-6 max-w-4xl mx-auto" x-data="{ active: 1 }">
+        <h3 class="text-4xl font-serif font-bold text-center mb-16">Preguntas <span class="text-gold">Frecuentes</span></h3>
+        
+        <div class="space-y-4">
+            <!-- Q1 -->
+            <div class="border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden">
+                <button @click="active = active === 1 ? null : 1" class="w-full p-6 text-left flex justify-between items-center glass">
+                    <span class="font-bold">¿Qué pasa si el cielo está nublado?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="active === 1 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 1" x-collapse class="p-6 bg-white dark:bg-white/5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Contamos con un plan B exclusivo: sesiones de mitología en nuestro domo central y degustaciones de productos locales premium. Además, permitimos un cambio de fecha sin coste si la previsión es de lluvia intensa.
+                </div>
+            </div>
+            <!-- Q2 -->
+            <div class="border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden">
+                <button @click="active = active === 2 ? null : 2" class="w-full p-6 text-left flex justify-between items-center glass">
+                    <span class="font-bold">¿Es apto para niños?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="active === 2 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 2" x-collapse class="p-6 bg-white dark:bg-white/5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    ¡Por supuesto! Tenemos talleres de "Pequeños Astrónomos" diseñados para despertar la curiosidad de los más jóvenes en un entorno seguro y mágico.
+                </div>
+            </div>
+            <!-- Q3 -->
+            <div class="border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden">
+                <button @click="active = active === 3 ? null : 3" class="w-full p-6 text-left flex justify-between items-center glass">
+                    <span class="font-bold">¿Cómo llegar desde Talavera de la Reina?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" :class="active === 3 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 3" x-collapse class="p-6 bg-white dark:bg-white/5 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Estamos ubicados a tan solo 15 minutos en coche del centro de Talavera. Al confirmar tu reserva, recibirás una ubicación exacta y privada para garantizar la exclusividad del recinto.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / LEAD GEN FORM -->
+    <section id="contacto" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-20 overflow-hidden relative">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-gold opacity-10 blur-[100px] rounded-full"></div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-black mb-6">Reserva tu <span class="text-gold">Lugar</span> en el Cosmos</h2>
+                    <p class="text-slate-400 mb-8 text-lg leading-relaxed">
+                        Estamos en temporada alta. Actualmente solo quedan <span class="text-white font-bold">4 parcelas libres</span> para los próximos fines de semana.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-gold"></i> Cancelación flexible
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-gold"></i> Kit de bienvenida premium
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check text-gold"></i> Seguro de lluvia incluido
+                        </li>
+                    </ul>
+                </div>
+
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 2000);" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nombre" required class="bg-white/5 border border-white/10 rounded-xl p-4 w-full focus:outline-none focus:border-gold transition-colors">
+                        <input type="tel" placeholder="Teléfono" required class="bg-white/5 border border-white/10 rounded-xl p-4 w-full focus:outline-none focus:border-gold transition-colors">
+                    </div>
+                    <input type="email" placeholder="Email" required class="bg-white/5 border border-white/10 rounded-xl p-4 w-full focus:outline-none focus:border-gold transition-colors">
+                    <select class="bg-white/5 border border-white/10 rounded-xl p-4 w-full focus:outline-none focus:border-gold transition-colors text-slate-400">
+                        <option>Escapada Romántica</option>
+                        <option>Aventura Familiar</option>
+                        <option>Pack Fotografía Astronómica</option>
+                    </select>
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" 
+                            class="w-full py-5 bg-gold text-night font-black rounded-xl hover:bg-yellow-500 transition-all flex justify-center items-center gap-3 shadow-[0_10px_30px_rgba(212,175,55,0.3)]">
+                        <span x-show="status === 'idle'">SOLICITAR DISPONIBILIDAD</span>
+                        <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> PROCESANDO...</span>
+                    </button>
+                    
+                    <div x-show="status === 'success'" x-transition x-cloak class="p-6 bg-green-500/20 border border-green-500/50 rounded-xl text-center text-green-400">
+                        <i class="fa-solid fa-circle-check text-2xl mb-2"></i>
+                        <p class="font-bold">¡Modo Demo! El formulario funciona perfectamente. Se activará al contratar la web.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 border-t border-slate-200 dark:border-white/10 text-center">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col items-center gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-moon text-gold text-xl"></i>
+                    <span class="font-serif font-bold text-lg uppercase tracking-widest">Cielos Estrellados</span>
+                </div>
+                <div class="flex gap-6 text-slate-500">
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-gold transition-colors"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 uppercase tracking-[0.2em]">
+                &copy; 2024 Cielos Estrellados - Talavera de la Reina. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-8 right-8 z-[100] bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform text-2xl animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1774007790314;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
