@@ -1,0 +1,342 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: true, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinta Roja Studio | Realismo y Fine Line en Aranjuez</title>
+    <meta name="description" content="Estudio de tatuajes custom en el Centro Histórico de Aranjuez. Especialistas en realismo, fine line y diseños exclusivos. Reserva tu cita hoy.">
+    
+    <!-- Scripts & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#cc0000',
+                        accent: '#d4af37',
+                        dark: '#0a0a0a',
+                        surface: '#121212',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .marquee { overflow: hidden; white-space: nowrap; position: relative; }
+        .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .bento-hover:hover .bg-image { transform: scale(1.1); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
+        .dark .glass { background: rgba(0, 0, 0, 0.4); }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-dark text-slate-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-pen-nib text-primary text-2xl"></i>
+                <span class="font-serif text-2xl font-bold tracking-tighter">TINTA<span class="text-primary">ROJA</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+                <a href="#servicios" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="#proceso" class="hover:text-primary transition-colors">Proceso</a>
+                <a href="#contacto" class="hover:text-primary transition-colors">Cita</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                    <i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+                </button>
+            </div>
+
+            <div class="md:hidden flex items-center gap-4">
+                <button @click="darkMode = !darkMode" class="p-2"><i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i></button>
+                <button @click="mobileMenu = !mobileMenu" class="text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="absolute top-0 left-0 w-full h-screen bg-dark flex flex-col items-center justify-center gap-8 text-2xl z-50">
+            <button @click="mobileMenu = false" class="absolute top-6 right-6 text-3xl text-white"><i class="fa-solid fa-xmark"></i></button>
+            <a @click="mobileMenu = false" href="#servicios" class="font-serif">Servicios</a>
+            <a @click="mobileMenu = false" href="#proceso" class="font-serif">Proceso</a>
+            <a @click="mobileMenu = false" href="#contacto" class="font-serif">Reservar Cita</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/35732835/pexels-photo-35732835.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-full object-cover grayscale brightness-[0.3]" alt="Tinta Roja Studio">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <span class="inline-block mb-4 px-4 py-1 border border-primary text-primary text-xs uppercase tracking-[0.3em] font-bold rounded-full animate-pulse">Arte Eterno en Aranjuez</span>
+            <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight mb-6">Tu piel, nuestra <span class="text-primary italic">obra maestra.</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Especialistas en Realismo, Fine Line y Micro-detalle. Transformamos visiones en piezas de arte atemporales en el corazón del Centro Histórico.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#contacto" class="group relative px-8 py-4 bg-primary text-white font-bold uppercase tracking-widest text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(204,0,0,0.5)]">
+                    <span class="relative z-10">Solicitar Presupuesto</span>
+                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 opacity-10"></div>
+                </a>
+                <a href="https://wa.me/00000000000" class="flex items-center gap-3 text-white border-b border-white/20 pb-1 hover:border-primary transition-colors">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span class="font-semibold">Consultar vía WhatsApp</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down opacity-50"></i>
+        </div>
+    </section>
+
+    <!-- Pain Points (PAS) -->
+    <section class="py-24 bg-white dark:bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="group p-8 rounded-2xl bg-slate-50 dark:bg-dark border border-transparent hover:border-primary/30 transition-all duration-500">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-primary/10 rounded-full group-hover:rotate-[360deg] transition-transform duration-700">
+                        <i class="fa-solid fa-skull-crossbones text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-4">¿Miedo a un mal diseño?</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Un tatuaje es para siempre. No te conformes con diseños de catálogo que carecen de alma y personalidad.</p>
+                </div>
+                <div class="group p-8 rounded-2xl bg-slate-50 dark:bg-dark border border-transparent hover:border-primary/30 transition-all duration-500">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-primary/10 rounded-full group-hover:rotate-[360deg] transition-transform duration-700">
+                        <i class="fa-solid fa-virus-slash text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-4">Higiene sin Compromiso</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Mantenemos estándares clínicos de esterilización y bioseguridad. Tu salud es nuestra prioridad absoluta.</p>
+                </div>
+                <div class="group p-8 rounded-2xl bg-slate-50 dark:bg-dark border border-transparent hover:border-primary/30 transition-all duration-500">
+                    <div class="w-16 h-16 mb-6 flex items-center justify-center bg-primary/10 rounded-full group-hover:rotate-[360deg] transition-transform duration-700">
+                        <i class="fa-solid fa-hourglass-half text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-4">Tatuajes que Envejecen</h3>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">Nuestras técnicas de saturación y Fine Line garantizan que tu pieza se mantenga impecable con el paso de los años.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Especialidades del Estudio</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+                <!-- Service 1: Realismo -->
+                <div class="md:col-span-2 relative group overflow-hidden rounded-3xl bento-hover">
+                    <img src="https://images.pexels.com/photos/4123846/pexels-photo-4123846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="bg-image absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="Realismo">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10">
+                        <span class="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">Nuestra Maestría</span>
+                        <h3 class="text-3xl font-serif font-bold text-white mb-2">Realismo Black & Grey</h3>
+                        <p class="text-gray-300 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">Retratos y composiciones complejas con una profundidad cinematográfica.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Fine Line -->
+                <div class="relative group overflow-hidden rounded-3xl bento-hover">
+                    <img src="https://images.pexels.com/photos/1050312/pexels-photo-1050312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="bg-image absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="Fine Line">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Fine Line</h3>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Trazos finos, minimalismo y elegancia en cada línea.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Custom Design -->
+                <div class="md:col-span-3 relative group overflow-hidden rounded-3xl bento-hover">
+                    <img src="https://images.pexels.com/photos/4123711/pexels-photo-4123711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="bg-image absolute inset-0 w-full h-full object-cover transition-transform duration-700" alt="Custom Designs">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
+                        <h3 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Diseño 100% Personalizado</h3>
+                        <p class="text-gray-200 max-w-2xl font-light">No copiamos. Creamos. Cada diseño es una colaboración entre tu historia y nuestra visión artística.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Marquee -->
+    <section class="py-16 bg-primary overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content flex items-center gap-12">
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> INCREÍBLE DETALLE
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> EL MEJOR ESTUDIO DE ARANJUEZ
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> ARTISTAS DE ÉLITE
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> HIGIENE 10/10
+                </span>
+                <!-- Duplicate for seamless scroll -->
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> INCREÍBLE DETALLE
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> EL MEJOR ESTUDIO DE ARANJUEZ
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> ARTISTAS DE ÉLITE
+                </span>
+                <span class="text-white font-serif text-3xl font-bold uppercase flex items-center gap-4">
+                    <i class="fa-solid fa-star text-accent"></i> HIGIENE 10/10
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="py-24 max-w-3xl mx-auto px-6" x-data="{ active: null }">
+        <h2 class="text-3xl font-serif font-bold text-center mb-12">Preguntas Frecuentes</h2>
+        
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="border border-white/10 rounded-xl overflow-hidden bg-white/5">
+                <button @click="active = active === 1 ? null : 1" class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                    <span class="font-bold">¿Cómo reservo mi cita?</span>
+                    <i class="fa-solid fa-plus transition-transform duration-300" :class="active === 1 ? 'rotate-45' : ''"></i>
+                </button>
+                <div x-show="active === 1" x-collapse x-cloak class="p-6 pt-0 text-gray-400">
+                    Puedes reservar a través del formulario de contacto o vía WhatsApp. Requerimos una señal para confirmar el diseño y la fecha de la sesión.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="border border-white/10 rounded-xl overflow-hidden bg-white/5">
+                <button @click="active = active === 2 ? null : 2" class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                    <span class="font-bold">¿Cuál es el precio base?</span>
+                    <i class="fa-solid fa-plus transition-transform duration-300" :class="active === 2 ? 'rotate-45' : ''"></i>
+                </button>
+                <div x-show="active === 2" x-collapse x-cloak class="p-6 pt-0 text-gray-400">
+                    El precio depende del tamaño, detalle y zona del cuerpo. El mínimo del estudio es de 60€ para cubrir material desechable y diseño.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="border border-white/10 rounded-xl overflow-hidden bg-white/5">
+                <button @click="active = active === 3 ? null : 3" class="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors">
+                    <span class="font-bold">¿Realizáis coberturas (Cover-ups)?</span>
+                    <i class="fa-solid fa-plus transition-transform duration-300" :class="active === 3 ? 'rotate-45' : ''"></i>
+                </button>
+                <div x-show="active === 3" x-collapse x-cloak class="p-6 pt-0 text-gray-400">
+                    Sí, somos expertos en transformar tatuajes antiguos. Necesitamos una valoración presencial para analizar la viabilidad del nuevo diseño.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Lead Gen -->
+    <section id="contacto" class="py-24 bg-dark relative overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary opacity-10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-5 blur-[120px] rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">Consigue tu <span class="text-primary italic">Cita Exclusiva</span></h2>
+                <p class="text-gray-400 mb-8 leading-relaxed">Nuestra agenda de Realismo y Custom se abre trimestralmente y las plazas son limitadas para garantizar la calidad artística de cada pieza.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/5 flex items-center justify-center rounded-lg text-primary"><i class="fa-solid fa-location-dot"></i></div>
+                        <span class="text-gray-300">Calle Abastos, Aranjuez, Madrid</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-primary font-bold">
+                        <div class="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg"><i class="fa-solid fa-fire"></i></div>
+                        <span>¡Solo quedan 3 huecos para este mes!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl border border-white/10">
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 2000);" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-primary outline-none transition-all placeholder:text-gray-500 text-white">
+                        <input type="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-primary outline-none transition-all placeholder:text-gray-500 text-white">
+                    </div>
+                    <select class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-primary outline-none transition-all text-gray-500">
+                        <option>Tipo de Tatuaje</option>
+                        <option>Realismo Black & Grey</option>
+                        <option>Fine Line / Micro</option>
+                        <option>Full Color / Neotrad</option>
+                        <option>Cover-up</option>
+                    </select>
+                    <textarea placeholder="Cuéntanos tu idea (zona, tamaño aproximado...)" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 focus:border-primary outline-none transition-all placeholder:text-gray-500 text-white"></textarea>
+                    
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-95 disabled:opacity-50">
+                        <span x-show="status === 'idle'">Solicitar Presupuesto Gratis</span>
+                        <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Procesando...</span>
+                    </button>
+
+                    <div x-show="status === 'success'" x-cloak class="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-200 text-center animate-bounce">
+                        <i class="fa-solid fa-check-circle mr-2"></i> ¡Modo Demo! Formulario listo para conectar.
+                    </div>
+                    <p class="text-[10px] text-gray-600 text-center uppercase tracking-widest">Respuesta garantizada en menos de 24h</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <span class="font-serif text-xl font-bold tracking-tighter text-white">TINTA<span class="text-primary">ROJA</span></span>
+            </div>
+            <div class="flex gap-6 text-xl text-gray-500">
+                <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <p class="text-gray-600 text-sm italic">© 2024 Tinta Roja Studio. El arte no tiene límites.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/00000000000" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 animate-pulse">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1774002880789;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
