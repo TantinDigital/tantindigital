@@ -1,0 +1,400 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisuteria HandMade | Joyería Artesanal Exclusiva en Aranjuez</title>
+    <meta name="description" content="Descubre la magia de lo hecho a mano en Aranjuez. Joyería artesanal única, talleres personalizados y restauración de piezas con alma. Reserva tu pieza exclusiva hoy.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Scripts & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0c1b3',
+                            400: '#d3a28e',
+                            500: '#c68369',
+                            600: '#b96444',
+                            700: '#a3583c',
+                            800: '#8c4c34',
+                            900: '#753f2c',
+                            gold: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .dark .glass { background: rgba(0, 0, 0, 0.3); }
+        .text-gradient { background: linear-gradient(to right, #C5A059, #EAD6A3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        scroll-behavior: smooth;
+    </style>
+</head>
+<body class="bg-brand-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass top-0">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold tracking-tighter">
+                <span class="text-brand-700 dark:text-brand-gold italic">Bisuteria</span>HandMade
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium uppercase text-xs tracking-widest">
+                <a href="#inicio" class="hover:text-brand-600 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-brand-600 transition-colors">Colecciones</a>
+                <a href="#proceso" class="hover:text-brand-600 transition-colors">Proceso</a>
+                <a href="#contacto" class="px-5 py-2 bg-brand-700 text-white rounded-full hover:bg-brand-800 transition-all transform hover:scale-105 shadow-lg">Agendar Cita</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-brand-gold transition-all">
+                    <i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+                </button>
+            </div>
+
+            <div class="md:hidden flex items-center space-x-4">
+                <button @click="darkMode = !darkMode" class="text-xl"><i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i></button>
+                <button @click="mobileMenu = !mobileMenu" class="text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-brand-50 dark:bg-slate-900 p-6 absolute w-full shadow-2xl">
+            <div class="flex flex-col space-y-4 text-center font-serif text-xl">
+                <a @click="mobileMenu = false" href="#inicio">Inicio</a>
+                <a @click="mobileMenu = false" href="#servicios">Colecciones</a>
+                <a @click="mobileMenu = false" href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/7166979/pexels-photo-7166979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-full object-cover opacity-60 dark:opacity-40" alt="Artesanía Joyería">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-50/50 to-brand-50 dark:via-slate-950/50 dark:to-slate-950"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <span class="inline-block px-4 py-1 border border-brand-700 text-brand-700 dark:border-brand-gold dark:text-brand-gold rounded-full text-xs font-bold uppercase tracking-[0.3em] mb-6 transform transition-all duration-700 hover:scale-110">Hecho a mano en Aranjuez</span>
+            <h1 class="text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight">
+                Joyas que cuentan <span class="italic text-brand-700 dark:text-brand-gold">tu propia</span> historia
+            </h1>
+            <p class="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Cada pieza es una obra única diseñada para realzar tu esencia. Sin moldes, sin copias, solo arte puro nacido en nuestro taller artesanal.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#contacto" class="px-10 py-5 bg-brand-800 text-white rounded-full font-bold text-lg hover:bg-brand-900 transition-all shadow-2xl transform hover:-translate-y-1">Explorar Colección Única</a>
+                <a href="#servicios" class="px-10 py-5 bg-white/20 dark:bg-slate-800/40 backdrop-blur-md border border-white/30 dark:border-slate-700 rounded-full font-bold text-lg hover:bg-white/40 transition-all">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points (PAS) -->
+    <section class="py-24 px-6 bg-white dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-4">¿Cansada de lo ordinario?</h2>
+                <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="group p-8 rounded-3xl bg-brand-50 dark:bg-slate-800 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white dark:bg-slate-700 rounded-2xl flex items-center justify-center text-brand-700 dark:text-brand-gold text-2xl mb-6 shadow-md transform group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">Moda Industrial y Vacía</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Las grandes cadenas ofrecen accesorios idénticos producidos en masa que carecen de alma y significado personal.</p>
+                </div>
+                <div class="group p-8 rounded-3xl bg-brand-50 dark:bg-slate-800 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white dark:bg-slate-700 rounded-2xl flex items-center justify-center text-brand-700 dark:text-brand-gold text-2xl mb-6 shadow-md transform group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-droplet-slash"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">Materiales que Decepcionan</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Pérdida de color, alergias y roturas inesperadas. Tu estilo merece materiales nobles que perduren en el tiempo.</p>
+                </div>
+                <div class="group p-8 rounded-3xl bg-brand-50 dark:bg-slate-800 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-white dark:bg-slate-700 rounded-2xl flex items-center justify-center text-brand-700 dark:text-brand-gold text-2xl mb-6 shadow-md transform group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">Incapacidad de Expresión</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Es difícil encontrar esa pieza específica que tienes en mente y que combine perfectamente con tu personalidad única.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 px-6 bg-brand-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-16">Nuestra Artesanía en Aranjuez</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+                <!-- Service 1 -->
+                <div class="md:col-span-2 group relative overflow-hidden rounded-[2.5rem] shadow-xl">
+                    <img src="https://images.pexels.com/photos/7167020/pexels-photo-7167020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Diseño a medida">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                    <div class="absolute bottom-0 p-10 text-white">
+                        <span class="bg-brand-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block">Exclusividad</span>
+                        <h3 class="text-3xl font-serif font-bold mb-2">Diseño a Medida Personalizado</h3>
+                        <p class="text-slate-200 max-w-md">Creamos desde cero la joya que imaginas. Elegimos cada cuenta, cada hilo y cada cierre contigo.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group relative overflow-hidden rounded-[2.5rem] shadow-xl">
+                    <img src="https://images.pexels.com/photos/7585700/pexels-photo-7585700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Restauración">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+                    <div class="absolute bottom-0 p-8 text-white">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Restauración y Mantenimiento</h3>
+                        <p class="text-slate-200 text-sm">Damos una segunda vida a tus piezas antiguas o rotas con técnicas artesanales respetuosas.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="md:col-span-1 group relative overflow-hidden rounded-[2.5rem] shadow-xl">
+                    <img src="https://images.pexels.com/photos/4354613/pexels-photo-4354613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Talleres">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+                    <div class="absolute bottom-0 p-8 text-white">
+                        <h3 class="text-2xl font-serif font-bold mb-2">Talleres Creativos</h3>
+                        <p class="text-slate-200 text-sm">Aprende a crear tus propios complementos en nuestro taller de Aranjuez con grupos reducidos.</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 flex flex-col justify-center bg-brand-700 dark:bg-brand-900 p-12 rounded-[2.5rem] text-white overflow-hidden relative group">
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-serif font-bold mb-4 italic">"La belleza reside en el detalle imperfecto de lo hecho a mano."</h3>
+                        <p class="text-brand-100 text-lg">Cada pieza que sale de nuestro taller lleva consigo horas de dedicación, paciencia y amor por el detalle. No vendemos bisutería, vendemos momentos capturados en cristal, piedra y metal.</p>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-125 transition-transform duration-1000">
+                        <i class="fa-solid fa-hands-holding-diamond text-[15rem]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Marquee -->
+    <section class="py-20 bg-white dark:bg-slate-900 overflow-hidden border-y border-brand-100 dark:border-slate-800">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <!-- Review 1 -->
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"Piezas únicas que siempre generan cumplidos" - Elena M.</span>
+            </div>
+            <!-- Review 2 -->
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"El taller fue una experiencia relajante y creativa" - Sonia R.</span>
+            </div>
+            <!-- Review 3 -->
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"Atención exquisita en mi diseño de novia" - Carla G.</span>
+            </div>
+            <!-- Review 4 -->
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"Joyas con alma auténtica de Aranjuez" - David P.</span>
+            </div>
+            <!-- Duplicated for smooth loop -->
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"Piezas únicas que siempre generan cumplidos" - Elena M.</span>
+            </div>
+            <div class="mx-8 flex items-center space-x-4">
+                <div class="text-brand-gold text-xl"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="font-serif italic text-lg text-slate-500">"El taller fue una experiencia relajante y creativa" - Sonia R.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 px-6 bg-brand-50 dark:bg-slate-950">
+        <div class="max-w-3xl mx-auto" x-data="{ active: null }">
+            <h2 class="text-4xl font-serif font-bold text-center mb-12">Preguntas frecuentes</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border-b border-brand-200 dark:border-slate-800">
+                    <button @click="active = active === 1 ? null : 1" class="w-full py-6 flex justify-between items-center text-left hover:text-brand-700 transition-colors">
+                        <span class="text-xl font-serif font-semibold">¿Realizáis envíos fuera de Aranjuez?</span>
+                        <i class="fa-solid" :class="active === 1 ? 'fa-minus' : 'fa-plus'"></i>
+                    </button>
+                    <div x-show="active === 1" x-cloak class="pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+                        ¡Por supuesto! Enviamos nuestras piezas a toda la península con un empaquetado especial para regalo que asegura que tu joya llegue en perfectas condiciones.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border-b border-brand-200 dark:border-slate-800">
+                    <button @click="active = active === 2 ? null : 2" class="w-full py-6 flex justify-between items-center text-left hover:text-brand-700 transition-colors">
+                        <span class="text-xl font-serif font-semibold">¿Cuánto tarda un pedido personalizado?</span>
+                        <i class="fa-solid" :class="active === 2 ? 'fa-minus' : 'fa-plus'"></i>
+                    </button>
+                    <div x-show="active === 2" x-cloak class="pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+                        El proceso artesanal requiere tiempo. Generalmente tardamos entre 7 y 15 días laborables dependiendo de la complejidad de la pieza y la disponibilidad de materiales específicos.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border-b border-brand-200 dark:border-slate-800">
+                    <button @click="active = active === 3 ? null : 3" class="w-full py-6 flex justify-between items-center text-left hover:text-brand-700 transition-colors">
+                        <span class="text-xl font-serif font-semibold">¿Qué materiales utilizáis?</span>
+                        <i class="fa-solid" :class="active === 3 ? 'fa-minus' : 'fa-plus'"></i>
+                    </button>
+                    <div x-show="active === 3" x-cloak class="pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Trabajamos principalmente con piedras semipreciosas, cristal de alta calidad, plata de ley y aleaciones libres de níquel para garantizar la durabilidad y evitar alergias.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border-b border-brand-200 dark:border-slate-800">
+                    <button @click="active = active === 4 ? null : 4" class="w-full py-6 flex justify-between items-center text-left hover:text-brand-700 transition-colors">
+                        <span class="text-xl font-serif font-semibold">¿Hacéis arreglos de piezas antiguas?</span>
+                        <i class="fa-solid" :class="active === 4 ? 'fa-minus' : 'fa-plus'"></i>
+                    </button>
+                    <div x-show="active === 4" x-cloak class="pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Sí, analizamos tu pieza para ver si es posible restaurarla o reinterpretarla en un diseño nuevo manteniendo el valor sentimental.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Lead Gen -->
+    <section id="contacto" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            <div class="md:w-1/2">
+                <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-4 block">Agenda tu diseño</span>
+                <h2 class="text-5xl font-serif font-bold mb-6">Tu joya ideal te está esperando</h2>
+                <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                    Nuestra agenda para piezas personalizadas es limitada. Actualmente estamos aceptando solo 4 encargos nuevos para el próximo mes. 
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-brand-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-brand-700 dark:text-brand-gold">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Taller en Aranjuez</h4>
+                            <p class="text-slate-500">Visitas solo con cita previa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-brand-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-brand-700 dark:text-brand-gold">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Disponibilidad Crítica</h4>
+                            <p class="text-slate-500 text-sm font-bold text-red-500">Últimos huecos disponibles para este mes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 w-full">
+                <div class="bg-white dark:bg-slate-900 p-10 rounded-[3rem] shadow-2xl border border-brand-100 dark:border-slate-800 relative">
+                    <div class="absolute -top-4 -right-4 bg-brand-gold text-white text-xs font-bold px-4 py-2 rounded-lg rotate-12">
+                        RESPUESTA EN 24H
+                    </div>
+                    <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 2000);" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-tighter">Nombre Completo</label>
+                            <input type="text" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="Ej: Maria García">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-tighter">Email de contacto</label>
+                            <input type="email" required class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="maria@ejemplo.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-tighter">¿Qué buscas?</label>
+                            <select class="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl focus:ring-2 focus:ring-brand-gold outline-none transition-all">
+                                <option>Diseño Personalizado</option>
+                                <option>Restauración</option>
+                                <option>Inscripción Taller</option>
+                                <option>Otros</option>
+                            </select>
+                        </div>
+                        <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full py-5 bg-brand-800 hover:bg-brand-900 text-white font-bold rounded-2xl shadow-xl transition-all transform hover:scale-[1.02] active:scale-95 flex justify-center items-center">
+                            <span x-show="status === 'idle'">Solicitar Presupuesto Gratis</span>
+                            <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin mr-2"></i> Preparando el boceto...</span>
+                        </button>
+                        
+                        <div x-show="status === 'success'" x-cloak class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 p-6 rounded-2xl text-center border border-emerald-200 font-medium">
+                            <i class="fa-solid fa-circle-check text-2xl mb-2 block"></i>
+                            ¡Modo Demo! El formulario funciona perfectamente. Se activará al contratar la web.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <div class="text-3xl font-serif font-bold mb-4">
+                    <span class="text-brand-gold italic">Bisuteria</span>HandMade
+                </div>
+                <p class="text-slate-400">Creando joyas con alma en el corazón de Aranjuez.</p>
+            </div>
+            
+            <div class="flex space-x-6 text-2xl">
+                <a href="#" class="text-slate-400 hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-gold transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-gold transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand-gold transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-slate-800 mt-12 pt-8 text-center text-slate-500 text-sm">
+            &copy; 2024 Bisuteria HandMade Aranjuez. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-emerald-600 transition-all hover:scale-110 z-[100] animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1774016011048;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
