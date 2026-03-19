@@ -1,0 +1,449 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estudio Arquitectura Minimalista · Lavapiés</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              50:  '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+              950: '#0c0a09',
+            },
+            primary:   { DEFAULT: '#2b2b2b', light: '#3d3d3d' },
+            secondary: { DEFAULT: '#c9b99a', light: '#ddd0bc' },
+            accent:    { DEFAULT: '#8a7560', light: '#a08c73' },
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:  ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            widest2: '0.25em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    [x-cloak] { display: none !important; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background-color: #fafaf9;
+    }
+    .dark body {
+      background-color: #0c0a09;
+    }
+
+    .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* Parallax hero */
+    .hero-img {
+      background-image: url('https://images.pexels.com/photos/2923675/pexels-photo-2923675.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Noise texture overlay */
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.06;
+    }
+
+    /* Smooth line-through decorator */
+    .line-deco {
+      display: inline-block;
+      width: 2.5rem;
+      height: 1px;
+      background: currentColor;
+      vertical-align: middle;
+      margin-right: 0.75rem;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #f5f5f4; }
+    ::-webkit-scrollbar-thumb { background: #c9b99a; border-radius: 2px; }
+    .dark ::-webkit-scrollbar-track { background: #1c1917; }
+    .dark ::-webkit-scrollbar-thumb { background: #57534e; }
+
+    /* Service card hover */
+    .service-card .card-img {
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .service-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    /* Review card */
+    .review-card {
+      border-left: 2px solid #c9b99a;
+    }
+
+    /* Input style */
+    .input-field {
+      background: transparent;
+      border-bottom: 1px solid #a8a29e;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .input-field:focus {
+      border-bottom-color: #c9b99a;
+    }
+    .dark .input-field {
+      border-bottom-color: #57534e;
+      color: #e7e5e4;
+    }
+    .dark .input-field:focus {
+      border-bottom-color: #c9b99a;
+    }
+
+    /* Nav transition */
+    nav { transition: background 0.4s, box-shadow 0.4s; }
+
+    /* Stagger animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp 0.9s ease forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .opacity-0-init { opacity: 0; }
+  </style>
+</head>
+
+<body class="bg-stone-50 dark:bg-stone-950 text-stone-800 dark:text-stone-200 antialiased transition-colors duration-300">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-md border-b border-stone-200/60 dark:border-stone-800/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <span class="w-6 h-6 border border-secondary dark:border-secondary rounded-sm rotate-45 group-hover:rotate-0 transition-transform duration-500"></span>
+        <span class="font-serif text-lg tracking-widest2 uppercase text-stone-900 dark:text-stone-100">Arco</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex items-center gap-8 text-xs tracking-widest2 uppercase font-sans font-medium text-stone-500 dark:text-stone-400">
+        <li><a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a></li>
+        <li><a href="#proceso"   class="hover:text-secondary transition-colors">Proceso</a></li>
+        <li><a href="#proyectos" class="hover:text-secondary transition-colors">Proyectos</a></li>
+        <li><a href="#opiniones" class="hover:text-secondary transition-colors">Clientes</a></li>
+        <li><a href="#contacto"  class="hover:text-secondary transition-colors">Contacto</a></li>
+      </ul>
+
+      <!-- Right: dark mode + CTA + hamburger -->
+      <div class="flex items-center gap-4">
+        <!-- Dark Mode Toggle -->
+        <button @click="darkMode = !darkMode" class="w-9 h-9 flex items-center justify-center rounded-full text-stone-500 dark:text-stone-400 hover:text-secondary transition-colors" aria-label="Toggle dark mode">
+          <i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#contacto" class="hidden md:inline-flex items-center gap-2 px-5 py-2 border border-secondary text-secondary hover:bg-secondary hover:text-stone-900 text-xs tracking-widest2 uppercase font-medium transition-all duration-300">
+          Consulta gratuita
+        </a>
+
+        <!-- Hamburger -->
+        <button @click="mobileMenu = !mobileMenu" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5 text-stone-600 dark:text-stone-400" aria-label="Menu">
+          <span class="block w-5 h-px bg-current transition-all" :class="mobileMenu ? 'rotate-45 translate-y-[7px]' : ''"></span>
+          <span class="block w-5 h-px bg-current transition-all" :class="mobileMenu ? 'opacity-0' : ''"></span>
+          <span class="block w-5 h-px bg-current transition-all" :class="mobileMenu ? '-rotate-45 -translate-y-[7px]' : ''"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div x-show="mobileMenu" x-cloak x-transition:enter="transition duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition duration-150" x-transition:leave-end="opacity-0" class="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-950 px-6 pb-6 pt-4">
+      <ul class="flex flex-col gap-4 text-sm tracking-widest uppercase font-medium text-stone-500 dark:text-stone-400">
+        <li><a href="#servicios" @click="mobileMenu=false" class="hover:text-secondary transition-colors block py-1">Servicios</a></li>
+        <li><a href="#proceso"   @click="mobileMenu=false" class="hover:text-secondary transition-colors block py-1">Proceso</a></li>
+        <li><a href="#proyectos" @click="mobileMenu=false" class="hover:text-secondary transition-colors block py-1">Proyectos</a></li>
+        <li><a href="#opiniones" @click="mobileMenu=false" class="hover:text-secondary transition-colors block py-1">Clientes</a></li>
+        <li><a href="#contacto"  @click="mobileMenu=false" class="hover:text-secondary transition-colors block py-1">Contacto</a></li>
+        <li>
+          <a href="#contacto" @click="mobileMenu=false" class="inline-flex items-center gap-2 px-5 py-2 border border-secondary text-secondary hover:bg-secondary hover:text-stone-900 text-xs tracking-widest uppercase font-medium transition-all duration-300 mt-2">
+            Consulta gratuita
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="inicio" class="relative min-h-screen flex items-end overflow-hidden noise">
+    <!-- Background Image -->
+    <div class="hero-img absolute inset-0 z-0"></div>
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-t from-stone-950 via-stone-950/50 to-stone-950/10"></div>
+
+    <!-- Vertical text decoration -->
+    <div class="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-4">
+      <span class="text-stone-400 text-xs tracking-widest2 uppercase font-medium" style="writing-mode:vertical-rl; text-orientation:mixed;">Lavapiés · Madrid</span>
+      <span class="w-px h-16 bg-secondary/60"></span>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 pb-24 lg:pb-32 w-full">
+      <div class="max-w-3xl">
+        <p class="opacity-0-init animate-fade-up delay-100 flex items-center gap-3 text-secondary text-xs tracking-widest2 uppercase font-medium mb-6">
+          <span class="line-deco"></span>Estudio de Arquitectura Minimalista
+        </p>
+        <h1 class="opacity-0-init animate-fade-up delay-200 font-serif text-5xl md:text-7xl lg:text-8xl text-stone-50 leading-[0.95] font-light mb-6">
+          Espacios que<br/><em>respiran</em><br/>contigo
+        </h1>
+        <p class="opacity-0-init animate-fade-up delay-300 text-stone-300 text-base md:text-lg font-light max-w-xl leading-relaxed mb-10">
+          Diseñamos y construimos arquitectura de precisión en el corazón de Lavapiés. Cada proyecto es una conversación entre la materia, la luz y quien lo habita.
+        </p>
+        <div class="opacity-0-init animate-fade-up delay-400 flex flex-col sm:flex-row gap-4">
+          <a href="#contacto" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary text-stone-900 hover:bg-secondary/90 text-xs tracking-widest2 uppercase font-medium transition-all duration-300 group">
+            Empieza tu proyecto
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform text-xs"></i>
+          </a>
+          <a href="#proyectos" class="inline-flex items-center justify-center gap-3 px-8 py-4 border border-stone-50/30 text-stone-50 hover:border-stone-50/70 text-xs tracking-widest2 uppercase font-medium transition-all duration-300">
+            Ver proyectos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bottom bar -->
+    <div class="absolute bottom-0 right-0 z-20 hidden lg:flex">
+      <div class="flex divide-x divide-stone-700/50">
+        <div class="px-8 py-6 bg-stone-950/80 backdrop-blur-sm text-center">
+          <p class="font-serif text-3xl text-secondary font-light">+80</p>
+          <p class="text-stone-400 text-xs tracking-widest uppercase mt-1">Proyectos</p>
+        </div>
+        <div class="px-8 py-6 bg-stone-950/80 backdrop-blur-sm text-center">
+          <p class="font-serif text-3xl text-secondary font-light">12</p>
+          <p class="text-stone-400 text-xs tracking-widest uppercase mt-1">Años</p>
+        </div>
+        <div class="px-8 py-6 bg-stone-950/80 backdrop-blur-sm text-center">
+          <p class="font-serif text-3xl text-secondary font-light">5★</p>
+          <p class="text-stone-400 text-xs tracking-widest uppercase mt-1">Valoración</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PAIN POINTS (PAS)
+  ============================================================ -->
+  <section class="py-24 lg:py-36 bg-stone-100 dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Left text -->
+        <div>
+          <p class="flex items-center gap-3 text-accent dark:text-secondary text-xs tracking-widest2 uppercase font-medium mb-6">
+            <span class="line-deco"></span>El problema que nadie nombra
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] font-light text-stone-900 dark:text-stone-100 mb-8">
+            Tu espacio<br/>debería ser<br/><em>tuyo</em>
+          </h2>
+          <p class="text-stone-500 dark:text-stone-400 leading-relaxed mb-6">
+            Muchos propietarios terminan viviendo en casas que nunca terminan de sentirse suyas. Proyectos que se alargan, presupuestos que se disparan, y diseños que podrían ser de cualquiera.
+          </p>
+          <p class="text-stone-500 dark:text-stone-400 leading-relaxed mb-10">
+            En Lavapiés sabemos que cada edificio, cada piso, cada local tiene una historia particular. Nuestro trabajo es escucharla y transformarla en arquitectura que perdure.
+          </p>
+          <a href="#servicios" class="inline-flex items-center gap-3 text-secondary text-sm tracking-widest uppercase font-medium hover:gap-5 transition-all duration-300 group">
+            Descubre cómo lo resolvemos
+            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Right: pain cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-6 bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-sm">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 mb-4">
+              <i class="fa-solid fa-clock text-secondary text-sm"></i>
+            </div>
+            <h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 mb-2">Proyectos eternos</h3>
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">Obras que se extienden sin fin, con cada semana que pasa aumentando el estrés y el coste.</p>
+          </div>
+          <div class="p-6 bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-sm sm:mt-8">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 mb-4">
+              <i class="fa-solid fa-triangle-exclamation text-secondary text-sm"></i>
+            </div>
+            <h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 mb-2">Presupuestos opacos</h3>
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">Costes que aparecen de la nada. Sorpresas que deberían haberse previsto desde el primer día.</p>
+          </div>
+          <div class="p-6 bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-sm">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 mb-4">
+              <i class="fa-solid fa-paintbrush text-secondary text-sm"></i>
+            </div>
+            <h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 mb-2">Diseño genérico</h3>
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">Espacios que parecen copiados de catálogo, sin personalidad ni conexión con quien los habita.</p>
+          </div>
+          <div class="p-6 bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-sm sm:mt-8">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 mb-4">
+              <i class="fa-solid fa-headset text-secondary text-sm"></i>
+            </div>
+            <h3 class="font-serif text-xl text-stone-900 dark:text-stone-100 mb-2">Falta de comunicación</h3>
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">Arquitectos inalcanzables. Decisiones tomadas sin consultarte. Sensación de no tener el control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="servicios" class="py-24 lg:py-36 bg-stone-50 dark:bg-stone-950">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 lg:mb-20 gap-6">
+        <div>
+          <p class="flex items-center gap-3 text-accent dark:text-secondary text-xs tracking-widest2 uppercase font-medium mb-4">
+            <span class="line-deco"></span>Lo que hacemos
+          </p>
+          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] font-light text-stone-900 dark:text-stone-100">
+            Servicios de<br/><em>arquitectura integral</em>
+          </h2>
+        </div>
+        <p class="lg:max-w-xs text-stone-500 dark:text-stone-400 text-sm leading-relaxed lg:text-right">
+          Desde el primer boceto hasta la última llave. Un estudio, un equipo, un resultado.
+        </p>
+      </div>
+
+      <!-- Services Grid — creative asymmetric layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Service 1 -->
+        <div class="service-card group relative overflow-hidden rounded-sm bg-stone-100 dark:bg-stone-900 aspect-[4/5] lg:row-span-1 cursor-pointer">
+          <div class="card-img absolute inset-0 bg-cover bg-center"
+               style="background-image: url('https://images.pexels.com/photos/110469/pexels-photo-110469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <span class="inline-block text-secondary text-xs tracking-widest2 uppercase font-medium mb-3">01</span>
+            <h3 class="font-serif text-2xl lg:text-3xl text-stone-50 font-light leading-tight mb-3">Diseño de<br/>Interiores</h3>
+            <p class="text-stone-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+              Transformamos espacios vacíos en ambientes con alma. Cada detalle medido, cada material elegido con intención.
+            </p>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card group relative overflow-hidden rounded-sm bg-stone-100 dark:bg-stone-900 aspect-[4/5] md:row-span-1 cursor-pointer">
+          <div class="card-img absolute inset-0 bg-cover bg-center"
+               style="background-image: url('https://images.pexels.com/photos/804394/pexels-photo-804394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <span class="inline-block text-secondary text-xs tracking-widest2 uppercase font-medium mb-3">02</span>
+            <h3 class="font-serif text-2xl lg:text-3xl text-stone-50 font-light leading-tight mb-3">Rehabilitación<br/>y Reforma</h3>
+            <p class="text-stone-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+              Rescatamos edificios con historia y los llevamos al presente sin perder su carácter. El legado arquitectónico de Lavapiés, renovado.
+            </p>
+          </div>
+        </div>
+
+        <!-- Service 3 — tall card -->
+        <div class="service-card group relative overflow-hidden rounded-sm bg-stone-100 dark:bg-stone-900 aspect-[4/5] md:col-span-2 lg:col-span-1 cursor-pointer">
+          <div class="card-img absolute inset-0 bg-cover bg-center"
+               style="background-image: url('https://images.pexels.com/photos/35839111/pexels-photo-35839111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <span class="inline-block text-secondary text-xs tracking-widest2 uppercase font-medium mb-3">03</span>
+            <h3 class="font-serif text-2xl lg:text-3xl text-stone-50 font-light leading-tight mb-3">Arquitectura<br/>de Nueva Planta</h3>
+            <p class="text-stone-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+              Construimos desde cero con una visión clara: eficiencia, sostenibilidad y belleza que no necesita justificarse.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROCESO
+  ============================================================ -->
+  <section id="proceso" class="py-24 lg:py-36 bg-stone-900 dark:bg-stone-950 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute top-0 right-0 w-72 h-72 border border-stone-700/30 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 border border-stone-700/30 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+
+      <!-- Header -->
+      <div class="text-center mb-16 lg:mb-24">
+        <p class="flex items-center justify-center gap-3 text-secondary text-xs tracking-widest2 uppercase font-medium mb-4">
+          <span class="line-deco"></span>Metodología
+        </p>
+        <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] font-light text-stone-100">
+          Un proceso <em>claro</em>,<br/>sin sorpresas
+        </h2>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="hidden lg:block absolute top-10 left-full w-full h-px bg-gradient-to-r from-secondary/40 to-transparent -z-10"></div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 border border-secondary/50 flex items-center justify-center flex-shrink-0">
+              <span class="font-serif text-secondary text-lg font-light">01</span>
+            </div>
+            <div class="h-px flex-1 bg-stone-700/50 lg:hidden"></div>
+          </div>
+          <h3 class="font-serif text-xl text-stone-100 font-light mb-3">Escucha activa</h3>
+          <p class="text-stone-400 text-sm leading-relaxed">Una primera reunión sin compromiso donde entendemos tus necesidades, tu vida y tu visión del espacio ideal.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="hidden lg:block absolute top-10
