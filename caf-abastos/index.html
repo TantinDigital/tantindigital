@@ -1,0 +1,363 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Abastos | Panadería de Especialidad & Café a Granel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#D2691E',
+                        accent: '#F4A460',
+                        warm: '#FFF8DC',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee { animation: marquee 30s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
+    </style>
+</head>
+<body class="font-body bg-warm dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <nav class="fixed w-full top-0 z-50 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-md transition-colors duration-300">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-mug-saucer text-3xl text-primary dark:text-accent"></i>
+                <span class="text-2xl font-display font-bold text-primary dark:text-accent">Café Abastos</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#inicio" class="hover:text-primary dark:hover:text-accent transition">Inicio</a>
+                <a href="#servicios" class="hover:text-primary dark:hover:text-accent transition">Servicios</a>
+                <a href="#testimonios" class="hover:text-primary dark:hover:text-accent transition">Testimonios</a>
+                <a href="#contacto" class="hover:text-primary dark:hover:text-accent transition">Contacto</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" class="text-xl"></i>
+                </button>
+            </div>
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div x-show="mobileMenu" x-cloak class="md:hidden bg-white dark:bg-gray-800 px-4 py-4 space-y-3">
+            <a href="#inicio" class="block hover:text-primary dark:hover:text-accent transition">Inicio</a>
+            <a href="#servicios" class="block hover:text-primary dark:hover:text-accent transition">Servicios</a>
+            <a href="#testimonios" class="block hover:text-primary dark:hover:text-accent transition">Testimonios</a>
+            <a href="#contacto" class="block hover:text-primary dark:hover:text-accent transition">Contacto</a>
+            <button @click="darkMode = !darkMode" class="flex items-center space-x-2">
+                <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+                <span>Cambiar Tema</span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/192933/pexels-photo-192933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café Abastos Hero" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 dark:from-black/80 dark:to-black/60"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center text-white">
+            <h1 class="font-display text-5xl md:text-7xl font-black mb-6 leading-tight">Tradición Artesanal<br>en el Corazón de Aranjuez</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">Descubre el auténtico sabor de la panadería de especialidad y café premium a granel en el Barrio Histórico</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#servicios" class="group bg-primary hover:bg-secondary px-8 py-4 rounded-full text-lg font-bold transition duration-300 inline-flex items-center justify-center">
+                    Ver Productos
+                    <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                </a>
+                <a href="#contacto" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white px-8 py-4 rounded-full text-lg font-bold transition duration-300">
+                    Contáctanos
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-white text-3xl"></i>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-bread-slice text-4xl text-primary dark:text-accent"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">100% Artesanal</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Cada pieza elaborada a mano con ingredientes premium</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-mug-hot text-4xl text-primary dark:text-accent"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Café Premium</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Selección exclusiva de granos a granel</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-landmark text-4xl text-primary dark:text-accent"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Barrio Histórico</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Tradición familiar desde el corazón de Aranjuez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-gray-900 dark:to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">¿Cansado del Pan Industrial y Café Sin Alma?</h2>
+                <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">En un mundo donde la velocidad reemplaza la calidad, encontrar productos auténticos que respeten la tradición es casi imposible. El pan de supermercado no tiene textura. El café pre-molido pierde su esencia en días.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <i class="fa-solid fa-circle-xmark text-4xl text-red-500 mb-4"></i>
+                    <h3 class="font-display text-2xl font-bold mb-3">El Problema</h3>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li><i class="fa-solid fa-times text-red-500 mr-2"></i>Pan industrializado sin sabor</li>
+                        <li><i class="fa-solid fa-times text-red-500 mr-2"></i>Café oxidado y sin aroma</li>
+                        <li><i class="fa-solid fa-times text-red-500 mr-2"></i>Ingredientes químicos ocultos</li>
+                        <li><i class="fa-solid fa-times text-red-500 mr-2"></i>Experiencia impersonal</li>
+                    </ul>
+                </div>
+                <div class="bg-primary dark:bg-accent text-white p-8 rounded-2xl shadow-lg">
+                    <i class="fa-solid fa-circle-check text-4xl mb-4"></i>
+                    <h3 class="font-display text-2xl font-bold mb-3">Nuestra Solución</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fa-solid fa-check mr-2"></i>Panadería artesanal diaria</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Café recién tostado a granel</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Ingredientes naturales 100%</li>
+                        <li><i class="fa-solid fa-check mr-2"></i>Atención personalizada y experta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Nuestras Especialidades</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">Productos elaborados con pasión y maestría</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/30767855/pexels-photo-30767855.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Panadería Artesanal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+                        <i class="fa-solid fa-croissant text-4xl mb-3 group-hover:scale-125 transition-transform duration-300"></i>
+                        <h3 class="font-display text-2xl font-bold mb-2">Panadería Artesanal</h3>
+                        <p class="mb-4">Pan recién horneado cada mañana con masa madre tradicional y harinas de calidad</p>
+                        <a href="#contacto" class="inline-flex items-center text-accent font-bold group-hover:translate-x-2 transition-transform duration-300">
+                            Saber más <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3737654/pexels-photo-3737654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Café a Granel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+                        <i class="fa-solid fa-coffee text-4xl mb-3 group-hover:scale-125 transition-transform duration-300"></i>
+                        <h3 class="font-display text-2xl font-bold mb-2">Café Premium a Granel</h3>
+                        <p class="mb-4">Selección de orígenes únicos, tostado artesanal y frescura garantizada</p>
+                        <a href="#contacto" class="inline-flex items-center text-accent font-bold group-hover:translate-x-2 transition-transform duration-300">
+                            Saber más <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://images.pexels.com/photos/13926757/pexels-photo-13926757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Repostería" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6 text-white">
+                        <i class="fa-solid fa-cake-candles text-4xl mb-3 group-hover:scale-125 transition-transform duration-300"></i>
+                        <h3 class="font-display text-2xl font-bold mb-2">Repostería de Especialidad</h3>
+                        <p class="mb-4">Dulces tradicionales y creaciones exclusivas para cada ocasión especial</p>
+                        <a href="#contacto" class="inline-flex items-center text-accent font-bold group-hover:translate-x-2 transition-transform duration-300">
+                            Saber más <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-20 bg-gradient-to-br from-primary/10 to-secondary/10 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+        <div class="container mx-auto px-4 mb-12">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-center mb-4">Lo Que Dicen Nuestros Clientes</h2>
+            <p class="text-xl text-center text-gray-600 dark:text-gray-300">La calidad habla por sí sola</p>
+        </div>
+        <div class="relative">
+            <div class="flex animate-marquee">
+                <div class="flex space-x-6 pr-6">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"El mejor pan que he probado en años. La masa madre es perfecta y el café tiene un aroma increíble."</p>
+                        <p class="font-bold">— María González</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"Atención familiar y productos de calidad suprema. Ya no compro en otro sitio."</p>
+                        <p class="font-bold">— Javier Ruiz</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"La repostería es espectacular. Cada bocado es un placer auténtico."</p>
+                        <p class="font-bold">— Carmen López</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"El café a granel es excelente. Noto la diferencia en cada taza que preparo."</p>
+                        <p class="font-bold">— Pedro Sánchez</p>
+                    </div>
+                </div>
+                <div class="flex space-x-6 pr-6">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"El mejor pan que he probado en años. La masa madre es perfecta y el café tiene un aroma increíble."</p>
+                        <p class="font-bold">— María González</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"Atención familiar y productos de calidad suprema. Ya no compro en otro sitio."</p>
+                        <p class="font-bold">— Javier Ruiz</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"La repostería es espectacular. Cada bocado es un placer auténtico."</p>
+                        <p class="font-bold">— Carmen López</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg min-w-[350px]">
+                        <div class="flex mb-3">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">"El café a granel es excelente. Noto la diferencia en cada taza que preparo."</p>
+                        <p class="font-bold">— Pedro Sánchez</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Visítanos o Contáctanos</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300">Estamos en el corazón del Barrio Histórico de Aranjuez</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-2xl text-primary dark:text-accent"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Ubicación</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Barrio Histórico<br>Aranjuez, Madrid</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock text-2xl text-primary dark:text-accent"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Horario</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Lun - Vie: 7:00 - 14:00 | 17:00 - 20:00<br>Sábados: 7:00 - 14:00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 dark:bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone text-2xl text-primary dark:text-accent"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Teléfono</h3>
+                                <a href="https://wa.me/00000000000" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition">+34 000 000 000</a>
+                            </div>
+                        </div>
+                    </div>
+                    <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Nombre</label>
+                            <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary dark:focus:ring-accent outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary dark:focus:ring-accent outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Teléfono</label>
+                            <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary dark:focus:ring-accent outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Mensaje</label>
+                            <textarea name="mensaje" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary dark:focus:ring-accent outline-none transition"></textarea>
+                        </div>
+                        <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-primary hover:bg-secondary dark:bg-accent dark:hover:bg-secondary text-white font-bold py-4 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not
