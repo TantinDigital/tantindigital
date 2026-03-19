@@ -1,0 +1,301 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titan Box | CrossFit & Halterofilia en Aranjuez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: { DEFAULT: '#E8371B', dark: '#c42d14', light: '#ff5236' },
+        surface: { light: '#f5f5f5', dark: '#0d0d0d' },
+        card: { light: '#ffffff', dark: '#1a1a1a' },
+        border: { light: '#e0e0e0', dark: '#2a2a2a' }
+      },
+      fontFamily: { heading: ['Bebas Neue', 'cursive'], body: ['Inter', 'sans-serif'] }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+[x-cloak]{display:none!important}
+body{font-family:'Inter',sans-serif}
+.heading{font-family:'Bebas Neue',cursive}
+.hero-overlay{background:linear-gradient(to right,rgba(0,0,0,0.85) 50%,rgba(0,0,0,0.2))}
+.stripe{background:repeating-linear-gradient(-55deg,#E8371B,#E8371B 10px,#c42d14 10px,#c42d14 20px)}
+.card-hover{transition:transform .3s,box-shadow .3s}
+.card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(232,55,27,0.25)}
+.dark .dark-glow{box-shadow:0 0 60px rgba(232,55,27,0.15)}
+</style>
+</head>
+<body class="bg-surface-light dark:bg-surface-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+    <span class="heading text-3xl text-primary">TITAN BOX</span>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider">
+      <a href="#servicios" class="hover:text-primary transition-colors">Programas</a>
+      <a href="#nosotros" class="hover:text-primary transition-colors">Nosotros</a>
+      <a href="#reviews" class="hover:text-primary transition-colors">Reviews</a>
+      <a href="#contacto" class="bg-primary text-white px-5 py-2 rounded hover:bg-primary-dark transition-colors">Únete Ahora</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button @click="darkMode = !darkMode" class="w-9 h-9 flex items-center justify-center rounded-full border border-border-light dark:border-border-dark hover:border-primary transition-colors">
+        <i x-show="!darkMode" class="fa-solid fa-moon text-sm"></i>
+        <i x-show="darkMode" class="fa-solid fa-sun text-sm text-yellow-400"></i>
+      </button>
+      <button @click="mobileMenu=!mobileMenu" class="md:hidden w-9 h-9 flex items-center justify-center">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </div>
+  <div x-show="mobileMenu" x-cloak @click.away="mobileMenu=false" class="md:hidden bg-white dark:bg-black border-t border-border-light dark:border-border-dark px-4 py-4 flex flex-col gap-4 text-sm font-semibold uppercase">
+    <a href="#servicios" @click="mobileMenu=false" class="hover:text-primary">Programas</a>
+    <a href="#nosotros" @click="mobileMenu=false" class="hover:text-primary">Nosotros</a>
+    <a href="#reviews" @click="mobileMenu=false" class="hover:text-primary">Reviews</a>
+    <a href="#contacto" @click="mobileMenu=false" class="bg-primary text-white px-4 py-2 rounded text-center">Únete Ahora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center pt-16">
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"></div>
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 py-20">
+    <div class="max-w-2xl">
+      <div class="stripe h-1.5 w-20 mb-6 rounded"></div>
+      <h1 class="heading text-7xl md:text-9xl text-white leading-none mb-4">FORJA TU<br><span class="text-primary">LÍMITE</span></h1>
+      <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg">CrossFit y Halterofilia de alto rendimiento en Aranjuez. Comunidad real. Resultados reales. Sin excusas.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contacto" class="bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded uppercase tracking-wider transition-colors text-sm">Empieza Hoy Gratis</a>
+        <a href="#servicios" class="border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-4 rounded uppercase tracking-wider transition-colors text-sm">Ver Programas</a>
+      </div>
+      <div class="flex gap-8 mt-12">
+        <div><p class="heading text-4xl text-primary">+500</p><p class="text-gray-400 text-xs uppercase tracking-wider">Atletas</p></div>
+        <div class="w-px bg-gray-700"></div>
+        <div><p class="heading text-4xl text-primary">8+</p><p class="text-gray-400 text-xs uppercase tracking-wider">Años</p></div>
+        <div class="w-px bg-gray-700"></div>
+        <div><p class="heading text-4xl text-primary">3</p><p class="text-gray-400 text-xs uppercase tracking-wider">Programas</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="bg-black text-white py-20">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-primary font-bold uppercase tracking-widest text-sm mb-3 text-center">¿Te identificas?</p>
+    <h2 class="heading text-5xl md:text-6xl text-center mb-12">EL PROBLEMA CON EL GIMNASIO DE SIEMPRE</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="border border-gray-800 rounded-xl p-6 hover:border-primary transition-colors">
+        <i class="fa-solid fa-clock text-primary text-3xl mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Meses sin resultados</h3>
+        <p class="text-gray-400 text-sm">Entrenas solo, sin guía, sin progresión real. El tiempo pasa y tu cuerpo no cambia.</p>
+      </div>
+      <div class="border border-gray-800 rounded-xl p-6 hover:border-primary transition-colors">
+        <i class="fa-solid fa-user-slash text-primary text-3xl mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Sin motivación ni comunidad</h3>
+        <p class="text-gray-400 text-sm">Entrenar solo es duro. Sin compañeros que te empujen, siempre es fácil rendirse.</p>
+      </div>
+      <div class="border border-gray-800 rounded-xl p-6 hover:border-primary transition-colors">
+        <i class="fa-solid fa-triangle-exclamation text-primary text-3xl mb-4"></i>
+        <h3 class="font-bold text-lg mb-2">Miedo a las lesiones</h3>
+        <p class="text-gray-400 text-sm">Sin técnica ni programación, cada entrenamiento es una ruleta rusa para tus articulaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIPE DIVIDER -->
+<div class="stripe h-3"></div>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 bg-surface-light dark:bg-surface-dark">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-primary font-bold uppercase tracking-widest text-sm mb-3 text-center">La solución</p>
+    <h2 class="heading text-5xl md:text-6xl text-center mb-4">NUESTROS PROGRAMAS</h2>
+    <p class="text-gray-500 dark:text-gray-400 text-center max-w-xl mx-auto mb-14">Cada programa está diseñado con un propósito claro. Elige el tuyo y empieza a avanzar.</p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-hover rounded-2xl overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+        <div class="h-52 bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/4720778/pexels-photo-4720778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-fire text-primary"></i><span class="text-xs font-bold uppercase tracking-wider text-primary">CrossFit</span></div>
+          <h3 class="heading text-3xl mb-2">CLASES CROSSFIT</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">WODs diarios programados por coaches certificados. Intensidad escalable para todos los niveles.</p>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Grupos reducidos</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Seguimiento de progreso</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Comunidad motivadora</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-hover rounded-2xl overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+        <div class="h-52 bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/703008/pexels-photo-703008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-dumbbell text-primary"></i><span class="text-xs font-bold uppercase tracking-wider text-primary">Halterofilia</span></div>
+          <h3 class="heading text-3xl mb-2">WEIGHTLIFTING</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Arrancada y dos tiempos. Técnica olímpica pura para desarrollar potencia explosiva real.</p>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Plataformas olímpicas</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Coaching técnico avanzado</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Preparación para competición</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-hover rounded-2xl overflow-hidden bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+        <div class="h-52 bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/28636774/pexels-photo-28636774.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3"><i class="fa-solid fa-bullseye text-primary"></i><span class="text-xs font-bold uppercase tracking-wider text-primary">Personal</span></div>
+          <h3 class="heading text-3xl mb-2">ENTRENAMIENTO PERSONAL</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Plan 100% personalizado. El camino más rápido hacia tu objetivo físico, sin rodeos.</p>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Plan nutricional incluido</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Seguimiento semanal</li>
+            <li><i class="fa-solid fa-check text-primary mr-2"></i>Acceso ilimitado al coach</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS / BENTO -->
+<section id="nosotros" class="py-24 bg-white dark:bg-card-dark">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-primary font-bold uppercase tracking-widest text-sm mb-3">Titan Box Aranjuez</p>
+        <h2 class="heading text-5xl md:text-6xl mb-6">MÁS QUE UN GIMNASIO.<br>UNA FAMILIA.</h2>
+        <p class="text-gray-500 dark:text-gray-400 mb-6">Desde 2016, Titan Box es el referente del CrossFit en Aranjuez. No somos una sala de máquinas anónima — somos una comunidad donde cada atleta, sea cual sea su nivel, tiene un nombre y un objetivo.</p>
+        <p class="text-gray-500 dark:text-gray-400 mb-8">Nuestros coaches tienen certificaciones internacionales y un único compromiso: que tú progreses cada semana.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 flex items-center gap-3"><i class="fa-solid fa-medal text-primary text-xl"></i><span class="font-semibold text-sm">Coaches certificados CrossFit L2</span></div>
+          <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 flex items-center gap-3"><i class="fa-solid fa-calendar-check text-primary text-xl"></i><span class="font-semibold text-sm">Clases todos los días</span></div>
+          <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 flex items-center gap-3"><i class="fa-solid fa-shield-halved text-primary text-xl"></i><span class="font-semibold text-sm">Equipo olímpico homologado</span></div>
+          <div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 flex items-center gap-3"><i class="fa-solid fa-location-dot text-primary text-xl"></i><span class="font-semibold text-sm">En el centro de Aranjuez</span></div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden h-96 bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"></div>
+        <div class="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl p-6 shadow-2xl">
+          <p class="heading text-5xl">8+</p>
+          <p class="text-xs uppercase tracking-wider font-semibold">Años de comunidad</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-24 bg-surface-light dark:bg-surface-dark">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-primary font-bold uppercase tracking-widest text-sm mb-3 text-center">Testimonios</p>
+    <h2 class="heading text-5xl md:text-6xl text-center mb-14">LO QUE DICEN NUESTROS ATLETAS</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">"Llevaba 3 años sin ver resultados en otros gyms. En Titan Box en 4 meses perdí 12kg y ahora levanto más que nunca. El ambiente es brutal."</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">CR</div><div><p class="font-bold text-sm">Carlos R.</p><p class="text-xs text-gray-400">CrossFit · 2 años</p></div></div>
+      </div>
+      <div class="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">"Empecé desde cero con miedo a lesionarme. Los coaches te enseñan la técnica perfecta antes de añadir peso. Ahora compito a nivel regional en halterofilia."</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">LM</div><div><p class="font-bold text-sm">Laura M.</p><p class="text-xs text-gray-400">Halterofilia · 3 años</p></div></div>
+      </div>
+      <div class="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
+        <div class="flex gap-1 text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-gray-600 dark:text-gray-300 text-sm mb-5">"La comunidad de Titan Box es única. Llegas como cliente y te vas como familia. Los WODs son duros pero siempre hay alguien animándote a no rendirte."</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">JP</div><div><p class="font-bold text-sm">Javier P.</p><p class="text-xs text-gray-400">CrossFit · 1 año</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIPE DIVIDER -->
+<div class="stripe h-3"></div>
+
+<!-- CONTACT -->
+<section id="contacto" class="py-24 bg-black text-white">
+  <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="text-primary font-bold uppercase tracking-widest text-sm mb-3">Clase de prueba GRATIS</p>
+      <h2 class="heading text-5xl md:text-7xl mb-6">¿LISTO PARA EL RETO?</h2>
+      <p class="text-gray-400 mb-8">Rellena el formulario y te contactamos para agendar tu primera clase de prueba completamente gratis. Sin compromiso. Sin matrícula.</p>
+      <div class="space-y-4">
+        <div class="flex items-center gap-4"><i class="fa-solid fa-location-dot text-primary text-xl w-6"></i><span class="text-gray-300">Aranjuez, Madrid</span></div>
+        <div class="flex items-center gap-4"><i class="fa-brands fa-whatsapp text-primary text-xl w-6"></i><span class="text-gray-300">+00 000 000 000</span></div>
+        <div class="flex items-center gap-4"><i class="fa-solid fa-clock text-primary text-xl w-6"></i><span class="text-gray-300">Lun–Sáb: 6:30am – 9:00pm</span></div>
+      </div>
+    </div>
+    <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="bg-card-dark border border-gray-800 rounded-2xl p-8 space-y-5">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Nombre completo</label>
+        <input name="nombre" required type="text" placeholder="Tu nombre" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary transition-colors">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Teléfono</label>
+        <input name="telefono" required type="tel" placeholder="+34 000 000 000" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary transition-colors">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Email</label>
+        <input name="email" required type="email" placeholder="tu@email.com" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-primary transition-colors">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">¿Qué te interesa?</label>
+        <select name="programa" class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors">
+          <option value="crossfit">CrossFit</option>
+          <option value="halterofilia">Halterofilia</option>
+          <option value="personal">Entrenamiento Personal</option>
+        </select>
+      </div>
+      <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-primary hover:bg-primary-dark disabled:opacity-60 text-white font-bold py-4 rounded-lg uppercase tracking-wider transition-colors text-sm">
+        <span x-show="status === 'idle'">Reservar Clase Gratis</span>
+        <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...</span>
+        <span x-show="status === 'error'" class="text-yellow-300">Error. Inténtalo de nuevo.</span>
+      </button>
+      <div x-show="status === 'success'" x-cloak class="bg-green-900/50 border border-green-600 text-green-300 rounded-lg p-4 text-center text-sm font-semibold">
+        <i class="fa-solid fa-circle-check text-green-400 mr-2"></i>¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black border-t border-gray-900 py-10">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+    <span class="heading text-3xl text-primary">TITAN BOX</span>
+    <p class="text-gray-600 text-sm">© 2024 Titan Box Aranjuez. Todos los derechos reservados.</p>
+    <div class="flex gap-5">
+      <a href="#" class="w-9 h-9 border border-gray-800 rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+      <a href="#" class="w-9 h-9 border border-gray-800 rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-colors"><i class="fa-brands fa-facebook text-sm"></i></a>
+      <a href="#" class="w-9 h-9 border border-gray-800 rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-colors"><i class="fa-brands fa-tiktok text-sm"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110">
+  <i class="fa-brands fa-whatsapp text-2xl"></i>
+</a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773991338557;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
