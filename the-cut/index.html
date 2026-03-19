@@ -1,0 +1,371 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cut - Barbería Premium en Valencia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a1a1a',
+            secondary: '#d4af37',
+            accent: '#2d2d2d',
+            light: '#f5f5f5',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            marquee: 'marquee 25s linear infinite',
+            slideUp: 'slideUp 0.6s ease-out',
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html.dark { color-scheme: dark; }
+  </style>
+</head>
+<body class="bg-white dark:bg-primary text-primary dark:text-light transition-colors duration-300">
+  
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-white dark:bg-accent shadow-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-serif font-bold text-secondary">THE CUT</div>
+      <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-light dark:hover:bg-primary transition">
+        <i class="fas" :class="darkMode ? 'fa-sun text-yellow-400' : 'fa-moon text-gray-600'"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen overflow-hidden flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.pexels.com/photos/7697278/pexels-photo-7697278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Hero" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-light">
+      <div class="animate-slideUp">
+        <h1 class="text-6xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+          Más que un corte.<br><span class="text-secondary">Una experiencia.</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl font-light">Barbería premium en Valencia donde tradición y modernidad se encuentran. Cada detalle cuenta.</p>
+        <button class="bg-secondary hover:bg-opacity-90 text-primary px-8 py-3 rounded-lg font-semibold transition duration-300 text-lg">
+          Reserva tu cita
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-light dark:bg-primary">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-serif font-bold text-center mb-16 text-primary dark:text-secondary">Nuestros Servicios</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg h-64 md:h-80 mb-4">
+            <img src="https://images.pexels.com/photos/12464846/pexels-photo-12464846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Corte Clásico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <span class="text-secondary font-semibold text-lg"><i class="fas fa-arrow-right mr-2"></i>Descubre más</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-serif font-bold mb-2 group-hover:text-secondary transition">Corte Clásico</h3>
+          <p class="text-gray-600 dark:text-gray-300">Barbería tradicional con técnicas modernas. Líneas precisas, acabados impecables.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg h-64 md:h-80 mb-4">
+            <img src="https://images.pexels.com/photos/9799301/pexels-photo-9799301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Afeitado Premium" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <span class="text-secondary font-semibold text-lg"><i class="fas fa-arrow-right mr-2"></i>Descubre más</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-serif font-bold mb-2 group-hover:text-secondary transition">Afeitado Premium</h3>
+          <p class="text-gray-600 dark:text-gray-300">Afeitado de seguridad con productos de lujo. Cuidado de la piel incluido.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group cursor-pointer">
+          <div class="relative overflow-hidden rounded-lg h-64 md:h-80 mb-4">
+            <img src="https://images.pexels.com/photos/8552626/pexels-photo-8552626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Diseño de Barba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+              <span class="text-secondary font-semibold text-lg"><i class="fas fa-arrow-right mr-2"></i>Descubre más</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-serif font-bold mb-2 group-hover:text-secondary transition">Diseño de Barba</h3>
+          <p class="text-gray-600 dark:text-gray-300">Perfilado y diseño personalizado de barba con productos premium.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section class="py-20 bg-white dark:bg-accent">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-serif font-bold text-center mb-16">¿Por qué The Cut?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center group">
+          <div class="text-5xl text-secondary mb-4 group-hover:scale-110 transition duration-300">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Maestría</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Barberos con 15+ años de experiencia</p>
+        </div>
+
+        <div class="text-center group">
+          <div class="text-5xl text-secondary mb-4 group-hover:scale-110 transition duration-300">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Premium</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Productos de lujo importados</p>
+        </div>
+
+        <div class="text-center group">
+          <div class="text-5xl text-secondary mb-4 group-hover:scale-110 transition duration-300">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Atención</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Servicio personalizado y exclusivo</p>
+        </div>
+
+        <div class="text-center group">
+          <div class="text-5xl text-secondary mb-4 group-hover:scale-110 transition duration-300">
+            <i class="fas fa-location-dot"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Valencia</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Centro ubicación perfecta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-light dark:bg-primary overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 mb-12">
+      <h2 class="text-5xl font-serif font-bold text-center">Nuestros Clientes Hablan</h2>
+    </div>
+    
+    <div class="flex overflow-hidden">
+      <div class="animate-marquee flex gap-8 whitespace-nowrap">
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Mejor corte que he tenido en años. Profesionales de verdad."</p>
+          <p class="font-semibold">Carlos M.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Atmósfera premium, precio justo. Voy cada quincena."</p>
+          <p class="font-semibold">Miguel R.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Los barberos te asesoran sin venderte. Muy profesional."</p>
+          <p class="font-semibold">David L.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"He probado muchas barberías. The Cut es diferente."</p>
+          <p class="font-semibold">Javier T.</p>
+        </div>
+      </div>
+      
+      <div class="animate-marquee flex gap-8 whitespace-nowrap">
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Mejor corte que he tenido en años. Profesionales de verdad."</p>
+          <p class="font-semibold">Carlos M.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Atmósfera premium, precio justo. Voy cada quincena."</p>
+          <p class="font-semibold">Miguel R.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"Los barberos te asesoran sin venderte. Muy profesional."</p>
+          <p class="font-semibold">David L.</p>
+        </div>
+
+        <div class="bg-white dark:bg-accent rounded-lg p-6 min-w-max shadow-lg">
+          <div class="flex gap-1 mb-2">
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+            <i class="fas fa-star text-secondary text-sm"></i>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">"He probado muchas barberías. The Cut es diferente."</p>
+          <p class="font-semibold">Javier T.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary to-accent text-light">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-serif font-bold mb-6">¿Listo para tu mejor corte?</h2>
+      <p class="text-xl mb-8 opacity-90">Reserva ahora y obtén 10% de descuento en tu primera visita.</p>
+      <button class="bg-secondary hover:bg-opacity-90 text-primary px-10 py-4 rounded-lg font-bold transition duration-300 text-lg">
+        Reservar Cita Ahora
+      </button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-light dark:bg-primary">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-5xl font-serif font-bold text-center mb-16">Contacta con Nosotros</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div>
+          <div class="mb-8">
+            <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+              <i class="fas fa-map-pin text-secondary text-xl"></i> Ubicación
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">Calle del Éxito 42, Valencia, España</p>
+          </div>
+          
+          <div class="mb-8">
+            <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+              <i class="fas fa-phone text-secondary text-xl"></i> Teléfono
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">+34 960 123 456</p>
+          </div>
+          
+          <div class="mb-8">
+            <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+              <i class="fas fa-clock text-secondary text-xl"></i> Horario
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">Lunes - Viernes: 9am - 7pm<br>Sábado: 10am - 5pm<br>Domingo: Cerrado</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="space-y-4">
+            <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-accent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary dark:text-light">
+            
+            <input type="email" name="email" placeholder="Tu email" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-accent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary dark:text-light">
+            
+            <input type="tel" name="telefono" placeholder="Tu teléfono" class="w-full px-4 py-3 rounded-lg bg-white dark:bg-accent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary dark:text-light">
+            
+            <textarea name="mensaje" placeholder="Tu mensaje" rows="5" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-accent border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary dark:text-light"></textarea>
+            
+            <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-secondary hover:bg-opacity-90 disabled:opacity-50 text-primary px-6 py-3 rounded-lg font-bold transition duration-300">
+              <span x-show="status === 'idle'">Enviar Consulta</span>
+              <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...</span>
+            </button>
+            
+            <div x-show="status === 'success'" x-cloak class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-3 rounded-lg text-center font-semibold">
+              ¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary dark:bg-accent text-light py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="mb-4 text-secondary font-serif text-2xl">THE CUT</p>
+      <p class="text-gray-400 mb-6">Barbería Premium en Valencia</p>
+      <div class="flex justify-center gap-6 mb-8">
+        <a href="#" class="text-secondary hover:text-opacity-80 transition"><i class="fab fa-instagram text-2xl"></i></a>
+        <a href="#" class="text-secondary hover:text-opacity-80 transition"><i class="fab fa-facebook text-2xl"></i></a>
+        <a href="#" class="text-secondary hover:text-opacity-80 transition"><i class="fab fa-tiktok text-2xl"></i></a>
+      </div>
+      <p class="text-gray-500 text-sm">© 2024 The Cut. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition duration-300 z-40 hover:scale-110">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773994063499;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
