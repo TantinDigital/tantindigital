@@ -1,0 +1,407 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiro con Arco Balístico | Clases y Competiciones en Colmenar</title>
+    <meta name="description" content="Domina la precisión en Tiro con Arco Balístico. Clases profesionales, competiciones de alto nivel y entrenamiento personalizado en Colmenar. ¡Reserva tu plaza!">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Frameworks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            dark: '#0A0C10',
+                            forest: '#1B2B24',
+                            accent: '#D4AF37'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        [x-cloak] { display: none !important; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .dark .glass { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0C10; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-brand-dark text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass top-0">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <i class="fa-solid fa-bullseye text-brand-gold text-3xl group-hover:rotate-45 transition-transform duration-500"></i>
+                <span class="font-serif text-xl font-bold tracking-widest uppercase">Balístico</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium tracking-tight">
+                <a href="#metodo" class="hover:text-brand-gold transition-colors">Método</a>
+                <a href="#servicios" class="hover:text-brand-gold transition-colors">Clases</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
+                <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                    <i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+                </button>
+                <a href="#contacto" class="bg-brand-gold hover:bg-brand-accent text-brand-dark px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95">
+                    Reservar Ahora
+                </a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak x-transition class="fixed inset-0 bg-brand-dark z-[60] flex flex-col items-center justify-center gap-8 text-2xl font-serif">
+            <button @click="mobileMenu = false" class="absolute top-8 right-8 text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="#metodo" @click="mobileMenu = false">Método</a>
+            <a href="#servicios" @click="mobileMenu = false">Clases</a>
+            <a href="#faq" @click="mobileMenu = false">FAQ</a>
+            <button @click="darkMode = !darkMode; mobileMenu = false" class="flex items-center gap-3">
+                <span x-text="darkMode ? 'Modo Claro' : 'Modo Oscuro'"></span>
+                <i class="fa-solid" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/6669144/pexels-photo-6669144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" 
+                 alt="Tiro con Arco" class="w-full h-full object-cover brightness-[0.4] scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-bold text-sm tracking-widest uppercase mb-6 animate-pulse">
+                Escuela de Élite en Colmenar
+            </span>
+            <h1 class="font-serif text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-none">
+                DOMINA LA <br><span class="text-brand-gold italic">PRECISIÓN</span> TOTAL
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                Transformamos arqueros novatos en competidores de precisión quirúrgica. Técnica balística aplicada al arte milenario del tiro con arco.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#contacto" class="w-full md:w-auto px-10 py-5 bg-brand-gold text-brand-dark font-black rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl shadow-brand-gold/20 flex items-center justify-center gap-3 uppercase tracking-tighter">
+                    Comenzar Entrenamiento <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#servicios" class="w-full md:w-auto px-10 py-5 glass text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-white/20">
+                    Ver Disciplinas
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <i class="fa-solid fa-chevron-down text-brand-gold text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Pain Points (PAS) -->
+    <section id="metodo" class="py-24 px-6 bg-white dark:bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 lg:gap-20">
+                <div class="group">
+                    <div class="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-gold transition-colors duration-500">
+                        <i class="fa-solid fa-crosshairs text-3xl text-brand-gold group-hover:text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4">¿Falta de Enfoque?</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">La mayoría de los arqueros fallan por falta de consistencia mental. Nuestro método balístico entrena tu mente tanto como tu pulso.</p>
+                </div>
+                <div class="group">
+                    <div class="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-gold transition-colors duration-500">
+                        <i class="fa-solid fa-bolt-lightning text-3xl text-brand-gold group-hover:text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4">Técnica Ineficiente</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">No se trata de fuerza, sino de biomecánica. Corregimos cada milímetro de tu postura para maximizar la transferencia de energía.</p>
+                </div>
+                <div class="group">
+                    <div class="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-gold transition-colors duration-500">
+                        <i class="fa-solid fa-trophy text-3xl text-brand-gold group-hover:text-brand-dark"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4">Miedo a Competir</h3>
+                    <p class="text-slate-500 dark:text-slate-400 leading-relaxed">El estrés del torneo arruina tu tiro. Simulamos condiciones de presión real para que compitas con la frialdad de un profesional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services (Bento Grid) -->
+    <section id="servicios" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="font-serif text-4xl md:text-6xl font-bold mb-4 uppercase tracking-tighter">Nuestras <span class="text-brand-gold">Disciplinas</span></h2>
+                    <p class="text-slate-500 max-w-xl">Entrenamiento especializado adaptado a tu nivel y objetivos deportivos.</p>
+                </div>
+                <p class="font-serif text-brand-gold text-5xl font-black opacity-10 select-none hidden lg:block uppercase tracking-widest">Precision</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+                <!-- Service 1 -->
+                <div class="md:col-span-8 md:row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer">
+                    <img src="https://images.pexels.com/photos/6620742/pexels-photo-6620742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Iniciación Técnica" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent p-10 flex flex-col justify-end">
+                        <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Nivel Iniciación</span>
+                        <h4 class="font-serif text-3xl md:text-4xl text-white font-bold mb-4">Fundamentos Balísticos</h4>
+                        <p class="text-slate-200 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">Domina la respiración, el anclaje y la liberación suave. El primer paso hacia la perfección.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="md:col-span-4 md:row-span-2 group relative overflow-hidden rounded-3xl cursor-pointer">
+                    <img src="https://images.pexels.com/photos/6540714/pexels-photo-6540714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Alto Rendimiento" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent p-10 flex flex-col justify-end">
+                        <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Nivel Avanzado</span>
+                        <h4 class="font-serif text-3xl text-white font-bold mb-4">Alto Rendimiento</h4>
+                        <p class="text-slate-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Entrenamiento específico para arqueros federados. Optimización de equipo y técnica olímpica.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="md:col-span-8 md:row-span-1 group relative overflow-hidden rounded-3xl cursor-pointer">
+                    <img src="https://images.pexels.com/photos/6655537/pexels-photo-6655537.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Competición" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent p-10 flex flex-col justify-end">
+                        <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-2">Competición</span>
+                        <h4 class="font-serif text-3xl text-white font-bold mb-4">Eventos y Torneos</h4>
+                        <p class="text-slate-200 max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">Organizamos competiciones mensuales en Colmenar. Pon a prueba tus habilidades bajo presión real.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Marquee -->
+    <div class="bg-brand-dark py-12 border-y border-white/5 overflow-hidden">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <!-- Set 1 -->
+            <div class="flex items-center gap-20 px-10">
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> "Mejor técnica en Colmenar"
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> Equipamiento Olímpico
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> +500 Alumnos formados
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> Club Federado
+                </span>
+            </div>
+            <!-- Set 2 -->
+            <div class="flex items-center gap-20 px-10">
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> "Mejor técnica en Colmenar"
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> Equipamiento Olímpico
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> +500 Alumnos formados
+                </span>
+                <span class="flex items-center gap-4 text-white/40 font-serif text-2xl uppercase italic tracking-widest">
+                    <i class="fa-solid fa-star text-brand-gold"></i> Club Federado
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tighter">Preguntas <span class="text-brand-gold">Frecuentes</span></h2>
+            <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+        </div>
+
+        <div x-data="{ active: null }" class="space-y-4">
+            <!-- Q1 -->
+            <div class="rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden transition-all duration-300">
+                <button @click="active !== 1 ? active = 1 : active = null" class="w-full p-6 text-left flex justify-between items-center bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
+                    <span class="font-bold text-lg">¿Necesito equipo propio para empezar?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300 text-brand-gold" :class="active === 1 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 1" x-collapse x-cloak class="p-6 bg-slate-50 dark:bg-brand-dark text-slate-500 dark:text-slate-400">
+                    No. En Tiro con Arco Balístico proporcionamos todo el equipo necesario (arco, flechas, protecciones) durante tus primeras fases de aprendizaje.
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden transition-all duration-300">
+                <button @click="active !== 2 ? active = 2 : active = null" class="w-full p-6 text-left flex justify-between items-center bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
+                    <span class="font-bold text-lg">¿A partir de qué edad se puede practicar?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300 text-brand-gold" :class="active === 2 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 2" x-collapse x-cloak class="p-6 bg-slate-50 dark:bg-brand-dark text-slate-500 dark:text-slate-400">
+                    Recomendamos empezar a partir de los 8 años, cuando la coordinación motora permite manejar el arco con seguridad y eficacia.
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden transition-all duration-300">
+                <button @click="active !== 3 ? active = 3 : active = null" class="w-full p-6 text-left flex justify-between items-center bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
+                    <span class="font-bold text-lg">¿Dónde se realizan las clases y torneos?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300 text-brand-gold" :class="active === 3 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 3" x-collapse x-cloak class="p-6 bg-slate-50 dark:bg-brand-dark text-slate-500 dark:text-slate-400">
+                    Nuestras instalaciones principales se encuentran en el Complejo Deportivo de Colmenar, con áreas específicas tanto de exterior como de interior.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 px-6 bg-brand-forest/10 dark:bg-white/5 relative">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-serif text-5xl font-bold mb-6 uppercase tracking-tighter leading-tight">ÚNETE A LA <br><span class="text-brand-gold">ÉLITE</span> DE COLMENAR</h2>
+                <p class="text-xl text-slate-500 mb-8 leading-relaxed italic">"La flecha no es solo un proyectil, es la extensión de tu voluntad."</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-brand-gold">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">URGENCIA:</p>
+                            <p class="text-slate-500">Solo 4 plazas disponibles para el curso de Octubre.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 glass rounded-full flex items-center justify-center text-brand-gold">
+                            <i class="fa-solid fa-check-double"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">GARANTÍA:</p>
+                            <p class="text-slate-500">Si no mejoras tu agrupación en 3 sesiones, te devolvemos el dinero.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 bg-brand-gold text-brand-dark font-black text-xs uppercase tracking-tighter -rotate-45 translate-x-12 translate-y-2 w-48 text-center shadow-lg">
+                    Cupos Limitados
+                </div>
+                
+                <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 2000);" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-brand-gold mb-2 tracking-widest">Nombre Completo</label>
+                            <input type="text" required class="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="Ej: Diana Cazadora">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-brand-gold mb-2 tracking-widest">Email</label>
+                            <input type="email" required class="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-brand-gold mb-2 tracking-widest">Nivel de Experiencia</label>
+                        <select class="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-4 focus:ring-2 focus:ring-brand-gold outline-none transition-all">
+                            <option>Novato Absoluto</option>
+                            <option>He tirado alguna vez</option>
+                            <option>Arquero Federado</option>
+                        </select>
+                    </div>
+                    <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-brand-gold hover:bg-brand-accent text-brand-dark py-5 rounded-xl font-black text-lg uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-xl shadow-brand-gold/20">
+                        <span x-show="status === 'idle'">Solicitar Presupuesto Gratuito</span>
+                        <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Procesando tu flecha...</span>
+                    </button>
+
+                    <div x-show="status === 'success'" x-cloak class="p-6 bg-green-500/20 border border-green-500 text-green-500 rounded-xl text-center font-bold">
+                        <i class="fa-solid fa-check-circle mb-2 text-3xl"></i>
+                        <p>¡Centro de la diana! Formulario enviado. Se activará al contratar la web.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-16 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <i class="fa-solid fa-bullseye text-brand-gold text-3xl"></i>
+                    <span class="font-serif text-2xl font-bold tracking-widest uppercase italic">Balístico</span>
+                </div>
+                <p class="text-slate-500 max-w-sm">La escuela de tiro con arco referente en Madrid Norte. Técnica, pasión y resultados desde 2018.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase tracking-widest text-brand-gold">Navegación</h4>
+                <ul class="space-y-4 text-slate-400">
+                    <li><a href="#" class="hover:text-white transition-colors">Inicio</a></li>
+                    <li><a href="#metodo" class="hover:text-white transition-colors">Método</a></li>
+                    <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                    <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase tracking-widest text-brand-gold">Síguenos</h4>
+                <div class="flex gap-4 text-2xl">
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-sm">
+            &copy; 2023 Tiro con Arco Balístico. Todos los derechos reservados. Colmenar, España.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform animate-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1774015292089;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
