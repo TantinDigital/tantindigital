@@ -1,0 +1,240 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Gamma | Arquitectura de Interiores de Lujo en Madrid</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: { DEFAULT: '#1a1a1a', light: '#2d2d2d', dark: '#0d0d0d' },
+        secondary: { DEFAULT: '#c9a962', light: '#d4bc7d', dark: '#b8944a' },
+        cream: { DEFAULT: '#f5f1e8', dark: '#e8e2d5' },
+        charcoal: { DEFAULT: '#333333', light: '#4a4a4a' }
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['Montserrat', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+[x-cloak] { display: none !important; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 25s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
+</style>
+</head>
+<body class="bg-cream dark:bg-primary font-sans text-charcoal dark:text-cream transition-colors duration-500">
+
+<nav class="fixed w-full z-50 bg-cream/90 dark:bg-primary/95 backdrop-blur-md border-b border-secondary/20">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<a href="#" class="font-serif text-2xl md:text-3xl font-bold tracking-wider text-primary dark:text-cream">STUDIO<span class="text-secondary">GAMMA</span></a>
+<div class="hidden md:flex items-center gap-8 font-sans text-sm tracking-widest uppercase">
+<a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a>
+<a href="#proyectos" class="hover:text-secondary transition-colors">Proyectos</a>
+<a href="#contacto" class="hover:text-secondary transition-colors">Contacto</a>
+</div>
+<div class="flex items-center gap-4">
+<button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-secondary/20 transition-colors">
+<i x-show="!darkMode" class="fa-solid fa-moon text-primary"></i>
+<i x-show="darkMode" class="fa-solid fa-sun text-secondary"></i>
+</button>
+<a href="#contacto" class="hidden md:block px-6 py-3 bg-primary dark:bg-secondary text-cream dark:text-primary font-sans text-xs tracking-widest uppercase hover:bg-secondary hover:text-primary dark:hover:bg-cream transition-all">Consulta Gratuita</a>
+</div>
+</div>
+</nav>
+
+<section class="relative min-h-screen flex items-center pt-20">
+<div class="absolute inset-0 z-0">
+<img src="https://images.pexels.com/photos/35128596/pexels-photo-35128596.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Interior de lujo" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+<div>
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase mb-4">Madrid Centro</p>
+<h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-cream font-bold leading-tight mb-6">Espacios que<br><span class="text-secondary italic">transforman</span> vidas</h1>
+<p class="font-sans text-cream/80 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">Diseñamos interiores de lujo que fusionan elegancia atemporal con funcionalidad excepcional. Tu visión, nuestra maestría.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#contacto" class="px-8 py-4 bg-secondary text-primary font-sans text-sm tracking-widest uppercase text-center hover:bg-cream transition-all">Agendar Consulta</a>
+<a href="#proyectos" class="px-8 py-4 border border-cream/50 text-cream font-sans text-sm tracking-widest uppercase text-center hover:bg-cream/10 transition-all">Ver Portfolio</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+<i class="fa-solid fa-chevron-down text-cream/60 text-2xl"></i>
+</div>
+</section>
+
+<section class="py-24 bg-cream dark:bg-primary-dark">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase mb-4">El problema</p>
+<h2 class="font-serif text-3xl md:text-5xl font-semibold mb-8">¿Tu hogar no refleja quien realmente eres?</h2>
+<p class="font-sans text-lg text-charcoal/70 dark:text-cream/70 leading-relaxed mb-6">Espacios genéricos, diseños sin alma, materiales que no perduran. Has invertido en tu propiedad pero cada día sientes que algo falta: ese toque distintivo que convierte una casa en un refugio de lujo.</p>
+<p class="font-sans text-lg text-charcoal/70 dark:text-cream/70 leading-relaxed">En Studio Gamma entendemos que mereces más. Mereces un espacio diseñado exclusivamente para ti.</p>
+</div>
+</section>
+
+<section id="servicios" class="py-24 bg-white dark:bg-charcoal">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase mb-4">Nuestros servicios</p>
+<h2 class="font-serif text-3xl md:text-5xl font-semibold">Excelencia en cada detalle</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group relative overflow-hidden bg-cream dark:bg-primary">
+<div class="aspect-[4/5] overflow-hidden">
+<img src="https://images.pexels.com/photos/4458196/pexels-photo-4458196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Diseño residencial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+</div>
+<div class="p-8">
+<i class="fa-solid fa-home text-secondary text-2xl mb-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+<h3 class="font-serif text-2xl font-semibold mb-3">Residencial Premium</h3>
+<p class="font-sans text-charcoal/70 dark:text-cream/70 text-sm leading-relaxed">Transformamos viviendas en santuarios personalizados que elevan tu calidad de vida.</p>
+</div>
+</div>
+<div class="group relative overflow-hidden bg-cream dark:bg-primary md:-mt-8">
+<div class="aspect-[4/5] overflow-hidden">
+<img src="https://images.pexels.com/photos/6648440/pexels-photo-6648440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Diseño comercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+</div>
+<div class="p-8">
+<i class="fa-solid fa-building text-secondary text-2xl mb-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+<h3 class="font-serif text-2xl font-semibold mb-3">Espacios Comerciales</h3>
+<p class="font-sans text-charcoal/70 dark:text-cream/70 text-sm leading-relaxed">Diseños que potencian tu marca y crean experiencias memorables para tus clientes.</p>
+</div>
+</div>
+<div class="group relative overflow-hidden bg-cream dark:bg-primary">
+<div class="aspect-[4/5] overflow-hidden">
+<img src="https://images.pexels.com/photos/36519084/pexels-photo-36519084.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Consultoría" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+</div>
+<div class="p-8">
+<i class="fa-solid fa-compass-drafting text-secondary text-2xl mb-4 group-hover:translate-x-2 transition-transform duration-300"></i>
+<h3 class="font-serif text-2xl font-semibold mb-3">Consultoría Integral</h3>
+<p class="font-sans text-charcoal/70 dark:text-cream/70 text-sm leading-relaxed">Asesoramiento experto desde la conceptualización hasta la ejecución final del proyecto.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="proyectos" class="py-24 bg-primary dark:bg-charcoal-light">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase mb-4">Nuestra filosofía</p>
+<h2 class="font-serif text-3xl md:text-5xl text-cream font-semibold mb-8">Donde el arte encuentra la función</h2>
+<p class="font-sans text-cream/70 text-lg leading-relaxed mb-6">Cada proyecto Studio Gamma nace de una escucha profunda. No imponemos estilos; revelamos la esencia de quién eres a través del espacio.</p>
+<div class="grid grid-cols-3 gap-8 mt-12">
+<div class="text-center">
+<p class="font-serif text-4xl text-secondary font-bold">15+</p>
+<p class="font-sans text-cream/60 text-sm uppercase tracking-wider">Años</p>
+</div>
+<div class="text-center">
+<p class="font-serif text-4xl text-secondary font-bold">200+</p>
+<p class="font-sans text-cream/60 text-sm uppercase tracking-wider">Proyectos</p>
+</div>
+<div class="text-center">
+<p class="font-serif text-4xl text-secondary font-bold">100%</p>
+<p class="font-sans text-cream/60 text-sm uppercase tracking-wider">Satisfacción</p>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-secondary/20 absolute -top-4 -right-4 w-full"></div>
+<img src="https://images.pexels.com/photos/4458196/pexels-photo-4458196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Proyecto destacado" class="relative z-10 w-full aspect-square object-cover">
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-cream dark:bg-primary overflow-hidden">
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase text-center mb-12">Lo que dicen nuestros clientes</p>
+<div class="relative">
+<div class="flex animate-marquee">
+<div class="flex gap-8 px-4">
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Studio Gamma transformó nuestra casa en un sueño hecho realidad. Cada detalle supera nuestras expectativas."</p><p class="font-sans text-secondary text-sm">— María L., Salamanca</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Profesionalismo excepcional. Entendieron nuestra visión desde el primer día."</p><p class="font-sans text-secondary text-sm">— Carlos R., Chamberí</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"El mejor estudio de interiorismo de Madrid. Sin duda volveremos a trabajar con ellos."</p><p class="font-sans text-secondary text-sm">— Elena M., Retiro</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Atención al detalle impecable. Nuestro restaurante nunca se vio tan bien."</p><p class="font-sans text-secondary text-sm">— Antonio G., Malasaña</p></div>
+</div>
+<div class="flex gap-8 px-4">
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Studio Gamma transformó nuestra casa en un sueño hecho realidad. Cada detalle supera nuestras expectativas."</p><p class="font-sans text-secondary text-sm">— María L., Salamanca</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Profesionalismo excepcional. Entendieron nuestra visión desde el primer día."</p><p class="font-sans text-secondary text-sm">— Carlos R., Chamberí</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"El mejor estudio de interiorismo de Madrid. Sin duda volveremos a trabajar con ellos."</p><p class="font-sans text-secondary text-sm">— Elena M., Retiro</p></div>
+<div class="w-80 flex-shrink-0 bg-white dark:bg-charcoal p-8"><p class="font-serif text-lg italic mb-4">"Atención al detalle impecable. Nuestro restaurante nunca se vio tan bien."</p><p class="font-sans text-secondary text-sm">— Antonio G., Malasaña</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contacto" class="py-24 bg-white dark:bg-charcoal">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16">
+<div>
+<p class="font-sans text-secondary text-sm tracking-[0.3em] uppercase mb-4">Contacto</p>
+<h2 class="font-serif text-3xl md:text-5xl font-semibold mb-8">Comienza tu transformación</h2>
+<p class="font-sans text-charcoal/70 dark:text-cream/70 text-lg leading-relaxed mb-8">Agenda una consulta gratuita y descubre cómo podemos crear el espacio que siempre soñaste.</p>
+<div class="space-y-4">
+<p class="flex items-center gap-4"><i class="fa-solid fa-location-dot text-secondary"></i><span class="font-sans">Calle Serrano 42, Madrid Centro</span></p>
+<p class="flex items-center gap-4"><i class="fa-solid fa-phone text-secondary"></i><span class="font-sans">+34 910 123 456</span></p>
+<p class="flex items-center gap-4"><i class="fa-solid fa-envelope text-secondary"></i><span class="font-sans">hola@studiogamma.es</span></p>
+</div>
+</div>
+<form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="bg-cream dark:bg-primary p-8 md:p-12">
+<div class="space-y-6">
+<input type="text" name="nombre" placeholder="Nombre completo" required class="w-full bg-transparent border-b border-charcoal/30 dark:border-cream/30 py-3 font-sans text-sm focus:outline-none focus:border-secondary">
+<input type="email" name="email" placeholder="Email" required class="w-full bg-transparent border-b border-charcoal/30 dark:border-cream/30 py-3 font-sans text-sm focus:outline-none focus:border-secondary">
+<input type="tel" name="telefono" placeholder="Teléfono" class="w-full bg-transparent border-b border-charcoal/30 dark:border-cream/30 py-3 font-sans text-sm focus:outline-none focus:border-secondary">
+<textarea name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required class="w-full bg-transparent border-b border-charcoal/30 dark:border-cream/30 py-3 font-sans text-sm focus:outline-none focus:border-secondary resize-none"></textarea>
+</div>
+<button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="mt-8 w-full py-4 bg-primary dark:bg-secondary text-cream dark:text-primary font-sans text-sm tracking-widest uppercase hover:bg-secondary hover:text-primary dark:hover:bg-cream transition-all disabled:opacity-50">
+<span x-show="status === 'idle'">Enviar Consulta</span>
+<span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...</span>
+</button>
+<div x-show="status === 'success'" x-cloak class="mt-8 p-4 bg-secondary/20 text-center">
+<i class="fa-solid fa-check-circle text-secondary text-2xl mb-2"></i>
+<p class="font-sans text-sm">¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.</p>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="py-12 bg-primary text-cream">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<a href="#" class="font-serif text-2xl font-bold tracking-wider">STUDIO<span class="text-secondary">GAMMA</span></a>
+<div class="flex gap-6">
+<a href="#" class="hover:text-secondary transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+<a href="#" class="hover:text-secondary transition-colors"><i class="fa-brands fa-pinterest text-xl"></i></a>
+<a href="#" class="hover:text-secondary transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+</div>
+<p class="font-sans text-sm text-cream/60">© 2024 Studio Gamma. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition-all">
+<i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+</a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773991708064;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
