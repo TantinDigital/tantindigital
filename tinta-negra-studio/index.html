@@ -1,0 +1,300 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinta Negra Studio | Tatuajes Custom, Realismo y Fine Line en Aranjuez</title>
+<meta name="description" content="Tinta Negra Studio: El estudio de tatuaje premium del Centro Histórico de Aranjuez. Especialistas en realismo, fine line y diseños custom. Agenda tu cita hoy — plazas muy limitadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { display: ['Playfair Display','serif'], body: ['Inter','sans-serif'] },
+      colors: {
+        ink: { 50:'#f5f0eb', 100:'#e8ddd2', 200:'#d0b99e', 300:'#b8936a', 400:'#9e6e42', 500:'#7a4f2a', 600:'#5e3a1a', 700:'#42260e', 800:'#281506', 900:'#0f0800' },
+        gold: { 400:'#d4a853', 500:'#c49a3c', 600:'#a87e28' },
+      },
+      animation: { marquee: 'marquee 28s linear infinite', 'marquee-slow': 'marquee 40s linear infinite' },
+      keyframes: { marquee: { '0%':{ transform:'translateX(0)' }, '100%':{ transform:'translateX(-50%)' } } }
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+[x-cloak]{display:none!important}
+body{font-family:'Inter',sans-serif;background:#0f0800;color:#e8ddd2}
+.dark body{background:#0a0500}
+.grain::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4}
+.gold-line{background:linear-gradient(90deg,transparent,#d4a853,transparent);height:1px}
+.hero-img{object-position:center 30%}
+.bento-hover:hover .bento-img{transform:scale(1.07)}
+.bento-img{transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.text-shadow{text-shadow:0 2px 20px rgba(0,0,0,.8)}
+</style>
+</head>
+<body class="grain bg-ink-900 text-ink-100 font-body overflow-x-hidden">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 bg-ink-900/90 backdrop-blur-md border-b border-ink-700/40">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between h-16">
+    <a href="#" class="font-display text-xl font-black tracking-widest text-gold-400 uppercase">Tinta Negra<span class="text-ink-200 text-sm block leading-none tracking-[.3em] font-body font-light">Studio</span></a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-200">
+      <a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios</a>
+      <a href="#reseñas" class="hover:text-gold-400 transition-colors">Reseñas</a>
+      <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+      <a href="#contacto" class="hover:text-gold-400 transition-colors">Contacto</a>
+      <a href="#contacto" class="px-4 py-2 bg-gold-500 text-ink-900 font-semibold rounded text-xs tracking-wider uppercase hover:bg-gold-400 transition-colors">Reservar Cita</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button @click="darkMode = !darkMode" class="w-9 h-9 flex items-center justify-center rounded-full border border-ink-600 text-ink-300 hover:border-gold-500 hover:text-gold-400 transition-all text-sm">
+        <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+      </button>
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden w-9 h-9 flex items-center justify-center text-ink-200">
+        <i :class="mobileMenu ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
+      </button>
+    </div>
+  </div>
+  <div x-show="mobileMenu" x-cloak class="md:hidden bg-ink-800 border-t border-ink-700/50 px-5 py-4 flex flex-col gap-4 text-sm font-medium text-ink-200">
+    <a href="#servicios" @click="mobileMenu=false" class="hover:text-gold-400">Servicios</a>
+    <a href="#reseñas" @click="mobileMenu=false" class="hover:text-gold-400">Reseñas</a>
+    <a href="#faq" @click="mobileMenu=false" class="hover:text-gold-400">FAQ</a>
+    <a href="#contacto" @click="mobileMenu=false" class="px-4 py-2 bg-gold-500 text-ink-900 font-semibold rounded text-xs tracking-wider uppercase text-center">Reservar Cita</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-end pb-24 pt-16 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.pexels.com/photos/35732835/pexels-photo-35732835.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tinta Negra Studio Aranjuez" class="w-full h-full object-cover hero-img" onerror="this.src='https://placehold.co/1920x1080/0f0800/d4a853?text=TINTA+NEGRA+STUDIO'">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/60 to-ink-900/20"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-end w-full">
+    <div>
+      <span class="inline-flex items-center gap-2 text-gold-400 text-xs tracking-[.25em] uppercase font-medium mb-6 border border-gold-500/30 px-3 py-1.5 rounded-full bg-gold-500/10">
+        <i class="fa-solid fa-location-dot"></i> Centro Histórico · Aranjuez
+      </span>
+      <h1 class="font-display text-5xl md:text-7xl font-black leading-none text-ink-50 text-shadow mb-6">
+        Tu piel.<br><span class="text-gold-400">Nuestra</span><br>obra maestra.
+      </h1>
+      <p class="text-ink-300 text-lg md:text-xl max-w-lg leading-relaxed mb-8">Tatuajes custom, realismo fotográfico y fine line de precisión absoluta. Cada diseño, único. Cada trazo, permanente.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contacto" class="group px-8 py-4 bg-gold-500 text-ink-900 font-bold rounded text-sm tracking-wider uppercase hover:bg-gold-400 transition-all duration-300 flex items-center gap-2">
+          Reservar Cita <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        <a href="#servicios" class="px-8 py-4 border border-ink-500 text-ink-200 font-medium rounded text-sm tracking-wider uppercase hover:border-gold-500 hover:text-gold-400 transition-all duration-300">Ver Trabajos</a>
+      </div>
+    </div>
+    <div class="hidden lg:flex flex-col gap-3 items-end">
+      <div class="grid grid-cols-2 gap-3 text-center">
+        <div class="bg-ink-800/80 backdrop-blur border border-ink-700/50 rounded-2xl p-5">
+          <div class="font-display text-3xl font-black text-gold-400">+800</div>
+          <div class="text-ink-400 text-xs mt-1">Tatuajes realizados</div>
+        </div>
+        <div class="bg-ink-800/80 backdrop-blur border border-ink-700/50 rounded-2xl p-5">
+          <div class="font-display text-3xl font-black text-gold-400">8+</div>
+          <div class="text-ink-400 text-xs mt-1">Años de experiencia</div>
+        </div>
+        <div class="bg-ink-800/80 backdrop-blur border border-ink-700/50 rounded-2xl p-5 col-span-2">
+          <div class="flex items-center justify-center gap-1 text-gold-400 mb-1">
+            <i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i><i class="fa-solid fa-star text-sm"></i>
+          </div>
+          <div class="font-display text-2xl font-black text-ink-50">5.0</div>
+          <div class="text-ink-400 text-xs mt-1">Rating Google · +200 reseñas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLD DIVIDER -->
+<div class="gold-line w-full opacity-50"></div>
+
+<!-- PAIN POINTS (PAS) -->
+<section class="py-24 bg-ink-900">
+  <div class="max-w-5xl mx-auto px-5 text-center">
+    <span class="text-gold-400 text-xs tracking-[.3em] uppercase font-medium">¿Te ha pasado esto?</span>
+    <h2 class="font-display text-4xl md:text-5xl font-black text-ink-50 mt-4 mb-16">El tatuaje equivocado<br>dura para siempre.</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="group bg-ink-800/60 border border-ink-700/50 rounded-2xl p-8 hover:border-gold-500/50 transition-all duration-300 text-left">
+        <i class="fa-solid fa-triangle-exclamation text-2xl text-red-400/70 mb-5 group-hover:scale-110 transition-transform inline-block"></i>
+        <h3 class="font-display text-xl font-bold text-ink-100 mb-3">Estudios sin criterio</h3>
+        <p class="text-ink-400 text-sm leading-relaxed">Artistas que copian sin entender tu visión. El resultado: un diseño genérico que no te representa.</p>
+      </div>
+      <div class="group bg-ink-800/60 border border-ink-700/50 rounded-2xl p-8 hover:border-gold-500/50 transition-all duration-300 text-left">
+        <i class="fa-solid fa-ban text-2xl text-red-400/70 mb-5 group-hover:scale-110 transition-transform inline-block"></i>
+        <h3 class="font-display text-xl font-bold text-ink-100 mb-3">Tinta que no dura</h3>
+        <p class="text-ink-400 text-sm leading-relaxed">Colores que se desvanecen en meses, líneas que se corren. Resultado de mala técnica y tinta barata.</p>
+      </div>
+      <div class="group bg-ink-800/60 border border-ink-700/50 rounded-2xl p-8 hover:border-gold-500/50 transition-all duration-300 text-left">
+        <i class="fa-solid fa-comment-slash text-2xl text-red-400/70 mb-5 group-hover:scale-110 transition-transform inline-block"></i>
+        <h3 class="font-display text-xl font-bold text-ink-100 mb-3">Sin comunicación</h3>
+        <p class="text-ink-400 text-sm leading-relaxed">Te sientas en la silla sin ver el diseño final. Sorpresas que no esperabas grabadas en tu piel.</p>
+      </div>
+    </div>
+    <div class="mt-10 p-6 bg-gradient-to-r from-gold-600/10 via-gold-500/20 to-gold-600/10 border border-gold-500/30 rounded-2xl">
+      <p class="text-ink-200 text-lg"><span class="text-gold-400 font-bold font-display">En Tinta Negra Studio</span> diseñamos contigo, desde el boceto hasta la última sesión. Tu aprobación es el paso cero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / BENTO -->
+<section id="servicios" class="py-24 bg-ink-800/30">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="text-center mb-16">
+      <span class="text-gold-400 text-xs tracking-[.3em] uppercase font-medium">Nuestras especialidades</span>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-ink-50 mt-4">Arte que habla<br>por sí solo.</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Service 1 - Large -->
+      <div class="group bento-hover lg:col-span-2 relative rounded-3xl overflow-hidden h-96 cursor-pointer">
+        <img src="https://images.pexels.com/photos/3914516/pexels-photo-3914516.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Realismo" class="bento-img w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/1a0f05/d4a853?text=REALISMO'">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/30 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8">
+          <span class="text-gold-400 text-xs tracking-widest uppercase font-medium">01</span>
+          <h3 class="font-display text-3xl font-black text-ink-50 mt-1 mb-2">Realismo Fotográfico</h3>
+          <p class="text-ink-300 text-sm max-w-sm">Retratos, naturaleza, animales. Nivel de detalle que te quitará el aliento. Técnica en blanco y negro o color.</p>
+          <span class="inline-flex items-center gap-2 text-gold-400 text-sm mt-4 font-medium group-hover:gap-3 transition-all">Ver trabajos <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="group bento-hover relative rounded-3xl overflow-hidden h-96 cursor-pointer">
+        <img src="https://images.pexels.com/photos/4125687/pexels-photo-4125687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fine Line" class="bento-img w-full h-full object-cover" onerror="this.src='https://placehold.co/800x600/1a0f05/d4a853?text=FINE+LINE'">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <span class="text-gold-400 text-xs tracking-widest uppercase font-medium">02</span>
+          <h3 class="font-display text-2xl font-black text-ink-50 mt-1 mb-2">Fine Line</h3>
+          <p class="text-ink-300 text-xs">Delicadeza extrema. Líneas finas, botanicals, geometría y minimalismo con alma.</p>
+          <span class="inline-flex items-center gap-2 text-gold-400 text-sm mt-3 font-medium group-hover:gap-3 transition-all">Explorar <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <!-- Service 3 - Custom -->
+      <div class="group bento-hover relative rounded-3xl overflow-hidden h-64 cursor-pointer">
+        <img src="https://images.pexels.com/photos/4125687/pexels-photo-4125687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Custom" class="bento-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" onerror="this.src='https://placehold.co/800x600/1a0f05/d4a853?text=CUSTOM'">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <span class="text-gold-400 text-xs tracking-widest uppercase font-medium">03</span>
+          <h3 class="font-display text-2xl font-black text-ink-50 mt-1 mb-1">Diseño Custom</h3>
+          <p class="text-ink-300 text-xs">Tu idea, nuestra interpretación artística. Sin plantillas, sin copias.</p>
+        </div>
+      </div>
+      <!-- Mini cards -->
+      <div class="group bg-ink-800/60 border border-ink-700/50 hover:border-gold-500/50 rounded-3xl p-8 h-64 flex flex-col justify-between transition-all duration-300">
+        <i class="fa-solid fa-shield-halved text-3xl text-gold-400 group-hover:scale-110 transition-transform"></i>
+        <div>
+          <h3 class="font-display text-xl font-bold text-ink-50 mb-2">Higiene certificada</h3>
+          <p class="text-ink-400 text-sm">Material de un solo uso. Protocolo de esterilización nivel clínico en cada sesión.</p>
+        </div>
+      </div>
+      <div class="group bg-gradient-to-br from-gold-600/20 to-ink-800 border border-gold-500/30 hover:border-gold-400/60 rounded-3xl p-8 h-64 flex flex-col justify-between transition-all duration-300">
+        <i class="fa-solid fa-palette text-3xl text-gold-400 group-hover:scale-110 transition-transform"></i>
+        <div>
+          <h3 class="font-display text-xl font-bold text-ink-50 mb-2">Consulta gratuita</h3>
+          <p class="text-ink-400 text-sm">Primera consulta de diseño sin coste. Hablamos de tu idea antes de comprometerte.</p>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-gold-400 text-sm mt-3 font-medium group-hover:gap-3 transition-all">Agendar <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE / SOCIAL PROOF -->
+<section id="reseñas" class="py-20 bg-ink-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 text-center mb-12">
+    <span class="text-gold-400 text-xs tracking-[.3em] uppercase font-medium">Lo que dicen nuestros clientes</span>
+    <h2 class="font-display text-3xl md:text-4xl font-black text-ink-50 mt-3">Más de 200 historias<br>de satisfacción.</h2>
+  </div>
+  <div class="relative">
+    <div class="flex w-max animate-marquee gap-6">
+      <!-- Reviews repeated for seamless loop -->
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"El realismo de mi retrato es increíble. Llevo 3 años con él y los colores siguen perfectos. Artistas de otro nivel."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">M</div><div><div class="text-ink-200 text-sm font-medium">María G.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Fine line botánico que superó todas mis expectativas. El trato fue impecable desde la primera consulta."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">C</div><div><div class="text-ink-200 text-sm font-medium">Carlos R.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Mi tercer tatuaje aquí y siempre vuelvo. Profesionalidad, higiene y un arte que me representa al 100%."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">L</div><div><div class="text-ink-200 text-sm font-medium">Laura P.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Viajé desde Madrid para tatuarme aquí. Vale cada kilómetro. El resultado es una obra de arte real."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">A</div><div><div class="text-ink-200 text-sm font-medium">Adrián S.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"El diseño custom superó lo que tenía en mente. Escuchan, proponen y ejecutan con una precisión brutal."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">S</div><div><div class="text-ink-200 text-sm font-medium">Sofía M.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <!-- Duplicate for seamless -->
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"El realismo de mi retrato es increíble. Llevo 3 años con él y los colores siguen perfectos. Artistas de otro nivel."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">M</div><div><div class="text-ink-200 text-sm font-medium">María G.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Fine line botánico que superó todas mis expectativas. El trato fue impecable desde la primera consulta."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">C</div><div><div class="text-ink-200 text-sm font-medium">Carlos R.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Mi tercer tatuaje aquí y siempre vuelvo. Profesionalidad, higiene y un arte que me representa al 100%."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">L</div><div><div class="text-ink-200 text-sm font-medium">Laura P.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"Viajé desde Madrid para tatuarme aquí. Vale cada kilómetro. El resultado es una obra de arte real."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">A</div><div><div class="text-ink-200 text-sm font-medium">Adrián S.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+      <div class="w-80 flex-shrink-0 bg-ink-800/70 border border-ink-700/50 rounded-2xl p-6">
+        <div class="flex text-gold-400 gap-0.5 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="text-ink-300 text-sm leading-relaxed mb-4">"El diseño custom superó lo que tenía en mente. Escuchan, proponen y ejecutan con una precisión brutal."</p>
+        <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-gold-500/30 flex items-center justify-center text-gold-400 font-bold text-sm">S</div><div><div class="text-ink-200 text-sm font-medium">Sofía M.</div><div class="text-ink-500 text-xs">Google Review</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 bg-ink-900">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <span class="text-gold-400 text-xs tracking-[.3em] uppercase font-medium">Resolvemos tus dudas</span>
+      <h2 class="font-display text-4xl md:text-5xl font-black text-ink-50 mt-4">Preguntas frecuentes</h2>
+    </div>
+    <div x-data="{ active: null }" class="space-y-3">
+      <div class="bg-ink-800/60 border border-ink-700/50 rounded-2xl overflow-hidden">
+        <button @click="active = active === 1 ? null : 1" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+          <span class="font-display font-bold text-ink-100 group-hover:text-gold-400 transition-colors">¿Cómo funciona el proceso de reserva?</span>
+          <i :class="active === 1 ? 'fa-solid fa-minus text-gold-400' : 'fa-solid fa-plus text-ink-400'" class="transition-all ml-4 flex-shrink-0"></i>
+        </button>
+        <div x-show="active === 1" x-collapse class="px-7 pb-6">
+          <p class="text-ink-400 text-sm leading-relaxed">Contáctanos por WhatsApp o el formulario web con una descripción de tu idea, la zona del cuerpo y tus referencias. Concertamos una consulta gratuita (presencial u online), creamos el boceto, y una vez aprobado, reservas tu fecha con señal. Así de sencillo.</p>
+        </div>
+      </div>
+      <div class="bg-ink-800/60 border border-ink-700/50 rounded-2xl overflow-hidden">
+        <button @click="active = active === 2 ? null : 2" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+          <span class="font-display font-bold text-ink-100 group-hover:text-gold-400 transition-colors">¿Cuánto cuesta un tatuaje?</span>
+          <i :class="active === 2 ? 'fa-solid fa-minus text-gold-400' : 'fa-solid fa-plus text-ink-400'" class="transition-all ml-4 flex-shrink-0"></i>
+        </button>
+        <div x-show="active === 2" x-collapse class="px-7 pb-6">
+          <p class="text-ink-400 text-sm leading-relaxed">El precio depende del tamaño, técnica y complejidad del diseño. Trabajamos con tarifa mínima de estudio y presupuesto personalizado para piezas grandes. El arte de calidad tiene un valor: nunca ofrecemos descuentos que comprometan el resultado. Pide tu presupuesto sin compromiso.</p>
+        </div>
+      </div>
+      <div class="bg-ink-800/60 border border-ink-700/50 rounded-2xl overflow-hidden">
+        <button @click="active = active === 3 ? null : 3" class="w-full flex items-center justify-between px-7 py-5 text-left group">
+          <span class="font-display font-bold text-ink-100 group-hover:text-gold-400 transition-colors">¿Realizáis retoques?</span>
+          <i :class="active === 3 ? 'fa-solid fa-minus text-gold-400' : 'fa-solid fa-plus text-ink-400'" class="transition
