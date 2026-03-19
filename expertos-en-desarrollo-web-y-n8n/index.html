@@ -1,0 +1,420 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: true, mobileMenu: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expertos en Desarrollo Web y n8n en Aranjuez | Transformación Digital</title>
+    <meta name="description" content="Impulsamos tu negocio en Aranjuez con desarrollo web de alto rendimiento y automatizaciones n8n. Eliminamos procesos manuales y escalamos tu ROI.">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#d9e2ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        dark: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        [x-cloak] { display: none !important; }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-dark-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/10 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <div class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-code text-white text-xl"></i>
+                    </div>
+                    <span class="font-heading text-xl font-extrabold tracking-tight">ARANJUEZ<span class="text-primary-500">TECH</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#servicios" class="hover:text-primary-500 transition-colors font-semibold">Servicios</a>
+                    <a href="#faq" class="hover:text-primary-500 transition-colors font-semibold">Preguntas</a>
+                    <button @click="darkMode = !darkMode" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                        <i x-show="!darkMode" class="fa-solid fa-moon"></i>
+                        <i x-show="darkMode" class="fa-solid fa-sun"></i>
+                    </button>
+                    <a href="#contacto" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-primary-600/20">
+                        Empezar Ahora
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button @click="darkMode = !darkMode" class="p-2">
+                        <i x-show="!darkMode" class="fa-solid fa-moon"></i>
+                        <i x-show="darkMode" class="fa-solid fa-sun"></i>
+                    </button>
+                    <button @click="mobileMenu = !mobileMenu" class="text-2xl">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-transition x-cloak class="md:hidden glass-card absolute top-20 left-0 w-full p-6 space-y-4 shadow-2xl">
+            <a href="#servicios" @click="mobileMenu = false" class="block text-lg font-bold">Servicios</a>
+            <a href="#faq" @click="mobileMenu = false" class="block text-lg font-bold">Preguntas</a>
+            <a href="#contacto" @click="mobileMenu = false" class="block bg-primary-600 text-center py-4 rounded-xl font-bold">Solicitar Auditoría</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[95vh] flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/36444162/pexels-photo-36444162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="w-full h-full object-cover opacity-30 dark:opacity-20 blur-[2px]" alt="Background">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/50 via-dark-900 to-dark-900"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 mb-8 animate-bounce">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+                </span>
+                <span class="text-sm font-bold uppercase tracking-widest">Especialistas n8n & Web en Aranjuez</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-8xl font-heading font-extrabold mb-6 leading-tight">
+                No Solo Creamos Webs.<br>
+                <span class="gradient-text">Creamos Sistemas Autónomos.</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mb-12 leading-relaxed">
+                Desarrollo web premium y flujos de automatización con n8n que trabajan 24/7 para tu negocio en Aranjuez. Menos clics manuales, más beneficios reales.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a href="#contacto" class="group relative px-8 py-4 bg-primary-600 rounded-2xl font-bold text-white overflow-hidden transition-all hover:pr-12">
+                    <span class="relative z-10">Escalar mi Negocio</span>
+                    <i class="fa-solid fa-arrow-right absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all"></i>
+                </a>
+                <a href="#servicios" class="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-all">
+                    Ver Soluciones
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points (PAS) -->
+    <section class="py-24 bg-white dark:bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading font-extrabold mb-4">¿Tu negocio está estancado en el siglo XX?</h2>
+                <div class="w-24 h-1.5 bg-primary-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800/50 border border-transparent hover:border-primary-500 transition-all group">
+                    <div class="w-16 h-16 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Tareas Repetitivas</h3>
+                    <p class="text-slate-500 dark:text-slate-400">Pierdes horas enviando correos, gestionando leads y actualizando hojas de cálculo manualmente. Tu tiempo vale oro.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800/50 border border-transparent hover:border-primary-500 transition-all group">
+                    <div class="w-16 h-16 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bug"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Webs que no Venden</h3>
+                    <p class="text-slate-500 dark:text-slate-400">Tener una web que no convierte es como tener un local cerrado en la calle más transitada de Aranjuez. Necesitas resultados.</p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800/50 border border-transparent hover:border-primary-500 transition-all group">
+                    <div class="w-16 h-16 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Desconexión Digital</h3>
+                    <p class="text-slate-500 dark:text-slate-400">Tus herramientas no se hablan entre sí. n8n es el puente que une tus apps para que funcionen como una sola máquina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section id="servicios" class="py-24 bg-slate-50 dark:bg-dark-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl md:text-5xl font-heading font-extrabold mb-6 italic">Arquitectura Digital de Vanguardia</h2>
+                    <p class="text-lg text-slate-500 dark:text-slate-400 font-medium">Combinamos diseño visual de alto impacto con ingeniería de automatización para dominar el mercado.</p>
+                </div>
+                <div class="hidden md:block">
+                    <i class="fa-solid fa-bolt-lightning text-6xl text-primary-500/20"></i>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+                <!-- Service 1: Large Bento -->
+                <div class="md:col-span-8 group relative overflow-hidden rounded-3xl shadow-2xl">
+                    <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Desarrollo Web">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10">
+                        <span class="bg-primary-600 px-4 py-1 rounded-full text-xs font-bold uppercase mb-4 inline-block tracking-tighter">Performance First</span>
+                        <h3 class="text-3xl font-bold mb-4 text-white">Desarrollo Web de Alto Rendimiento</h3>
+                        <p class="text-slate-200 max-w-md">Creamos experiencias web ultrarrápidas, optimizadas para SEO y diseñadas para convertir visitas en clientes finales.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Small Bento -->
+                <div class="md:col-span-4 group relative overflow-hidden rounded-3xl shadow-2xl">
+                    <img src="https://images.pexels.com/photos/36423817/pexels-photo-36423817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Automatizaciones">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold mb-3 text-white">Automatización n8n</h3>
+                        <p class="text-slate-300 text-sm">Integramos tus herramientas favoritas para que tu negocio funcione en piloto automático absoluto.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Full Width Bottom -->
+                <div class="md:col-span-12 group relative overflow-hidden rounded-3xl shadow-2xl h-64 md:h-auto">
+                    <img src="https://images.pexels.com/photos/5474034/pexels-photo-5474034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Estrategia">
+                    <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-dark-900/60 to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center p-10">
+                        <h3 class="text-3xl font-bold mb-4 text-white">Consultoría Estratégica en Aranjuez</h3>
+                        <p class="text-slate-200 max-w-xl">No solo picamos código. Analizamos tu modelo de negocio para implementar las soluciones que realmente mueven la aguja del ROI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Marquee -->
+    <section class="py-20 border-y border-white/5 bg-white dark:bg-dark-900 overflow-hidden">
+        <div class="text-center mb-10">
+            <p class="text-sm font-bold uppercase tracking-[0.3em] text-slate-500">Empresas que ya no pierden tiempo</p>
+        </div>
+        <div class="relative flex overflow-x-hidden">
+            <div class="animate-marquee whitespace-nowrap flex items-center gap-12">
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-rocket"></i> TECHNO-SL</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-bolt"></i> ENERGY-CORP</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-microchip"></i> ARANJUEZ-DIGITAL</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-brain"></i> AI-SOLUTIONS</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-cloud"></i> NEXUS-CLOUD</span>
+            </div>
+            <div class="animate-marquee whitespace-nowrap flex items-center gap-12" aria-hidden="true">
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-rocket"></i> TECHNO-SL</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-bolt"></i> ENERGY-CORP</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-microchip"></i> ARANJUEZ-DIGITAL</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-brain"></i> AI-SOLUTIONS</span>
+                <span class="text-3xl font-bold text-slate-400/50 flex items-center gap-4"><i class="fa-solid fa-cloud"></i> NEXUS-CLOUD</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-heading font-extrabold text-center mb-16">Preguntas Frecuentes</h2>
+        
+        <div x-data="{ active: null }" class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button @click="active = (active === 1 ? null : 1)" class="w-full p-6 text-left flex justify-between items-center transition-colors hover:bg-white/5">
+                    <span class="font-bold text-lg">¿Qué es n8n y por qué lo necesito?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform" :class="active === 1 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 1" x-collapse class="px-6 pb-6 text-slate-400">
+                    n8n es la plataforma de automatización más potente del mercado. Permite conectar más de 400 aplicaciones (Gmail, WhatsApp, Stripe, CRMs) para crear flujos de trabajo inteligentes que ahorran cientos de horas de trabajo manual al mes.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button @click="active = (active === 2 ? null : 2)" class="w-full p-6 text-left flex justify-between items-center transition-colors hover:bg-white/5">
+                    <span class="font-bold text-lg">¿Cuánto tiempo tarda en estar lista mi web?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform" :class="active === 2 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 2" x-collapse class="px-6 pb-6 text-slate-400">
+                    Dependiendo de la complejidad, una web corporativa optimizada suele tardar entre 3 y 5 semanas. Si incluimos automatizaciones complejas con n8n, el plazo se ajusta según los requerimientos técnicos.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button @click="active = (active === 3 ? null : 3)" class="w-full p-6 text-left flex justify-between items-center transition-colors hover:bg-white/5">
+                    <span class="font-bold text-lg">¿Trabajáis solo para empresas de Aranjuez?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform" :class="active === 3 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 3" x-collapse class="px-6 pb-6 text-slate-400">
+                    Aunque nuestra base está en Aranjuez y nos encanta impulsar el comercio local, trabajamos con clientes en toda España y Latinoamérica gracias a nuestra metodología de trabajo 100% remota y eficiente.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <button @click="active = (active === 4 ? null : 4)" class="w-full p-6 text-left flex justify-between items-center transition-colors hover:bg-white/5">
+                    <span class="font-bold text-lg">¿Ofrecéis mantenimiento después del lanzamiento?</span>
+                    <i class="fa-solid fa-chevron-down transition-transform" :class="active === 4 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="active === 4" x-collapse class="px-6 pb-6 text-slate-400">
+                    Absolutamente. No te dejamos solo. Ofrecemos planes de mantenimiento técnico, actualizaciones de seguridad y optimización continua de tus automatizaciones n8n.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Gen / Contact Form -->
+    <section id="contacto" class="py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-primary-600/5 -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl font-heading font-extrabold mb-8">¿Listo para el siguiente nivel?</h2>
+                    <p class="text-xl text-slate-400 mb-8">
+                        Estamos aceptando solo <span class="text-white font-bold underline decoration-primary-500">2 nuevos proyectos</span> este mes para garantizar la máxima calidad. ¡No te quedes atrás!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-lg font-semibold">Auditoría gratuita de 30 min</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-lg font-semibold">Plan de automatización personalizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 rounded-3xl shadow-2xl relative">
+                    <div class="absolute -top-4 -right-4 bg-red-600 text-white px-4 py-1 rounded-lg text-sm font-bold animate-pulse">
+                        ¡QUEDAN 2 PLAZAS!
+                    </div>
+                    
+                    <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; setTimeout(() => status = 'success', 2000);" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-slate-500">Nombre</label>
+                            <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary-500 outline-none transition-all" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-slate-500">Email Corporativo</label>
+                            <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary-500 outline-none transition-all" placeholder="tu@empresa.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-slate-500">¿Qué necesitas?</label>
+                            <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary-500 outline-none transition-all">
+                                <option class="bg-dark-900">Nueva Web Corporativa</option>
+                                <option class="bg-dark-900">Automatizaciones n8n</option>
+                                <option class="bg-dark-900">E-commerce + ERP</option>
+                                <option class="bg-dark-900">Todo en uno</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-slate-500">Mensaje</label>
+                            <textarea rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-primary-500 outline-none transition-all" placeholder="Cuéntanos tu proyecto..."></textarea>
+                        </div>
+                        
+                        <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-4 rounded-xl font-bold text-lg transition-all transform active:scale-95 flex justify-center items-center gap-3">
+                            <span x-show="status === 'idle'">Solicitar Presupuesto</span>
+                            <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Procesando...</span>
+                        </button>
+
+                        <div x-show="status === 'success'" x-cloak class="bg-green-500/20 border border-green-500/50 p-6 rounded-xl text-center">
+                            <i class="fa-solid fa-circle-check text-green-500 text-3xl mb-2"></i>
+                            <p class="font-bold">¡Modo Demo! El formulario funciona perfectamente.</p>
+                            <p class="text-sm text-green-400">Se activará al contratar la web.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white dark:bg-dark-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-code text-white text-sm"></i>
+                </div>
+                <span class="font-heading font-bold tracking-tight">ARANJUEZ TECH</span>
+            </div>
+            
+            <p class="text-slate-500 text-sm">© 2024 Expertos en Desarrollo Web y n8n. Aranjuez, España.</p>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors text-xl"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-[100] animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1774019975581;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
