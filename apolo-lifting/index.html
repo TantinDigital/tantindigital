@@ -1,0 +1,276 @@
+<?php /* Template Name: Landing Agencia */ ?>
+<!DOCTYPE html>
+<html lang="es" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apolo Lifting | CrossFit & Halterofilia en Aranjuez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#FF4500', dark: '#CC3700' },
+                        secondary: { DEFAULT: '#1A1A2E', light: '#16213E' },
+                        accent: '#F0E68C',
+                        dark: { bg: '#0F0F1A', card: '#1A1A2E', text: '#E5E5E5' }
+                    },
+                    fontFamily: {
+                        heading: ['Bebas Neue', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 25s linear infinite; }
+        .hero-clip { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    </style>
+</head>
+<body class="font-body bg-white dark:bg-dark-bg text-secondary dark:text-dark-text transition-colors duration-300">
+
+<nav class="fixed w-full z-50 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-sm shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="#" class="font-heading text-3xl text-primary tracking-wider">APOLO LIFTING</a>
+        <div class="flex items-center gap-6">
+            <a href="#servicios" class="hidden md:block hover:text-primary transition">Servicios</a>
+            <a href="#contacto" class="hidden md:block hover:text-primary transition">Contacto</a>
+            <button @click="darkMode = !darkMode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-card transition">
+                <i x-show="!darkMode" class="fa-solid fa-moon text-secondary"></i>
+                <i x-show="darkMode" x-cloak class="fa-solid fa-sun text-accent"></i>
+            </button>
+            <a href="#contacto" class="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2 rounded-full transition transform hover:scale-105">
+                ¡Únete Ya!
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="relative min-h-screen hero-clip flex items-center">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/70 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-24">
+        <p class="text-primary font-semibold tracking-widest mb-4 uppercase"><i class="fa-solid fa-location-dot mr-2"></i>Aranjuez</p>
+        <h1 class="font-heading text-6xl md:text-8xl text-white leading-none mb-6">FORJA TU<br><span class="text-primary">MEJOR VERSIÓN</span></h1>
+        <p class="text-xl text-gray-300 max-w-xl mb-8">El único box de CrossFit y Halterofilia en Aranjuez donde la técnica, la comunidad y los resultados se fusionan.</p>
+        <div class="flex flex-wrap gap-4">
+            <a href="#contacto" class="group bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-full transition transform hover:scale-105 flex items-center gap-2">
+                Prueba Gratis <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+            </a>
+            <a href="#servicios" class="border-2 border-white/50 hover:border-primary text-white font-bold px-8 py-4 rounded-full transition">
+                Ver Programas
+            </a>
+        </div>
+        <div class="flex gap-8 mt-12 text-white">
+            <div><span class="font-heading text-4xl text-primary">500+</span><p class="text-sm text-gray-400">Atletas</p></div>
+            <div><span class="font-heading text-4xl text-primary">10+</span><p class="text-sm text-gray-400">Coaches</p></div>
+            <div><span class="font-heading text-4xl text-primary">5★</span><p class="text-sm text-gray-400">Valoración</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-gray-50 dark:bg-dark-card">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+        <h2 class="font-heading text-4xl md:text-5xl mb-6">¿CANSADO DE <span class="text-primary">GIMNASIOS SIN ALMA</span>?</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Máquinas vacías, rutinas aburridas, cero motivación. Sabes que puedes dar más, pero necesitas el entorno correcto. En Apolo Lifting no vienes solo a entrenar, vienes a transformarte.</p>
+    </div>
+</section>
+
+<section id="servicios" class="py-24 bg-white dark:bg-dark-bg">
+    <div class="max-w-7xl mx-auto px-4">
+        <p class="text-primary font-semibold text-center tracking-widest mb-2">PROGRAMAS</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-center mb-16">ELIGE TU <span class="text-primary">CAMINO</span></h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="group relative bg-gray-100 dark:bg-dark-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/4793254/pexels-photo-4793254.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="CrossFit" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                        <i class="fa-solid fa-fire text-primary group-hover:text-white text-xl transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-2">CROSSFIT</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Entrenamientos funcionales de alta intensidad que desafían tu cuerpo y mente cada día.</p>
+                    <a href="#contacto" class="text-primary font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Más Info <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="group relative bg-gray-100 dark:bg-dark-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 md:-translate-y-4">
+                <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full z-10">POPULAR</div>
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/703008/pexels-photo-703008.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Halterofilia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                        <i class="fa-solid fa-dumbbell text-primary group-hover:text-white text-xl transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-2">HALTEROFILIA</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Domina la técnica olímpica con coaches certificados. Snatch, Clean & Jerk al siguiente nivel.</p>
+                    <a href="#contacto" class="text-primary font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Más Info <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="group relative bg-gray-100 dark:bg-dark-card rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+                <div class="h-56 overflow-hidden">
+                    <img src="https://images.pexels.com/photos/3764495/pexels-photo-3764495.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Personal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                        <i class="fa-solid fa-user-check text-primary group-hover:text-white text-xl transition-colors"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-2">PERSONAL TRAINING</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Atención 1 a 1 para objetivos específicos. Tu plan, tu ritmo, resultados garantizados.</p>
+                    <a href="#contacto" class="text-primary font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Más Info <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-secondary dark:bg-dark-card overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-12 text-center">
+        <p class="text-primary font-semibold tracking-widest mb-2">TESTIMONIOS</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-white">LA <span class="text-primary">COMUNIDAD</span> HABLA</h2>
+    </div>
+    <div class="relative">
+        <div class="flex animate-marquee">
+            <div class="flex gap-6 pr-6">
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Llegué sin saber hacer una sentadilla y ahora compito en halterofilia. Los coaches son increíbles."</p>
+                    <p class="text-white font-semibold">María G. <span class="text-gray-500 font-normal">· 8 meses</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"El mejor ambiente de Aranjuez. Vienes a entrenar y te quedas por la familia que encuentras."</p>
+                    <p class="text-white font-semibold">Carlos R. <span class="text-gray-500 font-normal">· 1 año</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Perdí 15kg en 6 meses y gané fuerza que nunca pensé tener. Apolo cambió mi vida."</p>
+                    <p class="text-white font-semibold">Laura M. <span class="text-gray-500 font-normal">· 6 meses</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Instalaciones top, equipamiento profesional y horarios flexibles. No hay excusas."</p>
+                    <p class="text-white font-semibold">Javier P. <span class="text-gray-500 font-normal">· 2 años</span></p>
+                </div>
+            </div>
+            <div class="flex gap-6 pr-6">
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Llegué sin saber hacer una sentadilla y ahora compito en halterofilia. Los coaches son increíbles."</p>
+                    <p class="text-white font-semibold">María G. <span class="text-gray-500 font-normal">· 8 meses</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"El mejor ambiente de Aranjuez. Vienes a entrenar y te quedas por la familia que encuentras."</p>
+                    <p class="text-white font-semibold">Carlos R. <span class="text-gray-500 font-normal">· 1 año</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Perdí 15kg en 6 meses y gané fuerza que nunca pensé tener. Apolo cambió mi vida."</p>
+                    <p class="text-white font-semibold">Laura M. <span class="text-gray-500 font-normal">· 6 meses</span></p>
+                </div>
+                <div class="w-80 flex-shrink-0 bg-white/5 backdrop-blur p-6 rounded-2xl border border-white/10">
+                    <div class="flex gap-1 text-primary mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-gray-300 text-sm mb-4">"Instalaciones top, equipamiento profesional y horarios flexibles. No hay excusas."</p>
+                    <p class="text-white font-semibold">Javier P. <span class="text-gray-500 font-normal">· 2 años</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="py-24 bg-gray-50 dark:bg-dark-bg">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <p class="text-primary font-semibold tracking-widest mb-2">EMPIEZA HOY</p>
+                <h2 class="font-heading text-4xl md:text-5xl mb-6">TU PRIMERA CLASE ES <span class="text-primary">GRATIS</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8">Rellena el formulario y reserva tu clase de prueba sin compromiso. Te esperamos en el box.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4"><i class="fa-solid fa-location-dot text-primary text-xl w-8"></i><span>Calle Ejemplo 123, Aranjuez</span></div>
+                    <div class="flex items-center gap-4"><i class="fa-solid fa-phone text-primary text-xl w-8"></i><span>+34 600 000 000</span></div>
+                    <div class="flex items-center gap-4"><i class="fa-solid fa-clock text-primary text-xl w-8"></i><span>Lun-Vie: 7:00-22:00 | Sáb: 9:00-14:00</span></div>
+                </div>
+            </div>
+            <form x-data="{ status: 'idle' }" @submit.prevent="status = 'loading'; fetch('http://localhost:5678/webhook/contacto-landing', { method: 'POST', body: new FormData($event.target) }).then(() => status = 'success').catch(() => status = 'error');" class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-xl">
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Nombre</label>
+                        <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-bg dark:bg-dark-bg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Teléfono</label>
+                        <input type="tel" name="telefono" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-bg dark:bg-dark-bg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-bg dark:bg-dark-bg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">¿Qué programa te interesa?</label>
+                        <select name="programa" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-dark-bg dark:bg-dark-bg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                            <option>CrossFit</option>
+                            <option>Halterofilia</option>
+                            <option>Personal Training</option>
+                        </select>
+                    </div>
+                </div>
+                <button x-show="status !== 'success'" type="submit" :disabled="status === 'loading'" class="w-full mt-6 bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl transition transform hover:scale-[1.02] disabled:opacity-50">
+                    <span x-show="status === 'idle'">Reservar Clase Gratis</span>
+                    <span x-show="status === 'loading'"><i class="fa-solid fa-circle-notch animate-spin"></i> Enviando...</span>
+                </button>
+                <div x-show="status === 'success'" x-cloak class="mt-6 p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-xl text-center font-semibold">
+                    <i class="fa-solid fa-check-circle mr-2"></i>¡Mensaje enviado! Te contactamos pronto.
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-secondary dark:bg-dark-card py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="#" class="font-heading text-3xl text-primary">APOLO LIFTING</a>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition"><i class="fa-brands fa-instagram text-white"></i></a>
+                <a href="#" class="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition"><i class="fa-brands fa-facebook-f text-white"></i></a>
+                <a href="#" class="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition"><i class="fa-brands fa-youtube text-white"></i></a>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-500 text-sm">
+            © 2024 Apolo Lifting. Todos los derechos reservados. Aranjuez, Madrid.
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/00000000000" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
+    <i class="fa-brands fa-whatsapp text-white text-2xl"></i>
+</a>
+
+
+<script>
+  // Autodestrucción en 24h
+  const limite = 1773991845792;
+  if (Date.now() > limite) {
+    document.documentElement.innerHTML = '<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px;"><div><h1 style="color:#ef4444;font-size:3rem;margin-bottom:1rem;">⏱️ Demo Caducada</h1><p style="font-size:1.5rem;color:#ddd;">El tiempo de prueba de 24 horas ha finalizado.</p><p style="color:#888;margin-top:2rem;">Contacta con la agencia para adquirir la versión definitiva, eliminar este límite y publicarla bajo tu propio dominio profesional (.com).</p></div></body>';
+  }
+</script>
+
+</body>
+</html>
